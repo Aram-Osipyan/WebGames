@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require_relative '../lib/middleware/game_authentication'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -38,5 +39,7 @@ module AquafonGames
     origins = ENV.fetch("ACTION_CABLE_ALLOWED_REQUEST_ORIGINS") { "http:\/\/localhost*" }.split(",")
     origins.map! { |url| /#{url}/ }
     config.action_cable.allowed_request_origins = origins
+
+    config.middleware.insert_before ActionDispatch::Static, ::Middleware::GameAuthentication
   end
 end
