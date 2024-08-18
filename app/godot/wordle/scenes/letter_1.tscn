@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddxpuhx13jyrj"]
+
+[ext_resource type="Theme" uid="uid://dpc8p1qd2n7c0" path="res://assets/bg_default.tres" id="1_shvq5"]
+[ext_resource type="Script" path="res://scenes/letter_1.gd" id="2_wdnqr"]
+
+[sub_resource type="Animation" id="Animation_0deaq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f2dsv"]
+resource_name = "flip"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_db7c5"]
+resource_name = "flip_back"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8vg1a"]
+resource_name = "pop"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.25, 0.25, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ih5w"]
+_data = {
+"RESET": SubResource("Animation_0deaq"),
+"flip": SubResource("Animation_f2dsv"),
+"flip_back": SubResource("Animation_db7c5"),
+"pop": SubResource("Animation_8vg1a")
+}
+
+[node name="letter1" type="Label"]
+custom_minimum_size = Vector2(50, 50)
+pivot_offset = Vector2(25, 25)
+theme = ExtResource("1_shvq5")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_wdnqr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ih5w")
+}

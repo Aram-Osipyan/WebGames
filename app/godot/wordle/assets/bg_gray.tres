@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://m7byg4i2gxk2"]
+
+[ext_resource type="FontFile" uid="uid://it6wfensgcft" path="res://assets/Kenney Future Narrow.ttf" id="1_lndar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svrqe"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[resource]
+Label/fonts/font = ExtResource("1_lndar")
+Label/styles/normal = SubResource("StyleBoxFlat_svrqe")

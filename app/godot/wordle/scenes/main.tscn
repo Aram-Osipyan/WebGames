@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://mb1y0vdvlocy"]
+
+[ext_resource type="Script" path="res://scenes/line_container.gd" id="1_hext0"]
+[ext_resource type="PackedScene" uid="uid://wuf3rbiudeks" path="res://scenes/line_1.tscn" id="2_45t81"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="line_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_hext0")
+
+[node name="line2" parent="line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line3" parent="line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line4" parent="line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line5" parent="line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line6" parent="line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
