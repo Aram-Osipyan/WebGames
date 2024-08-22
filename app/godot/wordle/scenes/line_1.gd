@@ -32,9 +32,18 @@ func _input(event):
 			update_label()
 			get_child(word_input.length() - 1).pop_anim()
 			print(word_input)
+		elif event is InputEventKey:
+			var ev = event as InputEventKey			
+			if word_input.unicode_at(0) >= "А".unicode_at(0) and word_input.unicode_at(0) <= "Я".unicode_at(0):
+				word_input += OS.get_keycode_string(ev.key_label)				
+				update_label()
+				get_child(word_input.length() - 1).pop_anim()
+			print("А".unicode_at(0), "Я".unicode_at(0))
+			print(ev.keycode)
+			print(OS.get_keycode_string(ev.key_label))
 
 func update_label():
 	for i in range(get_child_count()):
 		get_child(i).text = ""
 	for i in range(word_input.length()):
-		get_child(i).text = word_input[i]
+		get_child(i).text ="Э" #word_input[i]

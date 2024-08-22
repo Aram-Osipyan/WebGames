@@ -1,19 +1,39 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+  namespace :api do
+    namespace :users do
+      resources :tokens, only: [:create]
+    end
+  end
 
+  namespace :wordle do
+    resource :state, only: [:show]
+  end
   get "/up/", to: "up#index", as: :up
   get "/up/databases", to: "up#databases", as: :up_databases
   get "pages/test", to: "pages#test", as: :test
 
-  mount ActionDispatch::Static.new(
-    Rails.application,
-    Rails.root.join('app/views/test').to_s,
-    headers: {
-      'Access-Control-Allow-Origin' => '*',
-      'Cross-Origin-Embedder-Policy' => 'require-corp',
-      'Cross-Origin-Opener-Policy' => 'same-origin'
-    }
-  ), at: '/path/*other/game'
+  namespace :games do
+    mount ActionDispatch::Static.new(
+      Rails.application,
+      Rails.root.join('app/views/test').to_s,
+      headers: {
+        'Access-Control-Allow-Origin' => '*',
+        'Cross-Origin-Embedder-Policy' => 'require-corp',
+        'Cross-Origin-Opener-Policy' => 'same-origin'
+      }
+    ), at: '/path/*other/game'
+
+    mount ActionDispatch::Static.new(
+      Rails.application,
+      Rails.root.join('app/views/wordle').to_s,
+      headers: {
+        'Access-Control-Allow-Origin' => '*',
+        'Cross-Origin-Embedder-Policy' => 'require-corp',
+        'Cross-Origin-Opener-Policy' => 'same-origin'
+      }
+    ), at: '/*token/wordle'
+  end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
   # default because you very likely wouldn't want this to be available to

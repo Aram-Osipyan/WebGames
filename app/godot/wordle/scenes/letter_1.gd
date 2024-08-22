@@ -18,5 +18,8 @@ func change_status(status):
 	$AnimationPlayer.play("flip_back")
 	theme = array_status[status]
 
+func change_letter(letter):
+	self.text ="Э"
+
 func pop_anim():
 	$AnimationPlayer.play("pop")

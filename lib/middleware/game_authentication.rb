@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Middleware
   class GameAuthentication
     def initialize(app)
@@ -8,13 +10,17 @@ module Middleware
       request = ActionDispatch::Request.new(env)
 
       p request.original_fullpath
-      if request.original_fullpath.include?('25') #request.query_parameters.key?('hello_world')
-        @app.call(env)
-      else
-        status_code = Rack::Utils::SYMBOL_TO_STATUS_CODE[:too_many_requests]
+      path = request.original_fullpath.split('/')
 
-        [status_code, {}, []]
-      end
+      return @app.call(env) if path[1] != 'games'
+
+      token = path[2]
+      line = AuthenticationLine.where(code: token, active: true).where('active_until > ?', Time.current)
+
+      return [Rack::Utils::SYMBOL_TO_STATUS_CODE[:bad_request], {}, []] if line.empty?
+
+      # request.query_parameters.key?('hello_world')
+      @app.call(env)
     end
   end
 end
