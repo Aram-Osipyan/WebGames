@@ -29,7 +29,10 @@ Rails.application.routes.draw do
       Rails.root.join('app/views/wordle').to_s,
       headers: {
         'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Allow-Methods' => 'POST, PUT, DELETE, GET, OPTIONS',
         'Cross-Origin-Embedder-Policy' => 'require-corp',
+        'Access-Control-Request-Method' => '*',
+        'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
         'Cross-Origin-Opener-Policy' => 'same-origin'
       }
     ), at: '/*token/wordle'

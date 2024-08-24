@@ -5,54 +5,19 @@
 
 [node name="main" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="line_container" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -133.0
-offset_top = -167.5
-offset_right = 133.0
-offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 7
-alignment = 1
-script = ExtResource("1_hext0")
-
-[node name="line2" parent="line_container" instance=ExtResource("2_45t81")]
-layout_mode = 2
-
-[node name="line3" parent="line_container" instance=ExtResource("2_45t81")]
-layout_mode = 2
-
-[node name="line4" parent="line_container" instance=ExtResource("2_45t81")]
-layout_mode = 2
-
-[node name="line5" parent="line_container" instance=ExtResource("2_45t81")]
-layout_mode = 2
-
-[node name="line6" parent="line_container" instance=ExtResource("2_45t81")]
-layout_mode = 2
-
-[node name="line7" parent="line_container" instance=ExtResource("2_45t81")]
-layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.504
-anchor_top = 0.119
-anchor_right = 0.504
-anchor_bottom = 0.119
 offset_left = -184.2
 offset_top = -43.5
 offset_right = 184.8
@@ -61,7 +26,49 @@ text = "ПРИВЕТ МИР"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -321.0
+offset_top = -574.0
+offset_right = 328.0
+offset_bottom = 583.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="line_container" type="VBoxContainer" parent="Panel/AspectRatioContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+alignment = 1
+script = ExtResource("1_hext0")
+
+[node name="line2" parent="Panel/AspectRatioContainer/CenterContainer/line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line3" parent="Panel/AspectRatioContainer/CenterContainer/line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line4" parent="Panel/AspectRatioContainer/CenterContainer/line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line5" parent="Panel/AspectRatioContainer/CenterContainer/line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line6" parent="Panel/AspectRatioContainer/CenterContainer/line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
+
+[node name="line7" parent="Panel/AspectRatioContainer/CenterContainer/line_container" instance=ExtResource("2_45t81")]
+layout_mode = 2
