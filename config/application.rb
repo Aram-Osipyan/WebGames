@@ -39,7 +39,9 @@ module AquafonGames
     origins = ENV.fetch("ACTION_CABLE_ALLOWED_REQUEST_ORIGINS") { "http:\/\/localhost*" }.split(",")
     origins.map! { |url| /#{url}/ }
     config.action_cable.allowed_request_origins = origins
-    config.hosts << "7d26-95-25-68-41.ngrok-free.app"
+
+    config.hosts << "wordle.ru.tuna.am"
+    config.hosts << "jk4k88-95-25-68-41.ru.tuna.am"
 
 
     config.middleware.insert_before ActionDispatch::Static, ::Middleware::GameAuthentication

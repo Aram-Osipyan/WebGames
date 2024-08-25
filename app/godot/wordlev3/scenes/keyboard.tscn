@@ -1,0 +1,249 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/backspace.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/complete.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0.0117647 )
+
+[node name="Panel" type="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -264.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 19
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 27.0
+margin_right = 600.0
+margin_bottom = 84.0
+size_flags_horizontal = 5
+custom_constants/separation = 6
+alignment = 1
+
+[node name="Label13" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 9.0
+margin_right = 52.0
+margin_bottom = 57.0
+text = "й"
+
+[node name="Label14" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 58.0
+margin_right = 101.0
+margin_bottom = 57.0
+text = "ц"
+
+[node name="Label15" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 107.0
+margin_right = 150.0
+margin_bottom = 57.0
+text = "у"
+
+[node name="Label16" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 156.0
+margin_right = 199.0
+margin_bottom = 57.0
+text = "к"
+
+[node name="Label17" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 205.0
+margin_right = 248.0
+margin_bottom = 57.0
+text = "е"
+
+[node name="Label18" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 254.0
+margin_right = 297.0
+margin_bottom = 57.0
+text = "н"
+
+[node name="Label19" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 303.0
+margin_right = 346.0
+margin_bottom = 57.0
+text = "г"
+
+[node name="Label20" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 352.0
+margin_right = 395.0
+margin_bottom = 57.0
+text = "ш"
+
+[node name="Label21" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 401.0
+margin_right = 444.0
+margin_bottom = 57.0
+text = "щ"
+
+[node name="Label22" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 450.0
+margin_right = 493.0
+margin_bottom = 57.0
+text = "з"
+
+[node name="Label23" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 499.0
+margin_right = 542.0
+margin_bottom = 57.0
+text = "х"
+
+[node name="Label24" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 548.0
+margin_right = 591.0
+margin_bottom = 57.0
+text = "ъ"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 103.0
+margin_right = 600.0
+margin_bottom = 160.0
+size_flags_horizontal = 5
+custom_constants/separation = 6
+alignment = 1
+
+[node name="Label13" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 33.0
+margin_right = 76.0
+margin_bottom = 57.0
+text = "ф"
+
+[node name="Label14" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 82.0
+margin_right = 125.0
+margin_bottom = 57.0
+text = "ы"
+
+[node name="Label15" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 131.0
+margin_right = 174.0
+margin_bottom = 57.0
+text = "в"
+
+[node name="Label16" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_right = 223.0
+margin_bottom = 57.0
+text = "а"
+
+[node name="Label17" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 229.0
+margin_right = 272.0
+margin_bottom = 57.0
+text = "п"
+
+[node name="Label18" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 278.0
+margin_right = 321.0
+margin_bottom = 57.0
+text = "р"
+
+[node name="Label19" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 327.0
+margin_right = 370.0
+margin_bottom = 57.0
+text = "о"
+
+[node name="Label20" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 376.0
+margin_right = 419.0
+margin_bottom = 57.0
+text = "л"
+
+[node name="Label21" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 425.0
+margin_right = 468.0
+margin_bottom = 57.0
+text = "д"
+
+[node name="Label22" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 474.0
+margin_right = 517.0
+margin_bottom = 57.0
+text = "ж"
+
+[node name="Label23" parent="VBoxContainer/HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 523.0
+margin_right = 566.0
+margin_bottom = 57.0
+text = "э"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 179.0
+margin_right = 600.0
+margin_bottom = 236.0
+size_flags_horizontal = 5
+custom_constants/separation = 6
+alignment = 1
+
+[node name="Label22" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 3 )]
+margin_left = 21.0
+margin_top = 1.0
+margin_right = 76.0
+margin_bottom = 56.0
+
+[node name="Label13" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 82.0
+margin_right = 125.0
+margin_bottom = 57.0
+text = "я"
+
+[node name="Label14" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 131.0
+margin_right = 174.0
+margin_bottom = 57.0
+text = "ч"
+
+[node name="Label15" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 180.0
+margin_right = 223.0
+margin_bottom = 57.0
+text = "с"
+
+[node name="Label16" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 229.0
+margin_right = 272.0
+margin_bottom = 57.0
+text = "м"
+
+[node name="Label17" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 278.0
+margin_right = 321.0
+margin_bottom = 57.0
+text = "и"
+
+[node name="Label18" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 327.0
+margin_right = 370.0
+margin_bottom = 57.0
+text = "т"
+
+[node name="Label19" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 376.0
+margin_right = 419.0
+margin_bottom = 57.0
+text = "ь"
+
+[node name="Label20" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 425.0
+margin_right = 468.0
+margin_bottom = 57.0
+text = "б"
+
+[node name="Label21" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 474.0
+margin_right = 517.0
+margin_bottom = 57.0
+text = "ю"
+
+[node name="Label12" parent="VBoxContainer/HBoxContainer5" instance=ExtResource( 1 )]
+margin_left = 523.0
+margin_top = 1.0
+margin_right = 578.0
+margin_bottom = 56.0
