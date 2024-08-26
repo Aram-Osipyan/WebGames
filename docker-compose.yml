@@ -112,13 +112,13 @@ services:
       - "${DOCKER_CABLE_PORT_FORWARD:-127.0.0.1:28080}:28080"
     profiles: ["cable"]
 
-  js:
-    <<: *default-assets
-    command: "yarn build"
+  # js:
+  #   <<: *default-assets
+  #   command: "yarn build"
 
-  css:
-    <<: *default-assets
-    command: "yarn build:css"
+  # css:
+  #   <<: *default-assets
+  #   command: "yarn build:css"
 
 volumes:
   postgres: {}
