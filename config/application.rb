@@ -41,8 +41,7 @@ module AquafonGames
     config.action_cable.allowed_request_origins = origins
 
     config.hosts << "wordle.ru.tuna.am"
-    config.hosts << "jk4k88-95-25-68-41.ru.tuna.am"
-
+    config.hosts << "93.183.73.49"
 
     config.middleware.insert_before ActionDispatch::Static, ::Middleware::GameAuthentication
   end

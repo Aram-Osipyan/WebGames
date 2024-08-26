@@ -263,6 +263,9 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
+    smart_assets (1.0.0)
+      rails (>= 6.1, < 7.2)
+      sprockets-rails (>= 3, < 4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -325,6 +328,7 @@ DEPENDENCIES
   redis (~> 5.2)
   selenium-webdriver
   sidekiq (~> 7.3)
+  smart_assets
   sprockets-rails
   stimulus-rails
   turbo-rails
