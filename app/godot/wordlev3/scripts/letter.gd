@@ -18,6 +18,9 @@ func change_status(status):
 	$AnimationPlayer.play("flip_back")
 	theme = array_status[status]
 
+func change_status_no_anim(status):
+	theme = array_status[status]
+	
 func change_letter(letter):
 	self.text = letter
 

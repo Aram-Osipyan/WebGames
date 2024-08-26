@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/letter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/line.gd" type="Script" id=2]
 
 [node name="line" type="HBoxContainer"]
 margin_right = 266.0
@@ -8,6 +9,7 @@ margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
+script = ExtResource( 2 )
 
 [node name="letter" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0

@@ -20,5 +20,6 @@ corner_radius_bottom_left = 4
 anti_aliasing_size = 0.197
 
 [resource]
+Label/colors/font_color = Color( 0.956863, 0.262745, 0.211765, 1 )
 Label/fonts/font = SubResource( 2 )
 Label/styles/normal = SubResource( 1 )
