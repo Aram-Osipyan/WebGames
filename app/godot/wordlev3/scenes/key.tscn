@@ -5,9 +5,9 @@
 
 [node name="Key" type="Label"]
 margin_left = 17.0
-margin_right = 55.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 43, 57 )
+margin_right = 60.5
+margin_bottom = 63.0
+rect_min_size = Vector2( 44, 63 )
 theme = ExtResource( 3 )
 text = "d"
 align = 1

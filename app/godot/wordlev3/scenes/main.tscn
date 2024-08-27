@@ -63,46 +63,46 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 1 )
 
 [node name="field" type="VBoxContainer" parent="Panel"]
-margin_left = 96.0
-margin_top = 168.0
-margin_right = 504.0
-margin_bottom = 754.0
+margin_left = 72.0
+margin_top = 88.0
+margin_right = 528.0
+margin_bottom = 722.0
 rect_min_size = Vector2( 266, 390 )
 rect_pivot_offset = Vector2( 133, 195 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_constants/separation = 8
+custom_constants/separation = 9
 alignment = 1
 script = ExtResource( 4 )
 
 [node name="line" parent="Panel/field" instance=ExtResource( 1 )]
-margin_right = 408.0
-margin_bottom = 91.0
+margin_right = 456.0
+margin_bottom = 98.0
 
 [node name="line2" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 99.0
-margin_right = 408.0
-margin_bottom = 190.0
+margin_top = 107.0
+margin_right = 456.0
+margin_bottom = 205.0
 
 [node name="line3" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 198.0
-margin_right = 408.0
-margin_bottom = 289.0
+margin_top = 214.0
+margin_right = 456.0
+margin_bottom = 312.0
 
 [node name="line4" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 297.0
-margin_right = 408.0
-margin_bottom = 388.0
+margin_top = 321.0
+margin_right = 456.0
+margin_bottom = 419.0
 
 [node name="line5" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 396.0
-margin_right = 408.0
-margin_bottom = 487.0
+margin_top = 428.0
+margin_right = 456.0
+margin_bottom = 526.0
 
 [node name="line6" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 495.0
-margin_right = 408.0
-margin_bottom = 586.0
+margin_top = 535.0
+margin_right = 456.0
+margin_bottom = 634.0
 
 [node name="Keyboard" parent="Panel" instance=ExtResource( 2 )]
 margin_top = -248.0
