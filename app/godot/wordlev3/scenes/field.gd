@@ -9,7 +9,7 @@ func _ready():
 	Global.connect("complete_click", self, "_complete_click")
 	
 	
-	var web_hash = 'http://93.183.73.49:8000/games/875db634336b78888d1ab31ff5894126/wordle/'#JavaScript.eval("window.location.href")	
+	var web_hash = JavaScript.eval("window.location.href")	
 	var token = web_hash.split('/')[4]
 	Global.Token = token
 
