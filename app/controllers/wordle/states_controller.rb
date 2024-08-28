@@ -37,7 +37,7 @@ module Wordle
       game_state = current_game.game_state || { field: [], start_time: Time.current }
 
       if %w[win lose].exclude?(game_state['result']) && game_state['field'].size < 6
-        state = Word::Validate(word, current_day_word.word)
+        state = Word::Validate.state(word, current_day_word.word)
 
         game_state['field'] ||= []
         game_state['field'] << { state:, word: }
