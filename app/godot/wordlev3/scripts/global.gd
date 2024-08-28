@@ -2,7 +2,9 @@ extends Node
 
 signal keyboard_clicked(letter)
 signal backspace
-signal complete
+signal complete_click
+signal complete_send
+signal complete_receive
 signal updated_current_word(word)
 signal updated_keyboard_theme
 signal game_over(result)
@@ -25,8 +27,14 @@ func update_current_word(word):
 	emit_signal("updated_current_word", word)
 
 func complete_clicked():
-	emit_signal("complete")
+	emit_signal("complete_click")
+	
+func complete_sent():
+	emit_signal("complete_send")
 
+func complete_received():
+	emit_signal("complete_receive")
+	
 func update_keyboard_theme():
 	emit_signal("updated_keyboard_theme")
 

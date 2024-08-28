@@ -37,19 +37,14 @@ module Wordle
       game_state = current_game.game_state || { field: [], start_time: Time.current }
 
       if %w[win lose].exclude?(game_state['result']) && game_state['field'].size < 6
-        state = word.chars.each_with_index.map do |letter, index|
-          next 2 if current_day_word.word[index] == letter
-          next 3 if current_day_word.word.include?(letter)
-
-          next 1
-        end
+        state = Word::Validate(word, current_day_word.word)
 
         game_state['field'] ||= []
         game_state['field'] << { state:, word: }
 
         result = 'pending'
         result =
-          if state.all? { |el| el == 2 }
+          if state.all? { |el| el == 3 }
             'win'
           elsif game_state['field'].size == 6
             'lose'
@@ -59,7 +54,6 @@ module Wordle
 
         current_game.update!(game_state:)
       end
-
 
       render json: { game_state: current_game.game_state || [] }
     end

@@ -6,7 +6,7 @@ var current_word = ""
 func _ready():
 	Global.connect("keyboard_clicked", self, "_keyboard_click")
 	Global.connect("backspace", self, "_backspace_click")
-	Global.connect("complete", self, "_complete_click")
+	Global.connect("complete_click", self, "_complete_click")
 	
 	
 	var web_hash = 'http://93.183.73.49:8000/games/875db634336b78888d1ab31ff5894126/wordle/'#JavaScript.eval("window.location.href")	
@@ -63,7 +63,14 @@ func update_field(field):
 			var cell = line_obj.get_child(index)
 			cell.change_status_no_anim(line.state[index])
 			cell.change_letter(line.word[index])
-			Global.keys_theme[line.word[index]] = line.state[index]
+			
+			var letter = line.word[index]
+			
+			if Global.keys_theme.has(letter):				
+				Global.keys_theme[letter] = max(Global.keys_theme[letter], line.state[index])
+			else:
+				Global.keys_theme[letter] = line.state[index]
+			
 	Global.update_keyboard_theme()
 
 
@@ -116,10 +123,15 @@ func _complete_click():
 	var query = JSON.print({"word": current_word})
 	print(query)
 	
+	Global.complete_sent()
 	var error = http_request.request(Global.url("/wordle/state"), headers, true, HTTPClient.METHOD_POST, query)
+	
+	if error != OK:
+		Global.complete_received()
 	print("complete")
 	
 func _state_create_request(result, response_code, headers, body):
+	Global.complete_received()
 	var response = JSON.parse(body.get_string_from_utf8()).result
 
 	if response_code == 200:

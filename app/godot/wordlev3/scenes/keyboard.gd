@@ -7,7 +7,7 @@ var bg_gray = load("res://assets/bg_gray_key.tres")
 var bg_green = load("res://assets/bg_green_key.tres")
 var bg_yellow = load("res://assets/bg_yellow_key.tres")
 
-var array_status = [bg_default, bg_gray, bg_green, bg_yellow]
+var array_status = [bg_default, bg_gray, bg_yellow, bg_green]
 
 func _ready():
 	keys = $VBoxContainer/HBoxContainer.get_children() + \

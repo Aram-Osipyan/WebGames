@@ -5,7 +5,7 @@ var bg_gray = load("res://assets/bg_gray.tres")
 var bg_green = load("res://assets/bg_green.tres")
 var bg_yellow = load("res://assets/bg_yellow.tres")
 
-var array_status = [bg_default, bg_gray, bg_green, bg_yellow]
+var array_status = [bg_default, bg_gray, bg_yellow, bg_green]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	change_status(0)
