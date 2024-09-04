@@ -36,6 +36,19 @@ Rails.application.routes.draw do
         'Cross-Origin-Opener-Policy' => 'same-origin'
       }
     ), at: '/*token/wordle'
+
+    mount ActionDispatch::Static.new(
+      Rails.application,
+      Rails.root.join('app/views/traffic-racer').to_s,
+      headers: {
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Allow-Methods' => 'POST, PUT, DELETE, GET, OPTIONS',
+        'Cross-Origin-Embedder-Policy' => 'require-corp',
+        'Access-Control-Request-Method' => '*',
+        'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+        'Cross-Origin-Opener-Policy' => 'same-origin'
+      }
+    ), at: '/*token/racer'
   end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
