@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
+  root to: 'pages#home'
   namespace :api do
     namespace :users do
       resources :tokens, only: [:create]
@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   namespace :wordle do
     resource :state, only: [:show, :create]
   end
-  get "/up/", to: "up#index", as: :up
-  get "/up/databases", to: "up#databases", as: :up_databases
-  get "pages/test", to: "pages#test", as: :test
+  get '/up/', to: 'up#index', as: :up
+  get '/up/databases', to: 'up#databases', as: :up_databases
+  get 'pages/test', to: 'pages#test', as: :test
 
   namespace :games do
     mount ActionDispatch::Static.new(

@@ -3,16 +3,16 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/roadTexture.png-731e807d03bbafb897ed23ac28ddca96.s3tc.stex"
-path.etc2="res://.import/roadTexture.png-731e807d03bbafb897ed23ac28ddca96.etc2.stex"
+path.etc="res://.import/roadTexture.png-731e807d03bbafb897ed23ac28ddca96.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/texture/roadTexture.png"
-dest_files=[ "res://.import/roadTexture.png-731e807d03bbafb897ed23ac28ddca96.s3tc.stex", "res://.import/roadTexture.png-731e807d03bbafb897ed23ac28ddca96.etc2.stex" ]
+dest_files=[ "res://.import/roadTexture.png-731e807d03bbafb897ed23ac28ddca96.s3tc.stex", "res://.import/roadTexture.png-731e807d03bbafb897ed23ac28ddca96.etc.stex" ]
 
 [params]
 

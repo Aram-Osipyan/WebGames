@@ -3,16 +3,16 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/carPolice.png-6dfbfcff09b22197ae9fbc1becede97b.s3tc.stex"
-path.etc2="res://.import/carPolice.png-6dfbfcff09b22197ae9fbc1becede97b.etc2.stex"
+path.etc="res://.import/carPolice.png-6dfbfcff09b22197ae9fbc1becede97b.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/texture/carPolice.png"
-dest_files=[ "res://.import/carPolice.png-6dfbfcff09b22197ae9fbc1becede97b.s3tc.stex", "res://.import/carPolice.png-6dfbfcff09b22197ae9fbc1becede97b.etc2.stex" ]
+dest_files=[ "res://.import/carPolice.png-6dfbfcff09b22197ae9fbc1becede97b.s3tc.stex", "res://.import/carPolice.png-6dfbfcff09b22197ae9fbc1becede97b.etc.stex" ]
 
 [params]
 
