@@ -12,6 +12,7 @@ var move_speed = 1
 func _ready():
 	var player = player_prefab.instance()
 	player.set_script(player_controller_script)
+	player.translation = Vector3(0, 0, 0)
 	add_child(player)
 	
 	player.translation.z -= 2
@@ -33,7 +34,7 @@ func _process(delta):
 func move_road(delta):
 	var forward = Vector3(0,0,1)
 	for road in roads:
-		road.translate(-1 * forward * delta * move_speed)
+		road.translate(-1 * forward * delta * Global.speed)
 		
 		var current_pos = road.translation.z
 		var length = 50
