@@ -215,12 +215,12 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="wheel" type="MeshInstance" parent="RootNode/car01"]
-transform = Transform( 4.37114e-08, -1, -1.50996e-07, -1, -4.37114e-08, 0, -6.60024e-15, 1.50996e-07, -1, 0.836987, 0.295965, -1 )
+transform = Transform( 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, 0.836987, 0.295965, -1 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="wheel_2" type="MeshInstance" parent="RootNode/car01"]
-transform = Transform( 4.37114e-08, -1, -1.50996e-07, -1, -4.37114e-08, 0, -6.60024e-15, 1.50996e-07, -1, 0.836987, 0.295965, 1.0031 )
+transform = Transform( 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, 0.836987, 0.295965, 1.0031 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 2 )
 

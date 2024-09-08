@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/materials/island_material.tres" type="Material" id=1]
+[ext_resource path="res://assets/models/land desert pyramids.fbx" type="PackedScene" id=2]
+[ext_resource path="res://assets/prefabs/lands/water location desert pyramids.tscn" type="PackedScene" id=3]
+
+[node name="land desert pyramids" instance=ExtResource( 2 )]
+
+[node name="land desert pyramids" parent="RootNode" index="0"]
+material/0 = ExtResource( 1 )
+
+[node name="water location desert pyramids" parent="." index="1" instance=ExtResource( 3 )]

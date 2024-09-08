@@ -3,7 +3,7 @@ extends Node
 signal input(event)
 signal speed_changed(speed)
 
-var speed = 1 setget set_speed, get_speed
+var speed = 15 setget set_speed, get_speed
  
 func make_input(event):
 	emit_signal("input", event)

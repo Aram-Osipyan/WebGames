@@ -18,10 +18,10 @@ func _physics_process(delta):
 	var rotate_velocity = 0.014
 	if Input.is_action_pressed("ui_left"):
 		rotate_y(rotate_velocity)
-		velocity += Vector3.RIGHT * Global.speed * 3
+		velocity += Vector3.RIGHT * Global.speed * 0.7
 	elif Input.is_action_pressed("ui_right"):
 		rotate_y(-rotate_velocity)
-		velocity += Vector3.LEFT * Global.speed * 3
+		velocity += Vector3.LEFT * Global.speed * 0.7
 	move_and_slide(velocity)
 	clamp_y_rotation()
 

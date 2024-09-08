@@ -1,0 +1,789 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/models/roads/Road.material" type="Material" id=1]
+[ext_resource path="res://assets/materials/roads_material.tres" type="Material" id=2]
+[ext_resource path="res://assets/prefabs/lands/land camping forest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/prefabs/lands/water location camping forest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/models/trees/Fir trees/pine tree large.fbx" type="PackedScene" id=5]
+[ext_resource path="res://assets/models/trees/Fir trees/fir tree small.fbx" type="PackedScene" id=6]
+[ext_resource path="res://assets/models/trees/Fir trees/fir tree large.fbx" type="PackedScene" id=7]
+[ext_resource path="res://assets/models/trees/Fir trees/fir tree tilted.fbx" type="PackedScene" id=8]
+[ext_resource path="res://assets/models/trees/Fir trees/fir tree bent.fbx" type="PackedScene" id=9]
+[ext_resource path="res://assets/models/trees/Fir trees/fir tree medium.fbx" type="PackedScene" id=10]
+[ext_resource path="res://assets/materials/island_material.tres" type="Material" id=11]
+[ext_resource path="res://assets/models/Environment/Camping environment/wooden pendant.fbx" type="PackedScene" id=12]
+[ext_resource path="res://assets/models/Environment/Camping environment/bonfire.fbx" type="PackedScene" id=13]
+[ext_resource path="res://assets/models/Environment/Camping environment/cauldron.fbx" type="PackedScene" id=14]
+[ext_resource path="res://assets/models/Environment/Camping environment/camping tent yellow.fbx" type="PackedScene" id=15]
+[ext_resource path="res://assets/models/Environment/Camping environment/camping tent blue.fbx" type="PackedScene" id=16]
+[ext_resource path="res://assets/models/Environment/Camping environment/camping tent red.fbx" type="PackedScene" id=17]
+[ext_resource path="res://assets/models/trees/Dry trees/dry tree 2.fbx" type="PackedScene" id=18]
+[ext_resource path="res://assets/models/Environment/wooden bridge.fbx" type="PackedScene" id=19]
+[ext_resource path="res://assets/models/trees/Grass/grass 2.fbx" type="PackedScene" id=20]
+
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "Highway Straight 3_mesh"
+lightmap_size_hint = Vector2( 462, 454 )
+surfaces/0 = {
+"aabb": AABB( -1.49011e-07, -10, -16.25, 25, 10, 3.75 ),
+"array_data": PoolByteArray( 8, 0, 160, 63, 252, 225, 229, 54, 0, 0, 116, 193, 126, 129, 127, 64, 42, 54, 36, 48, 111, 59, 62, 55, 154, 153, 25, 64, 250, 255, 31, 193, 0, 0, 116, 193, 126, 129, 127, 64, 42, 54, 36, 48, 26, 59, 19, 33, 158, 153, 25, 64, 197, 110, 226, 54, 0, 0, 116, 193, 126, 129, 127, 64, 42, 54, 36, 48, 26, 59, 62, 55, 0, 0, 160, 63, 250, 255, 31, 193, 0, 0, 116, 193, 126, 129, 127, 64, 42, 54, 36, 48, 111, 59, 19, 33, 0, 0, 200, 65, 124, 199, 158, 54, 102, 102, 114, 193, 127, 63, 127, 64, 253, 56, 125, 47, 253, 59, 148, 44, 51, 51, 199, 65, 253, 255, 31, 193, 0, 0, 116, 193, 127, 63, 127, 64, 253, 56, 125, 47, 231, 59, 29, 56, 0, 0, 200, 65, 253, 255, 31, 193, 102, 102, 114, 193, 127, 63, 127, 64, 253, 56, 125, 47, 253, 59, 29, 56, 51, 51, 199, 65, 190, 238, 158, 54, 0, 0, 116, 193, 127, 63, 127, 64, 253, 56, 125, 47, 231, 59, 148, 44, 154, 153, 73, 65, 17, 51, 196, 54, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 5, 59, 9, 54, 51, 51, 139, 65, 252, 255, 31, 193, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 21, 55, 131, 50, 51, 51, 139, 65, 243, 255, 159, 192, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 72, 57, 131, 50, 154, 153, 73, 65, 251, 255, 31, 193, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 21, 55, 9, 54, 51, 51, 243, 64, 241, 255, 159, 192, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 72, 57, 120, 56, 205, 204, 236, 64, 250, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 21, 55, 134, 56, 51, 51, 243, 64, 250, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 21, 55, 120, 56, 207, 204, 236, 64, 241, 255, 159, 192, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 72, 57, 134, 56, 205, 204, 140, 65, 243, 255, 159, 192, 0, 0, 112, 193, 126, 129, 127, 64, 0, 59, 112, 48, 72, 57, 71, 50, 51, 51, 139, 65, 252, 255, 31, 193, 0, 0, 112, 193, 126, 129, 127, 64, 0, 59, 112, 48, 21, 55, 131, 50, 205, 204, 140, 65, 252, 255, 31, 193, 0, 0, 112, 193, 126, 129, 127, 64, 0, 59, 112, 48, 21, 55, 71, 50, 51, 51, 139, 65, 243, 255, 159, 192, 0, 0, 112, 193, 126, 129, 127, 64, 0, 59, 112, 48, 72, 57, 131, 50, 8, 0, 160, 63, 252, 225, 229, 54, 0, 0, 116, 193, 127, 0, 127, 64, 42, 54, 36, 48, 252, 32, 127, 59, 0, 0, 160, 63, 250, 255, 31, 193, 0, 0, 130, 193, 127, 0, 127, 64, 42, 54, 36, 48, 29, 55, 86, 59, 0, 0, 160, 63, 250, 255, 31, 193, 0, 0, 116, 193, 127, 0, 127, 64, 42, 54, 36, 48, 29, 55, 127, 59, 8, 0, 160, 63, 133, 106, 228, 54, 0, 0, 130, 193, 127, 0, 127, 64, 42, 54, 36, 48, 252, 32, 86, 59, 213, 255, 31, 180, 250, 255, 31, 193, 0, 0, 72, 193, 129, 0, 127, 64, 253, 56, 125, 47, 23, 59, 130, 58, 114, 102, 114, 53, 137, 199, 233, 54, 102, 102, 114, 193, 129, 0, 127, 64, 253, 56, 125, 47, 56, 55, 18, 58, 17, 0, 72, 53, 130, 170, 237, 54, 0, 0, 72, 193, 129, 0, 127, 64, 253, 56, 125, 47, 56, 55, 130, 58, 0, 0, 0, 0, 250, 255, 31, 193, 102, 102, 114, 193, 129, 0, 127, 64, 253, 56, 125, 47, 23, 59, 18, 58, 4, 0, 32, 64, 221, 127, 226, 54, 0, 0, 112, 193, 127, 0, 127, 64, 253, 56, 125, 47, 201, 42, 253, 59, 0, 0, 32, 64, 250, 255, 31, 193, 102, 102, 114, 193, 127, 0, 127, 64, 253, 56, 125, 47, 207, 55, 231, 59, 0, 0, 32, 64, 250, 255, 31, 193, 0, 0, 112, 193, 127, 0, 127, 64, 253, 56, 125, 47, 207, 55, 253, 59, 4, 0, 32, 64, 131, 71, 226, 54, 102, 102, 114, 193, 127, 0, 127, 64, 253, 56, 125, 47, 201, 42, 231, 59, 0, 0, 0, 0, 250, 255, 31, 193, 102, 102, 114, 193, 129, 63, 127, 64, 253, 56, 125, 47, 77, 56, 253, 59, 70, 205, 204, 61, 30, 85, 233, 54, 0, 0, 116, 193, 129, 63, 127, 64, 253, 56, 125, 47, 200, 59, 231, 59, 114, 102, 114, 53, 137, 199, 233, 54, 102, 102, 114, 193, 129, 63, 127, 64, 253, 56, 125, 47, 200, 59, 253, 59, 205, 204, 204, 61, 250, 255, 31, 193, 0, 0, 116, 193, 129, 63, 127, 64, 253, 56, 125, 47, 77, 56, 231, 59, 0, 0, 190, 65, 252, 255, 31, 193, 0, 0, 116, 193, 127, 127, 127, 64, 42, 54, 36, 48, 91, 55, 32, 59, 205, 204, 180, 65, 45, 213, 165, 54, 0, 0, 116, 193, 127, 127, 127, 64, 42, 54, 36, 48, 41, 59, 119, 59, 205, 204, 180, 65, 252, 255, 31, 193, 0, 0, 116, 193, 127, 127, 127, 64, 42, 54, 36, 48, 91, 55, 119, 59, 0, 0, 190, 65, 245, 97, 162, 54, 0, 0, 116, 193, 127, 127, 127, 64, 42, 54, 36, 48, 41, 59, 32, 59, 0, 0, 180, 65, 252, 255, 31, 193, 0, 0, 112, 193, 129, 0, 127, 64, 253, 56, 125, 47, 41, 59, 163, 59, 0, 0, 180, 65, 130, 71, 166, 54, 102, 102, 114, 193, 129, 0, 127, 64, 253, 56, 125, 47, 91, 55, 140, 59, 0, 0, 180, 65, 219, 127, 166, 54, 0, 0, 112, 193, 129, 0, 127, 64, 253, 56, 125, 47, 91, 55, 163, 59, 0, 0, 180, 65, 252, 255, 31, 193, 102, 102, 114, 193, 129, 0, 127, 64, 253, 56, 125, 47, 41, 59, 140, 59, 0, 0, 200, 65, 253, 255, 31, 193, 0, 0, 72, 193, 127, 0, 127, 64, 253, 56, 125, 47, 5, 59, 19, 59, 0, 0, 200, 65, 124, 199, 158, 54, 102, 102, 114, 193, 127, 0, 127, 64, 253, 56, 125, 47, 21, 55, 162, 58, 0, 0, 200, 65, 253, 255, 31, 193, 102, 102, 114, 193, 127, 0, 127, 64, 253, 56, 125, 47, 5, 59, 162, 58, 0, 0, 200, 65, 139, 170, 162, 54, 0, 0, 72, 193, 127, 0, 127, 64, 253, 56, 125, 47, 21, 55, 19, 59, 4, 0, 32, 64, 131, 71, 226, 54, 102, 102, 114, 193, 126, 193, 127, 64, 253, 56, 125, 47, 18, 59, 62, 55, 154, 153, 25, 64, 250, 255, 31, 193, 0, 0, 116, 193, 126, 193, 127, 64, 253, 56, 125, 47, 26, 59, 19, 33, 0, 0, 32, 64, 250, 255, 31, 193, 102, 102, 114, 193, 126, 193, 127, 64, 253, 56, 125, 47, 18, 59, 19, 33, 158, 153, 25, 64, 197, 110, 226, 54, 0, 0, 116, 193, 126, 193, 127, 64, 253, 56, 125, 47, 26, 59, 62, 55, 4, 0, 32, 64, 221, 127, 226, 54, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 5, 59, 242, 57, 205, 204, 236, 64, 250, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 21, 55, 134, 56, 207, 204, 236, 64, 241, 255, 159, 192, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 72, 57, 134, 56, 0, 0, 32, 64, 250, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 21, 55, 242, 57, 205, 204, 180, 65, 45, 213, 165, 54, 0, 0, 116, 193, 129, 63, 127, 64, 253, 56, 125, 47, 41, 59, 119, 59, 0, 0, 180, 65, 252, 255, 31, 193, 102, 102, 114, 193, 129, 63, 127, 64, 253, 56, 125, 47, 91, 55, 127, 59, 205, 204, 180, 65, 252, 255, 31, 193, 0, 0, 116, 193, 129, 63, 127, 64, 253, 56, 125, 47, 91, 55, 119, 59, 0, 0, 180, 65, 130, 71, 166, 54, 102, 102, 114, 193, 129, 63, 127, 64, 253, 56, 125, 47, 41, 59, 127, 59, 51, 51, 243, 64, 241, 255, 159, 192, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 72, 57, 120, 56, 102, 102, 70, 65, 251, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 21, 55, 39, 54, 102, 102, 70, 65, 167, 204, 196, 54, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 5, 59, 39, 54, 51, 51, 243, 64, 250, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 21, 55, 120, 56, 102, 102, 70, 65, 167, 204, 196, 54, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 5, 59, 39, 54, 207, 204, 236, 64, 241, 255, 159, 192, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 72, 57, 134, 56, 51, 51, 243, 64, 241, 255, 159, 192, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 72, 57, 120, 56, 4, 0, 32, 64, 221, 127, 226, 54, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 5, 59, 242, 57, 154, 153, 73, 65, 17, 51, 196, 54, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 5, 59, 9, 54, 102, 102, 70, 65, 251, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 21, 55, 39, 54, 154, 153, 73, 65, 251, 255, 31, 193, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 21, 55, 9, 54, 102, 102, 70, 65, 167, 204, 196, 54, 0, 0, 112, 193, 127, 127, 127, 64, 0, 59, 112, 48, 5, 59, 39, 54, 0, 0, 180, 65, 219, 127, 166, 54, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 5, 59, 202, 36, 51, 51, 139, 65, 243, 255, 159, 192, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 72, 57, 131, 50, 205, 204, 140, 65, 243, 255, 159, 192, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 72, 57, 71, 50, 154, 153, 73, 65, 17, 51, 196, 54, 0, 0, 112, 193, 127, 127, 127, 64, 255, 46, 177, 46, 5, 59, 9, 54, 205, 204, 140, 65, 243, 255, 159, 192, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 72, 57, 71, 50, 0, 0, 180, 65, 252, 255, 31, 193, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 21, 55, 202, 36, 0, 0, 180, 65, 219, 127, 166, 54, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 5, 59, 202, 36, 205, 204, 140, 65, 252, 255, 31, 193, 0, 0, 112, 193, 126, 129, 127, 64, 255, 46, 177, 46, 21, 55, 71, 50, 213, 255, 31, 180, 250, 255, 31, 193, 0, 0, 72, 193, 0, 0, 127, 64, 253, 56, 125, 47, 250, 54, 73, 59, 0, 0, 200, 65, 139, 170, 162, 54, 0, 0, 72, 193, 0, 0, 127, 64, 253, 56, 125, 47, 110, 20, 130, 20, 0, 0, 200, 65, 253, 255, 31, 193, 0, 0, 72, 193, 0, 0, 127, 64, 253, 56, 125, 47, 250, 54, 130, 20, 17, 0, 72, 53, 130, 170, 237, 54, 0, 0, 72, 193, 0, 0, 127, 64, 253, 56, 125, 47, 110, 20, 73, 59, 205, 204, 204, 61, 250, 255, 31, 193, 0, 0, 116, 193, 129, 0, 127, 64, 253, 56, 125, 47, 218, 59, 73, 59, 70, 205, 204, 61, 167, 221, 231, 54, 0, 0, 130, 193, 129, 0, 127, 64, 253, 56, 125, 47, 178, 59, 125, 55, 70, 205, 204, 61, 30, 85, 233, 54, 0, 0, 116, 193, 129, 0, 127, 64, 253, 56, 125, 47, 218, 59, 125, 55, 205, 204, 204, 61, 250, 255, 31, 193, 0, 0, 130, 193, 129, 0, 127, 64, 253, 56, 125, 47, 178, 59, 73, 59, 70, 205, 204, 61, 167, 221, 231, 54, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 147, 59, 55, 59, 0, 0, 160, 63, 250, 255, 31, 193, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 54, 59, 89, 55, 8, 0, 160, 63, 133, 106, 228, 54, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 54, 59, 55, 59, 205, 204, 204, 61, 250, 255, 31, 193, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 147, 59, 89, 55, 51, 51, 199, 65, 253, 255, 31, 193, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 125, 59, 19, 33, 0, 0, 190, 65, 126, 234, 160, 54, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 218, 59, 62, 55, 0, 0, 190, 65, 252, 255, 31, 193, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 218, 59, 19, 33, 51, 51, 199, 65, 70, 119, 157, 54, 0, 0, 130, 193, 127, 127, 127, 64, 42, 54, 36, 48, 125, 59, 62, 55, 0, 0, 190, 65, 252, 255, 31, 193, 0, 0, 116, 193, 129, 0, 127, 64, 42, 54, 36, 48, 23, 59, 217, 59, 0, 0, 190, 65, 126, 234, 160, 54, 0, 0, 130, 193, 129, 0, 127, 64, 42, 54, 36, 48, 56, 55, 177, 59, 0, 0, 190, 65, 245, 97, 162, 54, 0, 0, 116, 193, 129, 0, 127, 64, 42, 54, 36, 48, 56, 55, 217, 59, 0, 0, 190, 65, 252, 255, 31, 193, 0, 0, 130, 193, 129, 0, 127, 64, 42, 54, 36, 48, 23, 59, 177, 59, 51, 51, 199, 65, 190, 238, 158, 54, 0, 0, 116, 193, 126, 0, 127, 64, 253, 56, 125, 47, 252, 32, 181, 59, 51, 51, 199, 65, 253, 255, 31, 193, 0, 0, 130, 193, 126, 0, 127, 64, 253, 56, 125, 47, 29, 55, 140, 59, 51, 51, 199, 65, 253, 255, 31, 193, 0, 0, 116, 193, 126, 0, 127, 64, 253, 56, 125, 47, 29, 55, 181, 59, 51, 51, 199, 65, 70, 119, 157, 54, 0, 0, 130, 193, 126, 0, 127, 64, 253, 56, 125, 47, 252, 32, 140, 59 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0, 4, 0, 5, 0, 6, 0, 4, 0, 7, 0, 5, 0, 8, 0, 9, 0, 10, 0, 8, 0, 11, 0, 9, 0, 12, 0, 13, 0, 14, 0, 12, 0, 15, 0, 13, 0, 16, 0, 17, 0, 18, 0, 16, 0, 19, 0, 17, 0, 20, 0, 21, 0, 22, 0, 20, 0, 23, 0, 21, 0, 24, 0, 25, 0, 26, 0, 24, 0, 27, 0, 25, 0, 28, 0, 29, 0, 30, 0, 28, 0, 31, 0, 29, 0, 32, 0, 33, 0, 34, 0, 32, 0, 35, 0, 33, 0, 36, 0, 37, 0, 38, 0, 36, 0, 39, 0, 37, 0, 40, 0, 41, 0, 42, 0, 40, 0, 43, 0, 41, 0, 44, 0, 45, 0, 46, 0, 44, 0, 47, 0, 45, 0, 48, 0, 49, 0, 50, 0, 48, 0, 51, 0, 49, 0, 52, 0, 53, 0, 54, 0, 52, 0, 55, 0, 53, 0, 56, 0, 57, 0, 58, 0, 56, 0, 59, 0, 57, 0, 60, 0, 61, 0, 62, 0, 60, 0, 63, 0, 61, 0, 64, 0, 65, 0, 66, 0, 64, 0, 67, 0, 65, 0, 68, 0, 69, 0, 70, 0, 68, 0, 71, 0, 69, 0, 72, 0, 73, 0, 74, 0, 72, 0, 75, 0, 73, 0, 76, 0, 77, 0, 78, 0, 76, 0, 79, 0, 77, 0, 80, 0, 81, 0, 82, 0, 80, 0, 83, 0, 81, 0, 84, 0, 85, 0, 86, 0, 84, 0, 87, 0, 85, 0, 88, 0, 89, 0, 90, 0, 88, 0, 91, 0, 89, 0, 92, 0, 93, 0, 94, 0, 92, 0, 95, 0, 93, 0, 96, 0, 97, 0, 98, 0, 96, 0, 99, 0, 97, 0, 100, 0, 101, 0, 102, 0, 100, 0, 103, 0, 101, 0 ),
+"blend_shape_data": [  ],
+"format": 2194743,
+"index_count": 156,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 104
+}
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 1, 67.4162 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.305882, 0.541176, 0.172549, 1 )
+
+[node name="Highway Straight 3" type="KinematicBody"]
+
+[node name="Highway_Straight_3_mesh" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, 0 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11114, 0.519196, -67.0284 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17014, 0.519196, -66.7593 )
+shape = SubResource( 2 )
+
+[node name="water location camping forest2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5813, -11.727, -19.4206 )
+
+[node name="water location camping forest" parent="water location camping forest2/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9381, 9.51315, -2.8947 )
+material/0 = SubResource( 3 )
+
+[node name="water location camping forest3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.489, -11.727, -63.07 )
+
+[node name="water location camping forest" parent="water location camping forest3/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7359, 9.51315, -3.17569 )
+material/0 = SubResource( 3 )
+
+[node name="water location camping forest4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.517, -11.727, -107.243 )
+
+[node name="water location camping forest" parent="water location camping forest4/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442551, 9.513, -2.704 )
+material/0 = SubResource( 3 )
+
+[node name="land camping forest" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 31.9562, -4.81134, -22.8154 )
+
+[node name="water location camping forest" parent="land camping forest" index="1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="land camping forest2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.009, -4.81134, -66.8728 )
+
+[node name="land camping forest3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.009, -4.81134, -111.56 )
+
+[node name="Highway_Straight_3_mesh2" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -9.95952 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh3" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -19.96 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh4" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -29.9195 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh5" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -39.8815 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh6" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -49.841 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh7" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -59.8415 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh8" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -69.801 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh9" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -79.7993 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh10" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -89.7589 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh11" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -99.7593 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh12" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -109.719 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Highway_Straight_3_mesh13" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -119.701 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="fir tree bent" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4657, 0.518858, -82.478 )
+
+[node name="fir tree bent" parent="fir tree bent/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.4587, 0.518858, -94.3795 )
+
+[node name="fir tree bent" parent="fir tree bent2/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2435, 0.518858, -41.476 )
+
+[node name="fir tree bent" parent="fir tree bent3/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent4" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0736, 0.518858, -25.5417 )
+
+[node name="fir tree bent" parent="fir tree bent4/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.640941, 0, -0.76759, 0, 1, 0, 0.76759, 0, 0.640941, -18.5874, 0.518858, -53.7497 )
+
+[node name="fir tree bent" parent="fir tree bent5/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent6" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.0151, 0.518858, -46.0103 )
+
+[node name="fir tree bent" parent="fir tree bent6/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent7" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9043, 0.518858, -14.4974 )
+
+[node name="fir tree bent" parent="fir tree bent7/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree large" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0991, 1.61622, -67.8406 )
+
+[node name="fir tree large" parent="fir tree large/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18191, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5188, 2.96034, -61.0988 )
+
+[node name="fir tree medium" parent="fir tree medium/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.70862, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5194, 2.96034, -43.8118 )
+
+[node name="fir tree medium" parent="fir tree medium2/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.70862, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 0.423109, 0, -0.906079, 0, 1, 0, 0.906079, 0, 0.423109, -17.9901, 2.96034, -68.1889 )
+
+[node name="fir tree medium" parent="fir tree medium3/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.70862, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium4" parent="." instance=ExtResource( 10 )]
+transform = Transform( 0.999066, 0, 0.0432009, 0, 1, 0, -0.0432009, 0, 0.999066, -24.8202, 2.78117, -107.999 )
+
+[node name="fir tree medium" parent="fir tree medium4/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.70862, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6099, 6.3212, -76.578 )
+
+[node name="fir tree small" parent="fir tree small/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.13, 6.3212, -58.3308 )
+
+[node name="fir tree small" parent="fir tree small2/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8153, 6.3212, -37.1485 )
+
+[node name="fir tree small" parent="fir tree small3/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9326, 6.3212, -84.1075 )
+
+[node name="fir tree small" parent="fir tree small4/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0599, 6.3212, -103.233 )
+
+[node name="fir tree small" parent="fir tree small5/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small6" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0179, 6.3212, -122.236 )
+
+[node name="fir tree small" parent="fir tree small6/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.235397, 0, 0.971899, 0, 1, 0, -0.971899, 0, 0.235397, -30.4569, 7.88412, -67.1344 )
+
+[node name="fir tree tilted" parent="fir tree tilted/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.59329, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted4" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.265842, 0, -0.964016, 0, 1, 0, 0.964016, 0, -0.265842, -15.9343, 7.88411, -92.725 )
+
+[node name="fir tree tilted" parent="fir tree tilted4/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.59329, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4444, 7.88412, -30.3511 )
+
+[node name="fir tree tilted" parent="fir tree tilted2/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.59329, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.83849, 0, -0.544917, 0, 1, 0, 0.544917, 0, 0.83849, -14.7561, 7.88412, -113.031 )
+
+[node name="fir tree tilted" parent="fir tree tilted3/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.59329, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="pine tree large" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8598, 0.160473, -55.1097 )
+
+[node name="pine tree large" parent="pine tree large/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183093, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+
+[node name="wooden pendant" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.809724, 0, 0.586811, 0, 1, 0, -0.586811, 0, 0.809724, 17.7505, 0.828557, -92.9135 )
+
+[node name="fir tree small" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166191, -0.0525134, -8.89738 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small9" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3868, -1.22887, 2.90465 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small9/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small10" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.76784, -1.50571, 11.3315 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small10/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small11" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22826, -1.69264, 20.0251 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small11/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small12" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.226, -1.69264, 37.2782 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small12/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small13" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36207, -1.5819, 39.5253 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small13/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small14" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825775, -1.5819, 29.8129 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small14/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small15" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35635, -1.61762, 45.4842 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small15/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small16" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34837, -1.67591, 36.1214 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small16/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small17" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1765, -1.71951, 45.8653 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small17/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small18" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.77, -1.29601, 35.2893 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small18/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small19" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5583, -1.45263, 40.4363 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small19/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small20" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9602, -1.45263, 50.6501 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small20/RootNode" index="0"]
+transform = Transform( 0.898832, 0, 0.438293, 0, 1, 0, -0.438293, 0, 0.898832, 0, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small21" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.7407, -1.47926, 64.146 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small21/RootNode" index="0"]
+transform = Transform( 0.956417, 0, -0.292004, 0, 1, 0, 0.292004, 0, 0.956417, 0, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small22" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -57.845, -1.70139, 69.2582 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small22/RootNode" index="0"]
+transform = Transform( 0.842255, 0, 0.53908, 0, 1, 0, -0.53908, 0, 0.842255, 0, 0, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small23" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8377, -1.82546, 74.3364 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small23/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small24" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 0.79085, 0, -0.61201, 0, 1, 0, 0.61201, 0, 0.79085, -38.2381, -1.9504, 43.9104 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small24/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small25" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 0.79085, 0, -0.61201, 0, 1, 0, 0.61201, 0, 0.79085, -45.987, -1.5735, 54.6028 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small25/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small2" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67413, -0.958064, -22.0197 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small2/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small3" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5209, -0.958064, -31.4674 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small3/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small4" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8386, -1.63793, -27.3874 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small4/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small5" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9091, -1.63793, -20.0869 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small5/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small6" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.4854, -1.40695, -5.94318 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small6/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small7" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5019, -1.43559, 10.3132 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small7/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small8" parent="wooden pendant" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.84709, -1.43559, 6.93984 )
+
+[node name="fir tree small" parent="wooden pendant/fir tree small8/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="wooden pendant" parent="wooden pendant/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="bonfire" parent="wooden pendant" instance=ExtResource( 13 )]
+
+[node name="bonfire" parent="wooden pendant/bonfire/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="cauldron" parent="wooden pendant" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.685459, 0 )
+
+[node name="cauldron" parent="wooden pendant/cauldron/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="camping tent blue" parent="wooden pendant" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7423, -1.08786, -5.30762 )
+
+[node name="camping tent blue" parent="wooden pendant/camping tent blue/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="camping tent red" parent="wooden pendant" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04297, -0.0333924, 1.54605 )
+
+[node name="camping tent red" parent="wooden pendant/camping tent red/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="camping tent yellow" parent="wooden pendant" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08118, -1.40442, -9.50796 )
+
+[node name="camping tent yellow" parent="wooden pendant/camping tent yellow/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="dry tree 2" parent="wooden pendant" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0013, -1.34677, -14.1721 )
+
+[node name="dry tree 2" parent="wooden pendant/dry tree 2/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="dry tree 3" parent="wooden pendant" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.0386, -1.17709, -20.1651 )
+
+[node name="dry tree 2" parent="wooden pendant/dry tree 3/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="dry tree 4" parent="wooden pendant" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3545, -1.17709, 13.0915 )
+
+[node name="dry tree 2" parent="wooden pendant/dry tree 4/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="dry tree 7" parent="wooden pendant" instance=ExtResource( 18 )]
+transform = Transform( 0.812491, 0, 0.582974, 0, 1, 0, -0.582974, 0, 0.812491, -39.2312, -1.17709, 46.0384 )
+
+[node name="dry tree 2" parent="wooden pendant/dry tree 7/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="dry tree 8" parent="wooden pendant" instance=ExtResource( 18 )]
+transform = Transform( 0.812491, 0, 0.582974, 0, 1, 0, -0.582974, 0, 0.812491, -54.9347, -1.546, 67.7072 )
+
+[node name="dry tree 2" parent="wooden pendant/dry tree 8/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="dry tree 5" parent="wooden pendant" instance=ExtResource( 18 )]
+transform = Transform( 0.384247, 0, -0.92323, 0, 1, 0, 0.92323, 0, 0.384247, -26.6622, -1.28042, 29.3582 )
+
+[node name="dry tree 2" parent="wooden pendant/dry tree 5/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="dry tree 6" parent="wooden pendant" instance=ExtResource( 18 )]
+transform = Transform( 0.276376, 0, -0.664048, 0, 0.719266, 0, 0.664048, 0, 0.276376, -9.93456, -1.32632, 36.5317 )
+
+[node name="dry tree 2" parent="wooden pendant/dry tree 6/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="grass 2" parent="wooden pendant/dry tree 6" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 54.7578, -28.2942, 60.0805 )
+
+[node name="fir tree medium" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0176, -1.31838, 3.77726 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium5" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6347, -1.49075, 40.5541 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium5/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium8" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1558, -1.49075, 39.6142 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium8/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium9" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4104, -1.09002, 49.6247 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium9/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium12" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.493, -1.09002, 56.638 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium12/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium10" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.063, -1.09002, 62.944 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium10/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium11" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.9426, -1.16495, 62.5467 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium11/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium6" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8802, -0.172863, 22.2622 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium6/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium7" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.80638, -1.38802, 14.9617 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium7/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium2" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2005, -1.31838, -3.37448 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium2/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium3" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65737, -1.42026, 7.32288 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium3/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree medium4" parent="wooden pendant" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0693, -1.42026, -16.7033 )
+
+[node name="fir tree medium" parent="wooden pendant/fir tree medium4/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted" parent="wooden pendant" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.089, -2.17033, 1.34319 )
+
+[node name="fir tree tilted" parent="wooden pendant/fir tree tilted/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted4" parent="wooden pendant" instance=ExtResource( 8 )]
+transform = Transform( -0.878, 0, -0.478661, 0, 1, 0, 0.478661, 0, -0.878, -3.46601, -1.75091, 26.1319 )
+
+[node name="fir tree tilted" parent="wooden pendant/fir tree tilted4/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree large" parent="wooden pendant" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.318, -1.72335, 60.6756 )
+
+[node name="fir tree large" parent="wooden pendant/fir tree large/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree large2" parent="wooden pendant" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2867, -1.72335, 50.3058 )
+
+[node name="fir tree large" parent="wooden pendant/fir tree large2/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree large3" parent="wooden pendant" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8732, -2.57722, 45.5957 )
+
+[node name="fir tree large" parent="wooden pendant/fir tree large3/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree large4" parent="wooden pendant" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6052, -2.57722, 57.6446 )
+
+[node name="fir tree large" parent="wooden pendant/fir tree large4/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted5" parent="wooden pendant" instance=ExtResource( 8 )]
+transform = Transform( -0.0673883, 0, 0.997727, 0, 1, 0, -0.997727, 0, -0.0673883, -5.49023, 0.293363, 57.0529 )
+
+[node name="fir tree tilted" parent="wooden pendant/fir tree tilted5/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted2" parent="wooden pendant" instance=ExtResource( 8 )]
+transform = Transform( 0.0375681, 0, 0.999294, 0, 1, 0, -0.999294, 0, 0.0375681, 13.3037, -2.17033, 9.32618 )
+
+[node name="fir tree tilted" parent="wooden pendant/fir tree tilted2/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="fir tree tilted3" parent="wooden pendant" instance=ExtResource( 8 )]
+transform = Transform( -0.502718, 0, 0.86445, 0, 1, 0, -0.86445, 0, -0.502718, 1.37664, -0.0878319, 3.5227 )
+
+[node name="fir tree tilted" parent="wooden pendant/fir tree tilted3/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[node name="wooden bridge" parent="." instance=ExtResource( 19 )]
+transform = Transform( -0.0344634, 0, 0.999406, 0, 1, 0, -0.999406, 0, -0.0344634, 24.7018, -3.1965, -63.3828 )
+
+[node name="wooden bridge" parent="wooden bridge/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
+[editable path="water location camping forest2"]
+[editable path="water location camping forest3"]
+[editable path="water location camping forest4"]
+[editable path="land camping forest"]
+[editable path="fir tree bent"]
+[editable path="fir tree bent2"]
+[editable path="fir tree bent3"]
+[editable path="fir tree bent4"]
+[editable path="fir tree bent5"]
+[editable path="fir tree bent6"]
+[editable path="fir tree bent7"]
+[editable path="fir tree large"]
+[editable path="fir tree medium"]
+[editable path="fir tree medium2"]
+[editable path="fir tree medium3"]
+[editable path="fir tree medium4"]
+[editable path="fir tree small"]
+[editable path="fir tree small2"]
+[editable path="fir tree small3"]
+[editable path="fir tree small4"]
+[editable path="fir tree small5"]
+[editable path="fir tree small6"]
+[editable path="fir tree tilted"]
+[editable path="fir tree tilted4"]
+[editable path="fir tree tilted2"]
+[editable path="fir tree tilted3"]
+[editable path="pine tree large"]
+[editable path="wooden pendant"]
+[editable path="wooden pendant/fir tree small"]
+[editable path="wooden pendant/fir tree small9"]
+[editable path="wooden pendant/fir tree small10"]
+[editable path="wooden pendant/fir tree small11"]
+[editable path="wooden pendant/fir tree small12"]
+[editable path="wooden pendant/fir tree small13"]
+[editable path="wooden pendant/fir tree small14"]
+[editable path="wooden pendant/fir tree small15"]
+[editable path="wooden pendant/fir tree small16"]
+[editable path="wooden pendant/fir tree small17"]
+[editable path="wooden pendant/fir tree small18"]
+[editable path="wooden pendant/fir tree small19"]
+[editable path="wooden pendant/fir tree small20"]
+[editable path="wooden pendant/fir tree small21"]
+[editable path="wooden pendant/fir tree small22"]
+[editable path="wooden pendant/fir tree small23"]
+[editable path="wooden pendant/fir tree small24"]
+[editable path="wooden pendant/fir tree small25"]
+[editable path="wooden pendant/fir tree small2"]
+[editable path="wooden pendant/fir tree small3"]
+[editable path="wooden pendant/fir tree small4"]
+[editable path="wooden pendant/fir tree small5"]
+[editable path="wooden pendant/fir tree small6"]
+[editable path="wooden pendant/fir tree small7"]
+[editable path="wooden pendant/fir tree small8"]
+[editable path="wooden pendant/bonfire"]
+[editable path="wooden pendant/cauldron"]
+[editable path="wooden pendant/camping tent blue"]
+[editable path="wooden pendant/camping tent red"]
+[editable path="wooden pendant/camping tent yellow"]
+[editable path="wooden pendant/dry tree 2"]
+[editable path="wooden pendant/dry tree 3"]
+[editable path="wooden pendant/dry tree 4"]
+[editable path="wooden pendant/dry tree 7"]
+[editable path="wooden pendant/dry tree 8"]
+[editable path="wooden pendant/dry tree 5"]
+[editable path="wooden pendant/dry tree 6"]
+[editable path="wooden pendant/fir tree medium"]
+[editable path="wooden pendant/fir tree medium5"]
+[editable path="wooden pendant/fir tree medium8"]
+[editable path="wooden pendant/fir tree medium9"]
+[editable path="wooden pendant/fir tree medium12"]
+[editable path="wooden pendant/fir tree medium10"]
+[editable path="wooden pendant/fir tree medium11"]
+[editable path="wooden pendant/fir tree medium6"]
+[editable path="wooden pendant/fir tree medium7"]
+[editable path="wooden pendant/fir tree medium2"]
+[editable path="wooden pendant/fir tree medium3"]
+[editable path="wooden pendant/fir tree medium4"]
+[editable path="wooden pendant/fir tree tilted"]
+[editable path="wooden pendant/fir tree tilted4"]
+[editable path="wooden pendant/fir tree large"]
+[editable path="wooden pendant/fir tree large2"]
+[editable path="wooden pendant/fir tree large3"]
+[editable path="wooden pendant/fir tree large4"]
+[editable path="wooden pendant/fir tree tilted5"]
+[editable path="wooden pendant/fir tree tilted2"]
+[editable path="wooden pendant/fir tree tilted3"]
+[editable path="wooden bridge"]
