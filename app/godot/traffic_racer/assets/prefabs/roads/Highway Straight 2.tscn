@@ -218,6 +218,10 @@ tracks/0/keys = {
 
 [node name="Highway Straight 2" type="KinematicBody"]
 collision_mask = 0
+axis_lock_motion_x = true
+axis_lock_motion_y = true
+move_lock_x = true
+move_lock_y = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -615,12 +619,14 @@ material/0 = ExtResource( 2 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.8047, -4.1886, -68.0601 )
 
 [node name="land wild west railway station" parent="land wild west railway station5/RootNode" index="0"]
+transform = Transform( 1, -2.51759e-10, 3.55271e-13, 2.51759e-10, 0.999996, -0.00287979, 3.62377e-13, 0.00287979, 0.999996, 0, 0, 0 )
 material/0 = ExtResource( 2 )
 
 [node name="land wild west railway station6" parent="." instance=ExtResource( 5 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.8047, -4.1886, -112.952 )
 
 [node name="land wild west railway station" parent="land wild west railway station6/RootNode" index="0"]
+transform = Transform( 1, -7.7663e-10, 3.44613e-12, 7.7663e-10, 0.999961, -0.00888361, 3.44613e-12, 0.00888361, 0.999961, 0, 0, 0 )
 material/0 = ExtResource( 2 )
 
 [node name="railway station" parent="." instance=ExtResource( 10 )]
@@ -704,12 +710,14 @@ material/0 = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5066, 0, 7.86328 )
 
 [node name="cactus 6" parent="railway station/cactus 8/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0425482, 0 )
 material/0 = ExtResource( 2 )
 
 [node name="cactus 9" parent="railway station" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3894, 0, 1.92387 )
 
 [node name="cactus 6" parent="railway station/cactus 9/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148949, 0 )
 material/0 = ExtResource( 2 )
 
 [editable path="land wild west railway station"]

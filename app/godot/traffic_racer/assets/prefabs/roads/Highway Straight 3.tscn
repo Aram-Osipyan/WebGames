@@ -25,7 +25,7 @@
 extents = Vector3( 1, 1, 67.4162 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.305882, 0.541176, 0.172549, 1 )
+albedo_color = Color( 0.305882, 0.541176, 0.172549, 0.635294 )
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Highway Straight 3_mesh"
@@ -45,6 +45,10 @@ surfaces/0 = {
 
 [node name="Highway Straight 3" type="KinematicBody"]
 collision_mask = 0
+axis_lock_motion_x = true
+axis_lock_motion_y = true
+move_lock_x = true
+move_lock_y = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -60,21 +64,21 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5813, -11.727, -19.4206 )
 
 [node name="water location camping forest" parent="water location camping forest2/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9381, 9.51315, -2.8947 )
+transform = Transform( 1.00109, 0, 0, 0, 1.00012, 0.0435485, 0, -0.0441519, 0.967685, -10.9381, 8.63778, -3.46797 )
 material/0 = SubResource( 3 )
 
 [node name="water location camping forest3" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.489, -11.727, -63.07 )
 
 [node name="water location camping forest" parent="water location camping forest3/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7359, 9.51315, -3.17569 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7359, 8.86474, -3.17569 )
 material/0 = SubResource( 3 )
 
 [node name="water location camping forest4" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.517, -11.727, -107.243 )
 
 [node name="water location camping forest" parent="water location camping forest4/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442551, 9.513, -2.704 )
+transform = Transform( 1, 0, 0, 0, 0.999911, 0.0133688, 0, -0.0133688, 0.999911, 0.443001, 8.93213, -2.704 )
 material/0 = SubResource( 3 )
 
 [node name="land camping forest" parent="." instance=ExtResource( 3 )]
@@ -189,18 +193,42 @@ material/0 = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.4587, 0.518858, -94.3795 )
 
 [node name="fir tree bent" parent="fir tree bent2/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.816191, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree bent3" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2435, 0.518858, -41.476 )
 
 [node name="fir tree bent" parent="fir tree bent3/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.37166, 0 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent10" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0733, -0.11117, -4.17751 )
+
+[node name="fir tree bent" parent="fir tree bent10/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3457, 0, -5.01526 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent11" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.378713, 0, -0.925514, 0, 1, 0, 0.925514, 0, 0.378713, -31.0012, 0.0239974, -4.03963 )
+
+[node name="fir tree bent" parent="fir tree bent11/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72366, 0, -11.4744 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent12" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.547476, 0, -0.836822, 0, 1, 0, 0.836822, 0, -0.547476, -22.8298, -0.12088, -4.11831 )
+
+[node name="fir tree bent" parent="fir tree bent12/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.86087, 0, -5.91173 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree bent4" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0736, 0.518858, -25.5417 )
 
 [node name="fir tree bent" parent="fir tree bent4/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5829, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree bent5" parent="." instance=ExtResource( 9 )]
@@ -213,19 +241,35 @@ material/0 = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.0151, 0.518858, -46.0103 )
 
 [node name="fir tree bent" parent="fir tree bent6/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75194, -1.20283, -6.07875 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent8" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.710425, 0, 0, 0, 0.710425, 0, 0, 0, 0.710425, -43.727, 0.518858, -43.6444 )
+
+[node name="fir tree bent" parent="fir tree bent8/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75195, -1.74541, -6.07875 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree bent9" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.710425, 0, 0, 0, 0.710425, 0, 0, 0, 0.710425, -42.5223, 4.02841, -39.3919 )
+
+[node name="fir tree bent" parent="fir tree bent9/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75195, -6.7983, -7.92744 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree bent7" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9043, 0.518858, -14.4974 )
 
 [node name="fir tree bent" parent="fir tree bent7/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.20496, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree large" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0991, 1.61622, -67.8406 )
 
 [node name="fir tree large" parent="fir tree large/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18191, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.38117, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree medium" parent="." instance=ExtResource( 10 )]
@@ -239,14 +283,14 @@ material/0 = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5194, 2.96034, -43.8118 )
 
 [node name="fir tree medium" parent="fir tree medium2/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.70862, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.42118, -1.63348 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree medium3" parent="." instance=ExtResource( 10 )]
 transform = Transform( 0.423109, 0, -0.906079, 0, 1, 0, 0.906079, 0, 0.423109, -17.9901, 2.96034, -68.1889 )
 
 [node name="fir tree medium" parent="fir tree medium3/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.70862, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8749, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree medium4" parent="." instance=ExtResource( 10 )]
@@ -260,42 +304,49 @@ material/0 = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6099, 6.3212, -76.578 )
 
 [node name="fir tree small" parent="fir tree small/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.94861, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree small2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.13, 6.3212, -58.3308 )
 
 [node name="fir tree small" parent="fir tree small2/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.02714, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree small3" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8153, 6.3212, -37.1485 )
 
 [node name="fir tree small" parent="fir tree small3/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.479379, -7.55955, -2.63723 )
+material/0 = ExtResource( 11 )
+
+[node name="fir tree small7" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8153, 6.3212, -37.1485 )
+
+[node name="fir tree small" parent="fir tree small7/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5927, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree small4" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9326, 6.3212, -84.1075 )
 
 [node name="fir tree small" parent="fir tree small4/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.66157, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree small5" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0599, 6.3212, -103.233 )
 
 [node name="fir tree small" parent="fir tree small5/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.72545, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree small6" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0179, 6.3212, -122.236 )
 
 [node name="fir tree small" parent="fir tree small6/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.13393, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.30705, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree tilted" parent="." instance=ExtResource( 8 )]
@@ -309,14 +360,14 @@ material/0 = ExtResource( 11 )
 transform = Transform( -0.265842, 0, -0.964016, 0, 1, 0, 0.964016, 0, -0.265842, -15.9343, 7.88411, -92.725 )
 
 [node name="fir tree tilted" parent="fir tree tilted4/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.59329, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.23549, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree tilted2" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4444, 7.88412, -30.3511 )
 
 [node name="fir tree tilted" parent="fir tree tilted2/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.59329, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.41827, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="fir tree tilted3" parent="." instance=ExtResource( 8 )]
@@ -330,7 +381,7 @@ material/0 = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8598, 0.160473, -55.1097 )
 
 [node name="pine tree large" parent="pine tree large/RootNode" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183093, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.09853, 0 )
 material/0 = ExtResource( 11 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -695,7 +746,7 @@ transform = Transform( -0.502718, 0, 0.86445, 0, 1, 0, -0.86445, 0, -0.502718, 1
 material/0 = ExtResource( 11 )
 
 [node name="wooden bridge" parent="." instance=ExtResource( 19 )]
-transform = Transform( -0.0344634, 0, 0.999406, 0, 1, 0, -0.999406, 0, -0.0344634, 24.7018, -3.1965, -63.3828 )
+transform = Transform( -0.0344866, 0, 1.00008, 0, 1.00067, 0, -1.00008, 0, -0.0344866, 24.7018, -3.1965, -63.3828 )
 
 [node name="wooden bridge" parent="wooden bridge/RootNode" index="0"]
 material/0 = ExtResource( 11 )
@@ -707,9 +758,14 @@ material/0 = ExtResource( 11 )
 [editable path="fir tree bent"]
 [editable path="fir tree bent2"]
 [editable path="fir tree bent3"]
+[editable path="fir tree bent10"]
+[editable path="fir tree bent11"]
+[editable path="fir tree bent12"]
 [editable path="fir tree bent4"]
 [editable path="fir tree bent5"]
 [editable path="fir tree bent6"]
+[editable path="fir tree bent8"]
+[editable path="fir tree bent9"]
 [editable path="fir tree bent7"]
 [editable path="fir tree large"]
 [editable path="fir tree medium"]
@@ -719,6 +775,7 @@ material/0 = ExtResource( 11 )
 [editable path="fir tree small"]
 [editable path="fir tree small2"]
 [editable path="fir tree small3"]
+[editable path="fir tree small7"]
 [editable path="fir tree small4"]
 [editable path="fir tree small5"]
 [editable path="fir tree small6"]

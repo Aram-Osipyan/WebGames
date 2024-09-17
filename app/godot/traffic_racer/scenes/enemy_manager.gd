@@ -2,27 +2,32 @@ extends Node
 
 var enemy_prefabs = [
 	{
-		"prefab": preload('res://assets/prefabs/car/car SUV large yellow.tscn'),
+		"prefab": preload('res://assets/prefabs/car/car-passenger-race.tscn'),
 		"weight": 1,
 		"count" : 10
 	},
 	{
-		"prefab": preload('res://assets/prefabs/car/car SUVs pickups lights red.tscn'),
+		"prefab": preload('res://assets/prefabs/car/car-taxi.tscn'),
 		"weight": 1,
 		"count" : 10
 	},
 	{
-		"prefab": preload('res://assets/prefabs/car/sedan car brown.tscn'),
+		"prefab": preload('res://assets/prefabs/car/car-passenger.tscn'),
 		"weight": 5,
 		"count" : 10
 	},
 	{
-		"prefab": preload('res://assets/prefabs/car/Vehicle_SUV_separate.tscn'),
+		"prefab": preload('res://assets/prefabs/car/car-taxi-china.tscn'),
 		"weight": 2,
 		"count" : 10
 	},
 	{
-		"prefab": preload('res://assets/prefabs/car/Vehicle_Taxi.tscn'),
+		"prefab": preload('res://assets/prefabs/car/car-police.tscn'),
+		"weight": 1,
+		"count" : 10
+	},
+	{
+		"prefab": preload('res://assets/prefabs/car/jeep-open.tscn'),
 		"weight": 1,
 		"count" : 10
 	}

@@ -1,7 +1,7 @@
 extends Node
 
 var player_controller_script = preload("res://scripts/player_controller.gd")
-var player_prefab = preload("res://assets/prefabs/car05.tscn")
+var player_prefab = preload("res://assets/prefabs/car/car-sports.tscn")
 
 
 var move_speed = 1
