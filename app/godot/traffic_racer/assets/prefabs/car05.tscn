@@ -27,6 +27,8 @@ extents = Vector3( 0.836948, 0.835758, 2.1241 )
 
 [node name="Vehicle_Car" type="KinematicBody"]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.6, 0, 0.0772663, 0 )
+collision_layer = 0
+collision_mask = 0
 
 [node name="RootNode" type="Spatial" parent="."]
 

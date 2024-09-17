@@ -37,6 +37,7 @@ surfaces/1 = {
 extents = Vector3( 1, 1, 66.417 )
 
 [node name="Highway Bridge 2" type="KinematicBody"]
+collision_mask = 0
 
 [node name="Highway_Bridge_2_mesh" type="MeshInstance" parent="."]
 transform = Transform( -3.52751e-08, 0.815, -1.78342e-08, 0, -3.56248e-08, -0.408, -0.807, -3.56248e-08, 7.7956e-16, -10.2, -6.129, -4.127 )

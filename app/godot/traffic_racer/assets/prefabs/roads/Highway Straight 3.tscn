@@ -21,6 +21,12 @@
 [ext_resource path="res://assets/models/Environment/wooden bridge.fbx" type="PackedScene" id=19]
 [ext_resource path="res://assets/models/trees/Grass/grass 2.fbx" type="PackedScene" id=20]
 
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1, 1, 67.4162 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.305882, 0.541176, 0.172549, 1 )
+
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Highway Straight 3_mesh"
 lightmap_size_hint = Vector2( 462, 454 )
@@ -37,20 +43,8 @@ surfaces/0 = {
 "vertex_count": 104
 }
 
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 1, 1, 67.4162 )
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.305882, 0.541176, 0.172549, 1 )
-
 [node name="Highway Straight 3" type="KinematicBody"]
-
-[node name="Highway_Straight_3_mesh" type="MeshInstance" parent="."]
-transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, 0 )
-use_in_baked_light = true
-lightmap_scale = 1
-mesh = SubResource( 1 )
-material/0 = ExtResource( 2 )
+collision_mask = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -86,14 +80,18 @@ material/0 = SubResource( 3 )
 [node name="land camping forest" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 31.9562, -4.81134, -22.8154 )
 
-[node name="water location camping forest" parent="land camping forest" index="1"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
-
 [node name="land camping forest2" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.009, -4.81134, -66.8728 )
 
 [node name="land camping forest3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.009, -4.81134, -111.56 )
+
+[node name="Highway_Straight_3_mesh" type="MeshInstance" parent="."]
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, 0 )
+use_in_baked_light = true
+lightmap_scale = 1
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
 
 [node name="Highway_Straight_3_mesh2" type="MeshInstance" parent="."]
 transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -9.95952 )
@@ -152,28 +150,30 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="Highway_Straight_3_mesh10" type="MeshInstance" parent="."]
-transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -89.7589 )
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -89.7985 )
 use_in_baked_light = true
 lightmap_scale = 1
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="Highway_Straight_3_mesh11" type="MeshInstance" parent="."]
-transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -99.7593 )
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -99.7762 )
+layers = 4
 use_in_baked_light = true
 lightmap_scale = 1
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="Highway_Straight_3_mesh12" type="MeshInstance" parent="."]
-transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -109.719 )
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -109.757 )
+layers = 2
 use_in_baked_light = true
 lightmap_scale = 1
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="Highway_Straight_3_mesh13" type="MeshInstance" parent="."]
-transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -119.701 )
+transform = Transform( 0.819747, -5.82465e-15, 2.54604e-22, 0, -1.87698e-08, -0.429403, 7.10543e-15, 1, -4.37114e-08, -10.261, -6.45604, -119.713 )
 use_in_baked_light = true
 lightmap_scale = 1
 mesh = SubResource( 1 )
@@ -338,6 +338,9 @@ material/0 = ExtResource( 11 )
 [node name="wooden pendant" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.809724, 0, 0.586811, 0, 1, 0, -0.586811, 0, 0.809724, 17.7505, 0.828557, -92.9135 )
 
+[node name="wooden pendant" parent="wooden pendant/RootNode" index="0"]
+material/0 = ExtResource( 11 )
+
 [node name="fir tree small" parent="wooden pendant" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166191, -0.0525134, -8.89738 )
 
@@ -489,9 +492,6 @@ material/0 = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.84709, -1.43559, 6.93984 )
 
 [node name="fir tree small" parent="wooden pendant/fir tree small8/RootNode" index="0"]
-material/0 = ExtResource( 11 )
-
-[node name="wooden pendant" parent="wooden pendant/RootNode" index="0"]
 material/0 = ExtResource( 11 )
 
 [node name="bonfire" parent="wooden pendant" instance=ExtResource( 13 )]

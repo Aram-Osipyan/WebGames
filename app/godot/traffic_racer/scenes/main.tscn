@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/level_manager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/road_manager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/input_manager.gd" type="Script" id=3]
+[ext_resource path="res://scenes/enemy_manager.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ui_controller.gd" type="Script" id=5]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 0, 0, 0, 0.341176 )
@@ -17,6 +19,13 @@ glow_hdr_scale = 2.26
 glow_high_quality = true
 adjustment_enabled = true
 adjustment_brightness = 1.31
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=4]
 
 [node name="Spatial" type="Spatial"]
 
@@ -39,3 +48,24 @@ transform = Transform( 0.663077, 0.442667, 0.603634, -0.748551, 0.392121, 0.5347
 shadow_enabled = true
 shadow_color = Color( 0.564706, 0.560784, 0.560784, 1 )
 directional_shadow_blend_splits = true
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 0.08
+anchor_top = 0.112
+anchor_right = 0.08
+anchor_bottom = 0.112
+margin_left = -80.92
+margin_top = -39.2
+margin_right = 80.08
+margin_bottom = 38.8
+theme = SubResource( 4 )

@@ -217,6 +217,9 @@ tracks/0/keys = {
 }
 
 [node name="Highway Straight 2" type="KinematicBody"]
+collision_mask = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Highway_Straight_2_mesh2" type="MeshInstance" parent="."]
 transform = Transform( 0.82, 0, 0, 0, -4.37114e-08, -0.429, 0, 1, -1.87522e-08, -10.261, -6.44358, -9.97264 )
@@ -230,6 +233,7 @@ __meta__ = {
 
 [node name="Highway_Straight_2_mesh" type="MeshInstance" parent="."]
 transform = Transform( 0.82, 0, 0, 0, -4.37114e-08, -0.429, 0, 1, -1.87522e-08, -10.261, -6.44358, 0 )
+layers = 2
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
@@ -238,10 +242,9 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [node name="Highway_Straight_2_mesh3" type="MeshInstance" parent="."]
 transform = Transform( 0.82, 0, 0, 0, -4.37114e-08, -0.429, 0, 1, -1.87522e-08, -10.261, -6.44358, -29.8916 )
+layers = 4
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
@@ -252,6 +255,7 @@ __meta__ = {
 
 [node name="Highway_Straight_2_mesh4" type="MeshInstance" parent="."]
 transform = Transform( 0.82, 0, 0, 0, -4.37114e-08, -0.429, 0, 1, -1.87522e-08, -10.261, -6.44358, -19.9189 )
+layers = 8
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
@@ -262,6 +266,8 @@ __meta__ = {
 
 [node name="Highway_Straight_2_mesh5" type="MeshInstance" parent="."]
 transform = Transform( 0.82, 0, 0, 0, -4.37114e-08, -0.429, 0, 1, -1.87522e-08, -10.261, -6.44358, -49.804 )
+allow_merging = false
+layers = 16
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
@@ -491,6 +497,10 @@ omni_range = 9.70086
 [node name="land wild west railway station" parent="." instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32.4211, -4.1886, -23.0806 )
 
+[node name="land wild west railway station" parent="land wild west railway station/RootNode" index="0"]
+transform = Transform( 1, 0, -3.80764e-09, 0, 1, 0, -3.80764e-09, 0, 1.08711, 0, 0, 1.8985 )
+material/0 = ExtResource( 2 )
+
 [node name="train" parent="land wild west railway station" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.32384, 4.72816, -9.07496 )
 
@@ -563,10 +573,6 @@ anims/RESET = SubResource( 6 )
 "anims/Wheel Rotation" = SubResource( 7 )
 "anims/train moving" = SubResource( 8 )
 
-[node name="land wild west railway station" parent="land wild west railway station/RootNode" index="0"]
-transform = Transform( 1, 0, -3.80764e-09, 0, 1, 0, -3.80764e-09, 0, 1.08711, 0, 0, 1.8985 )
-material/0 = ExtResource( 2 )
-
 [node name="railway" parent="land wild west railway station" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.35597, -9.07497 )
 
@@ -620,14 +626,14 @@ material/0 = ExtResource( 2 )
 [node name="railway station" parent="." instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.6695, 0.105857, -63.5186 )
 
+[node name="railway station" parent="railway station/RootNode" index="0"]
+material/0 = ExtResource( 2 )
+
 [node name="water tank" parent="railway station" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.21626, 0.0343742, -11.1126 )
 
 [node name="water tank" parent="railway station/water tank/RootNode" index="0"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
-material/0 = ExtResource( 2 )
-
-[node name="railway station" parent="railway station/RootNode" index="0"]
 material/0 = ExtResource( 2 )
 
 [node name="stone large brown 2" parent="railway station" instance=ExtResource( 12 )]
