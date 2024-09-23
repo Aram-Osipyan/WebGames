@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/models/super pack terrain/atlas-albedo-LPUP.png" type="Texture" id=2]
 
@@ -78,7 +78,11 @@ surfaces/0 = {
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 1, 1, 2.26726 )
 
+[sub_resource type="Animation" id=8]
+resource_name = "hazards"
+
 [node name="car-passenger" type="KinematicBody"]
+transform = Transform( 0.754807, 0, 0, 0, 0.754807, 0, 0, 0, 0.754807, 0, 0, 0 )
 
 [node name="RootNode" type="Spatial" parent="."]
 
@@ -107,3 +111,18 @@ material/0 = SubResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.955827, 0 )
 shape = SubResource( 7 )
+
+[node name="left_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.792648, 0.82735, -2.15658 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 1.6
+omni_range = 0.33474
+
+[node name="right_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785059, 0.82735, -2.15658 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 1.6
+omni_range = 0.33474
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hazards = SubResource( 8 )

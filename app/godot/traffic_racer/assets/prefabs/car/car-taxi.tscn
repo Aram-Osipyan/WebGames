@@ -197,6 +197,7 @@ surfaces/1 = {
 extents = Vector3( 1, 1, 2.48167 )
 
 [node name="car-taxi" type="KinematicBody"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 
 [node name="RootNode" type="Spatial" parent="."]
 
@@ -238,3 +239,16 @@ material/1 = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935365, -0.154929 )
 shape = SubResource( 14 )
+
+[node name="right_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705929, 0.782941, -2.48318 )
+light_color = Color( 0.929412, 0.0705882, 0.0705882, 1 )
+light_energy = 1.6
+shadow_color = Color( 0.129412, 0.0470588, 0.0470588, 1 )
+omni_range = 0.340974
+
+[node name="left_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.714381, 0.828259, -2.50206 )
+light_color = Color( 0.929412, 0.0705882, 0.0705882, 1 )
+light_energy = 1.6
+omni_range = 0.340974

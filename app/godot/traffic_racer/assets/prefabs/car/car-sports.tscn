@@ -251,3 +251,16 @@ material/1 = SubResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793885, 0 )
 shape = SubResource( 12 )
+
+[node name="right_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.521992, 0.610654, -1.60993 )
+light_color = Color( 0.929412, 0.0705882, 0.0705882, 1 )
+light_energy = 1.6
+shadow_color = Color( 0.129412, 0.0470588, 0.0470588, 1 )
+omni_range = 0.340974
+
+[node name="left_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50789, 0.608609, -1.6369 )
+light_color = Color( 0.929412, 0.0705882, 0.0705882, 1 )
+light_energy = 1.6
+omni_range = 0.340974

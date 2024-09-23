@@ -64,7 +64,7 @@ func get_road():
 func move_road(delta):	
 	for i in len(roads):
 		var road = roads[i]
-		(road as KinematicBody).move_and_collide(Vector3.FORWARD * delta * Global.speed * 0.2)
+		(road as KinematicBody).move_and_collide(Vector3.FORWARD * delta * Global.road_speed)
 		
 		var current_pos = road.translation.z
 		
