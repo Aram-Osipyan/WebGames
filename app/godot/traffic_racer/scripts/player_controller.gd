@@ -9,7 +9,7 @@ var init_z_pos
 func _ready():
 	init_z_pos = translation.z
 	
-	print('player controller attached')
+	# print('player controller attached')
 
 func _process(delta):
 	Global.distance += delta * Global.speed
@@ -50,14 +50,14 @@ func clamp_z_position(delta, step = 0.1):
 	if abs(init_z_pos - translation.z) > step:
 		move_and_collide(Vector3.BACK * sign(init_z_pos - translation.z) * delta)
 
-func process_collision(kinematic_collision: KinematicCollision):
+func process_collision(kinematic_collision):
 	if kinematic_collision == null:
 		return
 	
 	var collider = kinematic_collision.collider
-	print('player controller: ' + str(collider as KinematicBody))
+	# print('player controller: ' + str(collider as KinematicBody))
 	
-	var kinematic_body = collider as KinematicBody
+	var kinematic_body = collider
 	if kinematic_body.collision_layer == 1: # if is road	
 		Global.speed -= 2
 	elif kinematic_body.collision_layer == 3: # if is enemy

@@ -7,11 +7,17 @@ onready var state = State.HIDED
 var repeat_tween: Tween
 var non_repeat_tween: Tween
 
+onready var left = self.get_node('./left_light') as OmniLight
+onready var right =  self.get_node('./right_light') as OmniLight
+
 func _ready():
-	print('enemy controller attached')
 	
 	repeat_tween = Tween.new()
 	self.add_child(repeat_tween)
+
+	repeat_tween.repeat = true
+	repeat_tween.interpolate_property(left, "light_energy", 2, 0, 1, 1)
+	repeat_tween.interpolate_property(right, "light_energy", 2, 0, 1, 1)
 	
 	non_repeat_tween = Tween.new()
 	self.add_child(non_repeat_tween)
@@ -20,18 +26,10 @@ func _ready():
 func set_hazard_mode(rotation_sign:int):
 	if state == State.HAZARDED:
 		return
-	
-	var left = self.get_node('./left_light') as OmniLight
-	var right = self.get_node('./right_light') as OmniLight
-	
-#	
+
 	left.light_color = Color.yellow
 	right.light_color = Color.yellow	
-	
-	repeat_tween.remove_all()
-	repeat_tween.repeat = true
-	repeat_tween.interpolate_property(left, "light_energy", 2, 0, 1, 1)
-	repeat_tween.interpolate_property(right, "light_energy", 2, 0, 1, 1)
+		
 	
 	non_repeat_tween.remove_all()
 	non_repeat_tween.interpolate_property(self, "speed", speed, 0, 2, 0)
@@ -55,16 +53,10 @@ func remove_tween():
 	left.light_energy = 0.3
 	right.light_energy = 0.3
 		
-	repeat_tween.remove_all()
-	non_repeat_tween.remove_all()
+	repeat_tween.stop_all()
+	non_repeat_tween.stop_all()
 	
 	state = State.IDLE
-
-func get_tween_node() -> Tween:
-	for child in self.get_children():
-		if child is Tween:
-			return child as Tween
-	return null
 
 func is_hided():
 	return state == State.HIDED

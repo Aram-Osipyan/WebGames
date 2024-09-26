@@ -65,6 +65,7 @@ func _ready():
 			
 			prefab['instances'].append(instance)
 			add_child(instance)
+			enemies.append(instance)
 
 func _process(delta):
 	delta_distance += delta * Global.speed
@@ -105,27 +106,24 @@ func get_enemy():
 				return enemy
 
 func _physics_process(delta):
-	var temp = []
-	for index in len(enemies):
-		var enemy = enemies[index]['enemy']
+	for enemy in enemies:
+		if enemy.is_hided():
+			continue
+		
 		var speed = enemy.speed
 		
-		var collider = (enemy as KinematicBody)\
-			.move_and_collide(Vector3.FORWARD * delta * (Global.road_speed - speed))
+		var collider = enemy.move_and_collide(Vector3.FORWARD * delta * (Global.road_speed - speed))
 
 		process_collider(collider, enemy, speed, delta)
 		
-		if   enemy.translation.z < remove_pos_z:
+		if enemy.translation.z < remove_pos_z || enemy.translation.y > 0.4:
 			enemy.hide()
-		else:
-			temp.append(enemies[index])
-	enemies = temp
 
-func process_collider(kinematic_collider: KinematicCollision, enemy, speed, delta):
+func process_collider(kinematic_collider, enemy, speed, delta):
 	if kinematic_collider == null:
 		return
 	
-	var collider = kinematic_collider.collider as KinematicBody
+	var collider = kinematic_collider.collider
 	if Global.speed > 120:
 		Global.make_game_over()
 		collider.move_and_collide(Vector3.FORWARD * delta * (Global.road_speed - speed))
@@ -148,7 +146,7 @@ func _on_timer_timeout():
 		enemy.translation.z = spawn_pos_z
 		enemy.translation.x = spawn_x_pos
 		enemy.speed = rng.randf_range(7, 12)
-		enemies.append({ 'enemy': enemy })
+		# enemies.append({ 'enemy': enemy })
 	
 func get_rnd_from_array(array: Array):
 	var i = rng.randi_range(0, len(array) - 1)

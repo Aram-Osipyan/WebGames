@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/models/roads/Road.material" type="Material" id=1]
 [ext_resource path="res://assets/materials/roads_material.tres" type="Material" id=2]
@@ -20,9 +20,6 @@
 [ext_resource path="res://assets/models/trees/Dry trees/dry tree 2.fbx" type="PackedScene" id=18]
 [ext_resource path="res://assets/models/Environment/wooden bridge.fbx" type="PackedScene" id=19]
 [ext_resource path="res://assets/models/trees/Grass/grass 2.fbx" type="PackedScene" id=20]
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 1, 1, 67.4162 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.305882, 0.541176, 0.172549, 0.635294 )
@@ -51,14 +48,6 @@ move_lock_x = true
 move_lock_y = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11114, 0.519196, -67.0284 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17014, 0.519196, -66.7593 )
-shape = SubResource( 2 )
 
 [node name="water location camping forest2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5813, -11.727, -19.4206 )

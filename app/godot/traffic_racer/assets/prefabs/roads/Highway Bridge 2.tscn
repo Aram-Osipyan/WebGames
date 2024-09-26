@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/models/roads/Lamppost_Emitter.material" type="Material" id=1]
 [ext_resource path="res://assets/models/roads/Road.material" type="Material" id=3]
@@ -33,9 +33,6 @@ surfaces/1 = {
 "vertex_count": 240
 }
 
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 1, 1, 66.417 )
-
 [node name="Highway Bridge 2" type="KinematicBody"]
 collision_mask = 0
 axis_lock_motion_x = true
@@ -51,14 +48,6 @@ material/0 = ExtResource( 5 )
 material/1 = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14859, 0, -64.5982 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21183, 0, -64.5982 )
-shape = SubResource( 2 )
 
 [node name="treasure Island" parent="." instance=ExtResource( 4 )]
 
