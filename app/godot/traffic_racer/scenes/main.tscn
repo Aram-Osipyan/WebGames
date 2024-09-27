@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://scripts/level_manager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/road_manager.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://assets/ui/right.tres" type="Texture" id=7]
 [ext_resource path="res://assets/ui/pedal_ui.tres" type="Texture" id=8]
 [ext_resource path="res://fonts/PTSans-Bold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://road_surface.tres" type="Shader" id=10]
+[ext_resource path="res://Seamless four lane road texture.jpg" type="Texture" id=11]
+[ext_resource path="res://scripts/road_surface.gd" type="Script" id=12]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 0, 0, 0, 0.341176 )
@@ -61,17 +64,28 @@ Button/styles/hover = SubResource( 21 )
 Button/styles/normal = SubResource( 7 )
 Button/styles/pressed = SubResource( 9 )
 
+[sub_resource type="StyleBoxFlat" id=25]
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.886275, 0.886275, 0.886275, 0.133333 )
+bg_color = Color( 1, 1, 1, 0.0941176 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="Theme" id=12]
+Button/styles/disabled = SubResource( 25 )
+Button/styles/focus = SubResource( 26 )
+Button/styles/hover = SubResource( 27 )
 Button/styles/normal = SubResource( 10 )
 Button/styles/pressed = SubResource( 11 )
 
@@ -107,8 +121,29 @@ corner_radius_bottom_left = 15
 Label/fonts/font = SubResource( 19 )
 Label/styles/normal = SubResource( 17 )
 
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=28]
+Panel/styles/panel = SubResource( 31 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 50
+outline_color = Color( 1, 1, 1, 0 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=30]
+Label/fonts/font = SubResource( 29 )
+
 [sub_resource type="BoxShape" id=22]
 extents = Vector3( 1, 1, 12.9177 )
+
+[sub_resource type="QuadMesh" id=23]
+
+[sub_resource type="ShaderMaterial" id=24]
+shader = ExtResource( 10 )
+shader_param/Speed = Vector3( 0, 1, 0 )
+shader_param/TextureUniform = ExtResource( 11 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -170,18 +205,41 @@ margin_bottom = 245.378
 rect_scale = Vector2( 0.52, 0.357143 )
 texture = ExtResource( 6 )
 
-[node name="Button2" type="Button" parent="Panel/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel"]
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -426.0
+margin_top = -254.0
+margin_bottom = -43.0
+alignment = 2
+
+[node name="Button" type="Button" parent="Panel/Panel/HBoxContainer"]
+margin_right = 211.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 211, 0 )
+theme = SubResource( 12 )
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel/HBoxContainer/Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -211.0
-margin_top = -105.5
-margin_bottom = 105.5
-rect_scale = Vector2( 1, 1.00226 )
+margin_left = -63.0
+margin_top = -37.0
+margin_right = 63.0
+margin_bottom = 37.0
+texture = ExtResource( 8 )
+
+[node name="Button2" type="Button" parent="Panel/Panel/HBoxContainer"]
+margin_left = 215.0
+margin_right = 426.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 211, 0 )
 theme = SubResource( 8 )
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Panel/Button2"]
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel/HBoxContainer/Button2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -192,27 +250,6 @@ margin_right = 168.5
 margin_bottom = 247.374
 rect_scale = Vector2( 0.52, 0.357143 )
 texture = ExtResource( 7 )
-
-[node name="Button" type="Button" parent="Panel/Panel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -100.0
-margin_right = 100.0
-theme = SubResource( 12 )
-
-[node name="TextureRect" type="TextureRect" parent="Panel/Panel/Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -63.0
-margin_top = -37.0
-margin_right = 63.0
-margin_bottom = 37.0
-texture = ExtResource( 8 )
 
 [node name="Panel2" type="Panel" parent="Panel"]
 anchor_right = 1.0
@@ -253,6 +290,27 @@ theme = SubResource( 4 )
 align = 2
 valign = 1
 
+[node name="Panel3" type="Panel" parent="Panel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -478.0
+rect_scale = Vector2( 1, 4.88 )
+theme = SubResource( 28 )
+
+[node name="Label" type="Label" parent="Panel/Panel3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.5
+margin_top = -32.5
+margin_right = 189.5
+margin_bottom = 32.5
+theme = SubResource( 30 )
+text = "игра окончена"
+uppercase = true
+
 [node name="Colliders2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48994, 0, 41.2252 )
 collision_mask = 15
@@ -269,9 +327,46 @@ collision_mask = 3
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21183, 0, -43.9696 )
 shape = SubResource( 22 )
 
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( -2.92889, 2.56052e-07, 1.11924e-14, 0, -4.37114e-08, 1, 2.82776e-07, 3.23457, 1.41388e-07, 0, 0, -1.05339 )
+visible = false
+script = ExtResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
+transform = Transform( 4.12264, 0, 2.7299e-07, 0, 4.42404, 0, 2.7299e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 23 )
+material/0 = SubResource( 24 )
+
+[node name="Spatial2" type="Spatial" parent="."]
+transform = Transform( -2.92889, 2.56052e-07, 1.11924e-14, 0, -4.37114e-08, 1, 2.82776e-07, 3.23457, 1.41388e-07, 0, 0, 13.2159 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial2"]
+transform = Transform( 4.12264, 0, 2.7299e-07, 0, 4.42404, 0, 2.7299e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 23 )
+material/0 = SubResource( 24 )
+
+[node name="Spatial3" type="Spatial" parent="."]
+transform = Transform( -2.92889, 2.56052e-07, 1.11924e-14, 0, -4.37114e-08, 1, 2.82776e-07, 3.23457, 1.41388e-07, 0, 0, 27.469 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial3"]
+transform = Transform( 4.12264, 0, 2.7299e-07, 0, 4.42404, 0, 2.7299e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 23 )
+material/0 = SubResource( 24 )
+
+[node name="Spatial4" type="Spatial" parent="."]
+transform = Transform( -2.92889, 2.56052e-07, 1.11924e-14, 0, -4.37114e-08, 1, 2.82776e-07, 3.23457, 1.41388e-07, 0, 0, 41.7741 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial4"]
+transform = Transform( 4.12264, 0, 2.7299e-07, 0, 4.42404, 0, 2.7299e-07, 0, 1, 0, 0, 0 )
+mesh = SubResource( 23 )
+material/0 = SubResource( 24 )
+
 [connection signal="button_down" from="Panel/Panel/Button3" to="Panel" method="_on_Button3_button_down"]
 [connection signal="button_up" from="Panel/Panel/Button3" to="Panel" method="_on_left_button_up"]
-[connection signal="button_down" from="Panel/Panel/Button2" to="Panel" method="_on_Button2_button_down"]
-[connection signal="button_up" from="Panel/Panel/Button2" to="Panel" method="_on_right_button_up"]
-[connection signal="button_down" from="Panel/Panel/Button" to="Panel" method="_on_break_button_down"]
-[connection signal="button_up" from="Panel/Panel/Button" to="Panel" method="_on_break_button_up"]
+[connection signal="button_down" from="Panel/Panel/HBoxContainer/Button" to="Panel" method="_on_break_button_down"]
+[connection signal="button_up" from="Panel/Panel/HBoxContainer/Button" to="Panel" method="_on_break_button_up"]
+[connection signal="button_down" from="Panel/Panel/HBoxContainer/Button2" to="Panel" method="_on_Button2_button_down"]
+[connection signal="button_up" from="Panel/Panel/HBoxContainer/Button2" to="Panel" method="_on_right_button_up"]
