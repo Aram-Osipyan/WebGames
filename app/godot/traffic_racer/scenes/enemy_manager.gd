@@ -43,7 +43,7 @@ var enemies = []
 var spawn_pos_z = 40
 var remove_pos_z = -8
 
-var spawners = [-1.2, 1.2, 3.6, -3.6]
+var spawners = [-1.6, 1.6, 4.1, -4.1]
 
 var delta_distance = 0
 var spawn_current = 200
@@ -127,8 +127,10 @@ func process_collider(kinematic_collider, enemy, speed, delta):
 	if Global.speed > 120:
 		Global.make_game_over()
 		collider.move_and_collide(Vector3.FORWARD * delta * (Global.road_speed - speed))
+		Input.vibrate_handheld(500)
 	elif collider.collision_layer == 2:
 		enemy.set_hazard_mode(1)
+		Input.vibrate_handheld(100)
 		Global.speed -= 2 
 		
 			

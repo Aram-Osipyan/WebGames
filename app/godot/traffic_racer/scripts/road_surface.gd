@@ -14,3 +14,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	mat.set_shader_param("Speed", Vector3(0, - Global.speed * 0.001 ,0))
+	mat.set_shader_param("Distance", Vector3(0,- Global.distance * 0.009,0))
+	# mat.set_shader_param("Distance", Vector3(0,- Global.speed * 0.001,0))
