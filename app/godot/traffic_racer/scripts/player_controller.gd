@@ -60,10 +60,10 @@ func process_collision(kinematic_collision):
 	var kinematic_body = collider
 	if kinematic_body.collision_layer == 1: # if is road	
 		Global.speed -= 2
-		Input.vibrate_handheld(100)
+		Global.vibrate(200)
 	elif kinematic_body.collision_layer == 3: # if is enemy
 		Global.speed -= 4
-		Input.vibrate_handheld(200)
+		Global.vibrate(200)
 #		kinematic_b`.move_and_collide(Vector3.RIGHT *  sign(collider.translation.x - translation.x) * 0.08)
 		collider.set_hazard_mode(sign(collider.translation.x - translation.x))
 

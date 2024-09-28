@@ -37,3 +37,6 @@ func is_game_over():
 func make_game_over():
 	game_state = GameState.GAME_OVER
 
+func vibrate(duration):
+	JavaScript.eval('Navigator.vibrate(100)', true)
+
