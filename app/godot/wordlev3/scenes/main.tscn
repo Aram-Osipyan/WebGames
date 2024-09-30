@@ -130,14 +130,10 @@ text = "В"
 align = 1
 
 [node name="field" type="VBoxContainer" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -228.0
-margin_top = -424.0
-margin_right = 228.0
-margin_bottom = 210.0
+anchor_left = 0.12
+anchor_top = 0.0859375
+anchor_right = 0.88
+anchor_bottom = 0.705078
 rect_min_size = Vector2( 266, 390 )
 rect_pivot_offset = Vector2( 133, 195 )
 size_flags_horizontal = 0
@@ -145,6 +141,9 @@ size_flags_vertical = 0
 custom_constants/separation = 9
 alignment = 1
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="line" parent="Panel/field" instance=ExtResource( 1 )]
 margin_right = 456.0
@@ -176,9 +175,15 @@ margin_right = 456.0
 margin_bottom = 634.0
 
 [node name="Keyboard" parent="Panel" instance=ExtResource( 2 )]
-margin_top = -248.0
-margin_bottom = -10.0
+anchor_top = 0.757812
+anchor_right = 1.00097
+anchor_bottom = 0.990234
+margin_top = 0.0
+margin_right = -0.582031
 rect_scale = Vector2( 1.00097, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Panel" type="Panel" parent="Panel"]
 visible = false
