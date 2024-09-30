@@ -129,61 +129,10 @@ theme = ExtResource( 8 )
 text = "В"
 align = 1
 
-[node name="field" type="VBoxContainer" parent="Panel"]
-anchor_left = 0.12
-anchor_top = 0.0859375
-anchor_right = 0.88
-anchor_bottom = 0.705078
-rect_min_size = Vector2( 266, 390 )
-rect_pivot_offset = Vector2( 133, 195 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_constants/separation = 9
-alignment = 1
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="line" parent="Panel/field" instance=ExtResource( 1 )]
-margin_right = 456.0
-margin_bottom = 98.0
-
-[node name="line2" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 107.0
-margin_right = 456.0
-margin_bottom = 205.0
-
-[node name="line3" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 214.0
-margin_right = 456.0
-margin_bottom = 312.0
-
-[node name="line4" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 321.0
-margin_right = 456.0
-margin_bottom = 419.0
-
-[node name="line5" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 428.0
-margin_right = 456.0
-margin_bottom = 526.0
-
-[node name="line6" parent="Panel/field" instance=ExtResource( 1 )]
-margin_top = 535.0
-margin_right = 456.0
-margin_bottom = 634.0
-
 [node name="Keyboard" parent="Panel" instance=ExtResource( 2 )]
-anchor_top = 0.757812
-anchor_right = 1.00097
-anchor_bottom = 0.990234
-margin_top = 0.0
-margin_right = -0.582031
+margin_top = -248.0
+margin_bottom = -10.0
 rect_scale = Vector2( 1.00097, 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Panel" type="Panel" parent="Panel"]
 visible = false
@@ -264,3 +213,55 @@ theme = SubResource( 10 )
 text = "12 : 04 : 45"
 align = 1
 valign = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.402
+anchor_right = 0.5
+anchor_bottom = 0.402
+margin_left = -300.0
+margin_top = -347.648
+margin_right = 301.0
+margin_bottom = 348.352
+stretch_mode = 0
+
+[node name="field" type="VBoxContainer" parent="Panel/AspectRatioContainer"]
+margin_top = 47.5
+margin_right = 303.0
+margin_bottom = 482.5
+rect_min_size = Vector2( 266, 390 )
+rect_pivot_offset = Vector2( 133, 195 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 9
+alignment = 1
+script = ExtResource( 4 )
+
+[node name="line" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
+margin_right = 303.0
+margin_bottom = 65.0
+
+[node name="line2" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
+margin_top = 74.0
+margin_right = 303.0
+margin_bottom = 139.0
+
+[node name="line3" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
+margin_top = 148.0
+margin_right = 303.0
+margin_bottom = 213.0
+
+[node name="line4" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
+margin_top = 222.0
+margin_right = 303.0
+margin_bottom = 287.0
+
+[node name="line5" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
+margin_top = 296.0
+margin_right = 303.0
+margin_bottom = 361.0
+
+[node name="line6" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
+margin_top = 370.0
+margin_right = 303.0
+margin_bottom = 435.0
