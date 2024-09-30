@@ -25,6 +25,7 @@ window/size/height=1024
 window/dpi/allow_hidpi=true
 window/handheld/orientation="sensor_portrait"
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 
