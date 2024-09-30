@@ -39,7 +39,7 @@ Label/styles/normal = SubResource( 6 )
 margin_left = 521.0
 margin_right = 576.0
 margin_bottom = 55.0
-rect_min_size = Vector2( 55, 55 )
+rect_min_size = Vector2( 55, 63 )
 theme = SubResource( 3 )
 align = 1
 valign = 1
@@ -51,9 +51,9 @@ anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="CenterContainer"]
 margin_left = 7.0
-margin_top = 7.0
+margin_top = 11.0
 margin_right = 47.0
-margin_bottom = 47.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 40, 40 )
 theme = SubResource( 7 )
 

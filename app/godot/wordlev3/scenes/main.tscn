@@ -178,6 +178,7 @@ margin_bottom = 634.0
 [node name="Keyboard" parent="Panel" instance=ExtResource( 2 )]
 margin_top = -248.0
 margin_bottom = -10.0
+rect_scale = Vector2( 1.00097, 1 )
 
 [node name="Panel" type="Panel" parent="Panel"]
 visible = false

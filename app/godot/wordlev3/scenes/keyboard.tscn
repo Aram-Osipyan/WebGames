@@ -163,9 +163,7 @@ alignment = 1
 
 [node name="Compete" parent="VBoxContainer/HBoxContainer3" instance=ExtResource( 3 )]
 margin_left = 17.0
-margin_top = 4.0
 margin_right = 72.0
-margin_bottom = 59.0
 
 [node name="Label13" parent="VBoxContainer/HBoxContainer3" instance=ExtResource( 2 )]
 margin_left = 78.0
@@ -186,6 +184,9 @@ text = "с"
 margin_left = 228.0
 margin_right = 272.0
 text = "м"
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label17" parent="VBoxContainer/HBoxContainer3" instance=ExtResource( 2 )]
 margin_left = 278.0

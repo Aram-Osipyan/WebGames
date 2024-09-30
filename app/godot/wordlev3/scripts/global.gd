@@ -10,7 +10,8 @@ signal updated_keyboard_theme
 signal game_over(result)
 
 var Token:String
-var Host:String = "http://51.250.42.247:8000"
+# var Host:String = "http://localhost:8000"
+var Host:String = "http://51.250.36.233:8000"
 var keys_theme = {}
 
 func url(path):
