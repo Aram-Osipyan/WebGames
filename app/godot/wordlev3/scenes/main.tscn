@@ -214,21 +214,15 @@ text = "12 : 04 : 45"
 align = 1
 valign = 1
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel"]
+[node name="field" type="VBoxContainer" parent="Panel"]
 anchor_left = 0.5
-anchor_top = 0.402
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.402
-margin_left = -300.0
-margin_top = -347.648
-margin_right = 301.0
-margin_bottom = 348.352
-stretch_mode = 0
-
-[node name="field" type="VBoxContainer" parent="Panel/AspectRatioContainer"]
-margin_top = 47.5
-margin_right = 303.0
-margin_bottom = 482.5
+anchor_bottom = 0.5
+margin_left = -225.5
+margin_top = -400.0
+margin_right = 225.5
+margin_bottom = 246.0
 rect_min_size = Vector2( 266, 390 )
 rect_pivot_offset = Vector2( 133, 195 )
 size_flags_horizontal = 0
@@ -237,31 +231,31 @@ custom_constants/separation = 9
 alignment = 1
 script = ExtResource( 4 )
 
-[node name="line" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
-margin_right = 303.0
-margin_bottom = 65.0
+[node name="line" parent="Panel/field" instance=ExtResource( 1 )]
+margin_right = 451.0
+margin_bottom = 100.0
 
-[node name="line2" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
-margin_top = 74.0
-margin_right = 303.0
-margin_bottom = 139.0
+[node name="line2" parent="Panel/field" instance=ExtResource( 1 )]
+margin_top = 109.0
+margin_right = 451.0
+margin_bottom = 209.0
 
-[node name="line3" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
-margin_top = 148.0
-margin_right = 303.0
-margin_bottom = 213.0
+[node name="line3" parent="Panel/field" instance=ExtResource( 1 )]
+margin_top = 218.0
+margin_right = 451.0
+margin_bottom = 318.0
 
-[node name="line4" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
-margin_top = 222.0
-margin_right = 303.0
-margin_bottom = 287.0
+[node name="line4" parent="Panel/field" instance=ExtResource( 1 )]
+margin_top = 327.0
+margin_right = 451.0
+margin_bottom = 427.0
 
-[node name="line5" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
-margin_top = 296.0
-margin_right = 303.0
-margin_bottom = 361.0
+[node name="line5" parent="Panel/field" instance=ExtResource( 1 )]
+margin_top = 436.0
+margin_right = 451.0
+margin_bottom = 536.0
 
-[node name="line6" parent="Panel/AspectRatioContainer/field" instance=ExtResource( 1 )]
-margin_top = 370.0
-margin_right = 303.0
-margin_bottom = 435.0
+[node name="line6" parent="Panel/field" instance=ExtResource( 1 )]
+margin_top = 545.0
+margin_right = 451.0
+margin_bottom = 646.0
