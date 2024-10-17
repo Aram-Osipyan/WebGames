@@ -8,14 +8,12 @@ func _ready():
 	Global.connect("backspace", self, "_backspace_click")
 	Global.connect("complete_click", self, "_complete_click")
 	
-	Global.Token = '5c2d7cf8bb6f4fa5c7ef5f082117b1ad'
-	Global.Host = 'http://localhost:8000'
-	if OS.get_name() == "Web":
-		var web_hash = JavaScript.eval("window.location.href")
-		Global.Host = JavaScript.eval("window.location.origin")
 	
-		var token = web_hash.split('/')[4]
-		Global.Token = token
+	var web_hash = JavaScript.eval("window.location.href")
+	Global.Host = JavaScript.eval("window.location.origin")
+
+	var token = web_hash.split('/')[4]
+	Global.Token = token
 	
 
 	var http_request = HTTPRequest.new()
