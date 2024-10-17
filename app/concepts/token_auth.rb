@@ -10,7 +10,11 @@ module TokenAuth
   def current_user
     return unless authorization_header
 
-    active_line = AuthenticationLine.where(code: authorization_header, active: true).where('active_until > ?', Time.current).first
+    active_line =
+      AuthenticationLine
+      .where(code: authorization_header, active: true)
+      .where('active_until > ?', Time.current)
+      .first
 
     return unless active_line
 
@@ -18,16 +22,16 @@ module TokenAuth
   end
 
   def render_errors(message: nil, errors: {}, status: :unprocessable_entity, result_code: :error)
-    response = {}
+    response = {
+      message:,
+      errors:,
+      result_code:
+    }
 
-    response[:message] = message
-    response[:errors] = errors
-    response[:result_code] = result_code
-
-    render json: response, status: status
+    render json: response, status:
   end
 
   def unauthorized(message: 'Unauthorized. Check your credentials.', result_code: :unauthorized, status: :unauthorized)
-    render_errors(message: message, result_code: result_code, status: status)
+    render_errors(message:, result_code:, status:)
   end
 end

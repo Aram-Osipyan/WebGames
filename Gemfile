@@ -51,6 +51,7 @@ gem 'rack-cors'
 
 gem 'dry-validation', '~> 1.8'
 gem 'faraday', '~> 2.7.11'
+gem 'alba', '~> 2.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -14,8 +14,9 @@ module Wordle
           day_word_id: current_day_word.id
         )
 
-        current_game.update!(game_state: { field: [], start_time: Time.current }) if current_game.game_state.blank?
-        render json: { game_state: current_game.game_state || [] }
+        current_game.update!(game_state: Wordle.default_game_state) if current_game.game_state.blank?
+
+        { game_state: current_game.game_state || [] }
       end
     end
   end

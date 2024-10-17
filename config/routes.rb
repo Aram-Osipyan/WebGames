@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :wordle do
     resource :state, only: [:show, :create]
+    resource :stats, only: [:show]
   end
   get '/up/', to: 'up#index', as: :up
   get '/up/databases', to: 'up#databases', as: :up_databases

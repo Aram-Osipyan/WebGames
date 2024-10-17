@@ -4,5 +4,5 @@
 font_path = "res://assets/PTSans-Bold.ttf"
 
 [resource]
-size = 49
+size = 39
 font_data = SubResource( 1 )

@@ -8,9 +8,10 @@ signal complete_receive
 signal updated_current_word(word)
 signal updated_keyboard_theme
 signal game_over(result)
+signal popup
+signal popup_close
 
 var Token:String
-# var Host:String = "http://localhost:8000"
 var Host:String = "http://51.250.36.233:8000"
 var keys_theme = {}
 
@@ -41,3 +42,9 @@ func update_keyboard_theme():
 
 func make_game_over(result):
 	emit_signal("game_over", result)
+
+func make_popup():
+	emit_signal("popup")
+	
+func make_popup_close():
+	emit_signal("popup_close")
