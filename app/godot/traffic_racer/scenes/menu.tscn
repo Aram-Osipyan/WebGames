@@ -1,0 +1,183 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/UI.tres" type="Texture" id=2]
+[ext_resource path="res://assets/prefabs/car/car-sports.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Pedestal3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/prefabs/car/car-passenger-race.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/prefabs/car/car-taxi-china.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/ui/right.tres" type="Texture" id=7]
+[ext_resource path="res://assets/4567732_button_interface_multimedia_play_user_icon (1).png" type="Texture" id=8]
+[ext_resource path="res://assets/rank.png" type="Texture" id=9]
+
+[sub_resource type="ProceduralSky" id=24]
+radiance_size = 0
+sky_curve = 0.5649
+sun_color = Color( 0.0392157, 0.0313726, 0.0313726, 1 )
+
+[sub_resource type="Environment" id=23]
+background_mode = 1
+background_sky = SubResource( 24 )
+background_sky_custom_fov = 5.3
+background_color = Color( 0.643137, 0.662745, 0.670588, 1 )
+background_energy = 3.07
+ambient_light_color = Color( 0.772549, 0.752941, 0.752941, 1 )
+ambient_light_sky_contribution = 0.25
+fog_enabled = true
+fog_color = Color( 0.454902, 0.541176, 0.623529, 1 )
+fog_sun_color = Color( 0.52549, 0.52549, 0.52549, 1 )
+fog_sun_amount = 0.13
+fog_depth_begin = 11.9
+fog_depth_end = 1511.8
+fog_depth_curve = 0.366021
+fog_height_enabled = true
+fog_height_min = 3.6
+fog_height_curve = 2.21914
+glow_blend_mode = 0
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.6, 0.6, 0.6, 0.0588235 )
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.6, 0.6, 0.6, 0.0588235 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0.0588235 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 0.0941176 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id=22]
+Button/styles/focus = SubResource( 20 )
+Button/styles/hover = SubResource( 21 )
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = SubResource( 9 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.14869e-08, 1, 0, -1, -1.14869e-08, 0.00336623, 7.73044, 0.00126529 )
+light_energy = 4.771
+shadow_enabled = true
+shadow_color = Color( 0.670588, 0.607843, 0.607843, 1 )
+spot_range = 6.10207
+spot_angle = 15.7
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.845281, 0.534323, 0, -0.534323, 0.845281, 0, 3.93042, 3.07066 )
+environment = SubResource( 23 )
+
+[node name="Pedestal" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.427, 0, 0, 0, 0.375, 0, 0, 0, 1.427, 0, 1.44601, 0 )
+
+[node name="car-passenger-race" parent="Pedestal" instance=ExtResource( 5 )]
+transform = Transform( 0.350385, 0, 0, 0, 1.33333, 0, 0, 0, 0.350385, 0, 2.27559, 0 )
+visible = false
+
+[node name="car-taxi-china" parent="Pedestal" instance=ExtResource( 6 )]
+transform = Transform( 0.350385, 0, 0, 0, 1.33333, 0, 0, 0, 0.350385, 0, 2.27464, 0 )
+visible = false
+
+[node name="car-sports" parent="Pedestal" instance=ExtResource( 3 )]
+transform = Transform( 0.35, 0, 0, 0, 1.333, 0, 0, 0, 0.35, 0, 2.27464, 0 )
+visible = false
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+
+[node name="Left" type="Button" parent="Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -105.5
+margin_right = 211.0
+margin_bottom = 105.5
+rect_scale = Vector2( 1, 1.00226 )
+theme = SubResource( 22 )
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Left"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -51.6219
+margin_right = 152.5
+margin_bottom = 245.378
+rect_scale = Vector2( 0.52, 0.357143 )
+texture = ExtResource( 2 )
+
+[node name="Right" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -211.0
+margin_top = -105.5
+margin_bottom = 105.5
+rect_scale = Vector2( 1, 1.00226 )
+theme = SubResource( 22 )
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Right"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -51.6219
+margin_right = 152.5
+margin_bottom = 245.378
+rect_scale = Vector2( 0.52, 0.357143 )
+texture = ExtResource( 7 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -130.0
+margin_top = -128.0
+margin_right = 130.0
+
+[node name="Play_Button" type="Button" parent="Panel/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+theme = SubResource( 22 )
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer/Play_Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Leaderboard" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+theme = SubResource( 22 )
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer/Leaderboard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+light_energy = 0.467

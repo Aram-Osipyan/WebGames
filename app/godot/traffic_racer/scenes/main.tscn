@@ -38,20 +38,20 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="Theme" id=6]
 Panel/styles/panel = SubResource( 5 )
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=32]
 bg_color = Color( 0.6, 0.6, 0.6, 0.0588235 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=33]
 bg_color = Color( 0.6, 0.6, 0.6, 0.0588235 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=34]
 bg_color = Color( 0.6, 0.6, 0.6, 0.0588235 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=35]
 bg_color = Color( 1, 1, 1, 0.0941176 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -59,10 +59,10 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="Theme" id=8]
-Button/styles/focus = SubResource( 20 )
-Button/styles/hover = SubResource( 21 )
-Button/styles/normal = SubResource( 7 )
-Button/styles/pressed = SubResource( 9 )
+Button/styles/focus = SubResource( 32 )
+Button/styles/hover = SubResource( 33 )
+Button/styles/normal = SubResource( 34 )
+Button/styles/pressed = SubResource( 35 )
 
 [sub_resource type="StyleBoxFlat" id=25]
 

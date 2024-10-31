@@ -42,7 +42,8 @@ module AquafonGames
 
     config.hosts << "wordle.ru.tuna.am"
     config.hosts << "93.183.73.49"
-    config.hosts.push(*ENV.fetch('ALLOWED_HOSTS').split(','))
+
+    config.hosts.push(*ENV.fetch('ALLOWED_HOSTS') { [] }.split(','))
 
     config.middleware.insert_before ActionDispatch::Static, ::Middleware::GameAuthentication
   end

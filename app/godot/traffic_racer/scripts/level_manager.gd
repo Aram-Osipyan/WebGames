@@ -8,7 +8,7 @@ var move_speed = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var player = player_prefab.instance()
+	var player = Global.get_current_player_prefab().instance()
 	# (player as KinematicBody).set_collision_layer_bit(1<<1,true)
 	(player as KinematicBody).collision_layer = 2
 	(player as KinematicBody).collision_mask = 3
