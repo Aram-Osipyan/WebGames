@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scripts/level_manager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/road_manager.tscn" type="PackedScene" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://road_surface.tres" type="Shader" id=10]
 [ext_resource path="res://Дорожные Знаки2.png" type="Texture" id=11]
 [ext_resource path="res://scripts/road_surface.gd" type="Script" id=12]
+[ext_resource path="res://pause_icon.png" type="Texture" id=13]
+[ext_resource path="res://continue button 2.png" type="Texture" id=14]
+[ext_resource path="res://garage-3.png" type="Texture" id=15]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 0, 0, 0, 0.341176 )
@@ -110,8 +113,8 @@ Label/styles/normal = SubResource( 16 )
 size = 22
 font_data = ExtResource( 9 )
 
-[sub_resource type="StyleBoxFlat" id=17]
-bg_color = Color( 0.0392157, 0.0392157, 0.0392157, 0.270588 )
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 0.0392157, 0.0392157, 0.0392157, 0.380392 )
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -119,7 +122,7 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="Theme" id=18]
 Label/fonts/font = SubResource( 19 )
-Label/styles/normal = SubResource( 17 )
+Label/styles/normal = SubResource( 36 )
 
 [sub_resource type="StyleBoxFlat" id=31]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -127,13 +130,56 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="Theme" id=28]
 Panel/styles/panel = SubResource( 31 )
 
-[sub_resource type="DynamicFont" id=29]
+[sub_resource type="DynamicFont" id=44]
 size = 50
-outline_color = Color( 1, 1, 1, 0 )
+outline_size = 2
+outline_color = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
 font_data = ExtResource( 9 )
 
 [sub_resource type="Theme" id=30]
-Label/fonts/font = SubResource( 29 )
+Label/fonts/font = SubResource( 44 )
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 0.819608, 0.788235, 0.788235, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=39]
+bg_color = Color( 0.819608, 0.788235, 0.788235, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 0.6, 0.568627, 0.568627, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id=40]
+Button/styles/hover = SubResource( 43 )
+Button/styles/normal = SubResource( 39 )
+Button/styles/pressed = SubResource( 42 )
+
+[sub_resource type="DynamicFont" id=41]
+size = 37
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=37]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id=38]
+Label/colors/font_color = Color( 0.00784314, 0.00392157, 0.00392157, 1 )
+Label/fonts/font = SubResource( 41 )
+Label/styles/normal = SubResource( 37 )
 
 [sub_resource type="BoxShape" id=22]
 extents = Vector3( 1, 1, 12.9177 )
@@ -290,15 +336,20 @@ theme = SubResource( 4 )
 align = 2
 valign = 1
 
-[node name="Panel3" type="Panel" parent="Panel"]
+[node name="GameOver3" type="Panel" parent="Panel"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -478.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -262.0
+margin_top = -30.0
+margin_right = 296.0
+margin_bottom = 51.0
 rect_scale = Vector2( 1, 4.88 )
 theme = SubResource( 28 )
 
-[node name="Label" type="Label" parent="Panel/Panel3"]
+[node name="Label" type="Label" parent="Panel/GameOver3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -309,6 +360,185 @@ margin_right = 189.5
 margin_bottom = 32.5
 theme = SubResource( 30 )
 text = "игра окончена"
+uppercase = true
+
+[node name="MainMenuButton" type="Button" parent="Panel/GameOver3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -216.0
+margin_top = -84.5
+margin_right = 68.0
+margin_bottom = 43.5
+rect_min_size = Vector2( 0, 128 )
+rect_scale = Vector2( 1, 0.47541 )
+theme = SubResource( 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/GameOver3/MainMenuButton"]
+margin_right = 228.0
+margin_bottom = 128.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GameOver3/MainMenuButton/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 0 )
+texture = ExtResource( 15 )
+
+[node name="Speed Label" type="Label" parent="Panel/GameOver3/MainMenuButton/HBoxContainer"]
+margin_left = 132.0
+margin_top = 39.0
+margin_right = 228.0
+margin_bottom = 88.0
+theme = SubResource( 38 )
+text = "Меню"
+align = 1
+valign = 1
+
+[node name="Pause" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -54.0
+margin_top = 10.0
+margin_right = -11.0
+margin_bottom = 56.0
+rect_scale = Vector2( 1, 1.00226 )
+theme = SubResource( 8 )
+icon = ExtResource( 13 )
+icon_align = 1
+expand_icon = true
+
+[node name="Modulation" type="Panel" parent="Panel"]
+visible = false
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PopupResume" type="Panel" parent="Panel"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -190.5
+margin_top = -131.0
+margin_right = 190.5
+margin_bottom = 131.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PopupResume"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ContinueButton" type="Button" parent="Panel/PopupResume/VBoxContainer"]
+margin_right = 381.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 128 )
+theme = SubResource( 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/PopupResume/VBoxContainer/ContinueButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/PopupResume/VBoxContainer/ContinueButton/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 14 )
+
+[node name="Speed Label" type="Label" parent="Panel/PopupResume/VBoxContainer/ContinueButton/HBoxContainer"]
+margin_left = 132.0
+margin_top = 39.0
+margin_right = 344.0
+margin_bottom = 88.0
+theme = SubResource( 38 )
+text = " Продолжить"
+align = 1
+valign = 1
+
+[node name="MainMenuButton" type="Button" parent="Panel/PopupResume/VBoxContainer"]
+margin_top = 132.0
+margin_right = 381.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 0, 128 )
+theme = SubResource( 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/PopupResume/VBoxContainer/MainMenuButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/PopupResume/VBoxContainer/MainMenuButton/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 15 )
+
+[node name="Speed Label" type="Label" parent="Panel/PopupResume/VBoxContainer/MainMenuButton/HBoxContainer"]
+margin_left = 132.0
+margin_top = 39.0
+margin_right = 228.0
+margin_bottom = 88.0
+theme = SubResource( 38 )
+text = "Меню"
+align = 1
+valign = 1
+
+[node name="GameOver" type="Panel" parent="Panel"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -190.5
+margin_top = -98.5
+margin_right = 190.5
+margin_bottom = 98.5
+
+[node name="Label" type="Label" parent="Panel/GameOver/VBoxContainer"]
+margin_right = 381.0
+margin_bottom = 65.0
+theme = SubResource( 30 )
+text = "игра окончена"
+uppercase = true
+
+[node name="MainMenuButton" type="Button" parent="Panel/GameOver/VBoxContainer"]
+margin_top = 69.0
+margin_right = 381.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 0, 128 )
+theme = SubResource( 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/GameOver/VBoxContainer/MainMenuButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GameOver/VBoxContainer/MainMenuButton/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 15 )
+
+[node name="Speed Label" type="Label" parent="Panel/GameOver/VBoxContainer/MainMenuButton/HBoxContainer"]
+margin_left = 132.0
+margin_top = 39.0
+margin_right = 228.0
+margin_bottom = 88.0
+theme = SubResource( 38 )
+text = "Меню"
+align = 1
+valign = 1
+
+[node name="ResultLabel" type="Label" parent="Panel/GameOver"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -190.5
+margin_right = 190.5
+margin_bottom = 65.0
+theme = SubResource( 30 )
+text = "0 км"
+align = 1
 uppercase = true
 
 [node name="Colliders2" type="StaticBody" parent="."]

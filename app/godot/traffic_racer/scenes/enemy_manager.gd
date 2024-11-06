@@ -124,7 +124,7 @@ func process_collider(kinematic_collider, enemy, speed, delta):
 		return
 	
 	var collider = kinematic_collider.collider
-	if Global.speed > 120:
+	if collider is KinematicBody and Global.speed > 120:
 		Global.make_game_over()
 		collider.move_and_collide(Vector3.FORWARD * delta * (Global.road_speed - speed))
 		Global.vibrate(500)

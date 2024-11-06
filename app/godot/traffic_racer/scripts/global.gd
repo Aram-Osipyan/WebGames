@@ -4,6 +4,7 @@ enum GameState { MENU, GAME, GAME_OVER }
 
 signal input(event)
 signal speed_changed(speed)
+signal game_over
 
 var speed = 100 setget set_speed, get_speed
 
@@ -43,7 +44,14 @@ func is_game_over():
 	return game_state == GameState.GAME_OVER
 
 func make_game_over():
+	emit_signal("game_over")
 	game_state = GameState.GAME_OVER
+
+func make_menu():
+	game_state = GameState.MENU
+
+func make_game():
+	game_state = GameState.GAME
 
 func get_current_player_prefab():
 	return player_prefabs[choosed_prefab]
