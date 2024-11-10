@@ -35,13 +35,14 @@ func _set_panel(result):
 	panels['lose'].visible = false
 	
 	panels[result].visible = true
+	$Counter.visible = true
 
 func _process(delta):
 	var seconds = int(timer.time_left)
 	var hours = seconds / 3600
 	var minutes = (seconds % 3600) / 60
 	var secs = (seconds % 3600) % 60
-	$VBoxContainer/Panel2/Panel/Label.text = "%02d : %02d : %02d" % [hours, minutes, secs]
+	$Counter/Panel/Label.text = "%02d : %02d : %02d" % [hours, minutes, secs]
 	
 	
 	
