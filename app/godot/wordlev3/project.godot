@@ -24,6 +24,7 @@ Global="*res://scripts/global.gd"
 window/size/width=600
 window/size/height=1024
 window/size/resizable=false
+window/size/borderless=true
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
@@ -33,6 +34,7 @@ window/stretch/aspect="expand"
 Etc=false
 "Import Etc"=false
 color=false
+borderless=true
 
 [gui]
 
