@@ -1,0 +1,37 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <% if @field.as_html %>
+    <%== @field.value %>
+  <% elsif @field.protocol.present? %>
+    <%= link_to @field.value, "#{@field.protocol}:#{@field.value}" %>
+  <% else %>
+    <span
+      id="copy-text-<%= @field.object_id %>"
+      style="<%= 'background-color: #f0f0f0; padding: 2px 4px; border-radius: 3px; cursor: pointer;' if @field.copy_to_clipboard %>"
+      <% if @field.copy_to_clipboard %>
+        onclick="copyToClipboard('<%= j @field.value %>', 'copy-text-<%= @field.object_id %>')"
+      <% end %>>
+      <%= @field.value %>
+    </span>
+  <% end %>
+
+  <% if @field.copy_to_clipboard %>
+    <script>
+      function copyToClipboard(text, elementId) {
+        navigator.clipboard.writeText(text).then(function() {
+          var element = document.getElementById(elementId);
+          var originalText = element.innerText;
+          element.style.backgroundColor = '#d4edda';
+          element.style.color = '#155724';
+          element.innerText = 'Copied!';
+          setTimeout(function() {
+            element.style.backgroundColor = '';
+            element.style.color = '';
+            element.innerText = originalText;
+          }, 1500);
+        }).catch(function(err) {
+          console.error('Failed to copy text: ', err);
+        });
+      }
+    </script>
+  <% end %>
+<% end %>

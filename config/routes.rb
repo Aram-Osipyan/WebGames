@@ -52,6 +52,9 @@ Rails.application.routes.draw do
     ), at: '/*token/racer'
   end
 
+    
+  mount Avo::Engine, at: '/admins/'
+
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
   # default because you very likely wouldn't want this to be available to
   # everyone in production.

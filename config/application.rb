@@ -14,7 +14,7 @@ module AquafonGames
 
     # Please, see:
     #   https://guides.rubyonrails.org/autoloading_and_reloading_constants.html#config-autoload-lib-ignore.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w(assets tasks avo))
 
     # Log to STDOUT because Docker expects all processes to log here. You could
     # then collect logs using journald, syslog or forward them somewhere else.
@@ -27,6 +27,7 @@ module AquafonGames
       url: ENV.fetch("REDIS_URL") { "redis://redis:6379/1" },
       namespace: "cache"
     }
+    # config.autoload_paths -= [Rails.root.join('lib')]
 
     # Set Sidekiq as the back-end for Active Job.
     config.active_job.queue_adapter = :sidekiq

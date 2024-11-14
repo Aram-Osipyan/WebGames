@@ -35,6 +35,8 @@ gem "redis", "~> 5.2"
 
 gem 'smart_assets' 
 
+gem "zeitwerk"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -52,6 +54,8 @@ gem 'rack-cors'
 gem 'dry-validation', '~> 1.8'
 gem 'faraday', '~> 2.7.11'
 gem 'alba', '~> 2.1'
+gem 'avo', path: 'lib/avo'
+gem 'pundit'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
