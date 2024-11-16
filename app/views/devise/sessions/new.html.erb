@@ -1,0 +1,20 @@
+<div class="centered-form-container">
+  <div class="form-container">
+    <h2>Admin Panel Log In</h2>
+    <%= form_for(resource, as: resource_name, url: new_admin_session_path) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
+  </div>
+</div>

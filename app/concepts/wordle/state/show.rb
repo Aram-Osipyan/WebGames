@@ -7,7 +7,7 @@ module Wordle
       def self.perform(current_user, params)
         current_game = ::WordleGame.where(user_id: current_user.id).where('active_until > ?', Time.current).first
 
-        current_day_word = DayWord.find_by(active: true)
+        current_day_word = DayWord.current_day_word
         current_game ||= ::WordleGame.create!(
           user_id: current_user.id,
           active_until: Time.current.end_of_day,

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # devise_for :admins
   root to: 'pages#home'
   namespace :api do
     namespace :users do
@@ -52,8 +53,14 @@ Rails.application.routes.draw do
     ), at: '/*token/racer'
   end
 
-    
-  mount Avo::Engine, at: '/admins/'
+  devise_for :admins, controllers: {
+        sessions: 'admins/sessions',
+        registrations: 'admins/registrations'
+      }
+
+  authenticate :admin do
+    mount Avo::Engine, at: '/admin_panel/'
+  end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
   # default because you very likely wouldn't want this to be available to
