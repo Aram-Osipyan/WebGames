@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://scenes/line.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/keyboard.tscn" type="PackedScene" id=2]
@@ -18,40 +18,18 @@
 [ext_resource path="res://scenes/letter.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/info_label_animation.gd" type="Script" id=17]
 [ext_resource path="res://scripts/touch_scroll.gd" type="Script" id=18]
+[ext_resource path="res://present.png" type="Texture" id=19]
+[ext_resource path="res://scripts/complete_popup.gd" type="Script" id=20]
+[ext_resource path="res://gift_17357974.png" type="Texture" id=21]
+[ext_resource path="res://scenes/Counter.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scripts/win_lose_panel.gd" type="Script" id=23]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.109804, 0.109804, 0.117647, 1 )
 
 [sub_resource type="Theme" id=6]
-Label/colors/font_color = Color( 0.988235, 0.682353, 0.117647, 1 )
+Label/colors/font_color = Color( 0.898039, 0.364706, 0.0352941, 1 )
 Label/fonts/font = ExtResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=25]
-bg_color = Color( 0.109804, 0.109804, 0.117647, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.254902, 0.254902, 0.262745, 1 )
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="Theme" id=5]
-Panel/styles/panel = SubResource( 4 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 32
-font_data = ExtResource( 5 )
-
-[sub_resource type="Theme" id=8]
-Label/fonts/font = SubResource( 7 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 50
-font_data = ExtResource( 6 )
-
-[sub_resource type="Theme" id=10]
-Label/fonts/font = SubResource( 9 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -94,7 +72,7 @@ size = 40
 font_data = ExtResource( 6 )
 
 [sub_resource type="Theme" id=22]
-Label/colors/font_color = Color( 0.988235, 0.682353, 0.117647, 1 )
+Label/colors/font_color = Color( 0.898039, 0.364706, 0.0352941, 1 )
 Label/fonts/font = SubResource( 21 )
 Label/styles/normal = null
 
@@ -104,6 +82,23 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="Theme" id=24]
 Label/fonts/font = SubResource( 23 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.254902, 0.254902, 0.262745, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Theme" id=5]
+Panel/styles/panel = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=8]
+Label/fonts/font = SubResource( 7 )
 
 [node name="main" type="Control"]
 anchor_right = 1.0
@@ -362,49 +357,6 @@ margin_right = 445.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 70, 0 )
 
-[node name="Counter" type="Panel" parent="Panel/Panel"]
-visible = false
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -585.0
-margin_bottom = -419.0
-rect_min_size = Vector2( 0, 166 )
-custom_styles/panel = SubResource( 25 )
-
-[node name="Panel" type="Panel" parent="Panel/Panel/Counter"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -224.0
-margin_top = -69.0
-margin_right = 224.0
-margin_bottom = 69.0
-theme = SubResource( 5 )
-
-[node name="Label2" type="Label" parent="Panel/Panel/Counter/Panel"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -224.0
-margin_top = 12.0
-margin_right = 224.0
-margin_bottom = 58.0
-theme = SubResource( 8 )
-text = "Новое слово появится через:"
-align = 1
-valign = 1
-
-[node name="Label" type="Label" parent="Panel/Panel/Counter/Panel"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -91.0
-theme = SubResource( 10 )
-text = "12 : 04 : 45"
-align = 1
-valign = 1
-
 [node name="Button" type="Button" parent="Panel"]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -412,12 +364,28 @@ margin_left = -120.0
 margin_top = 8.0
 margin_right = -44.0
 margin_bottom = 78.0
+rect_pivot_offset = Vector2( -393, 14 )
 theme = SubResource( 12 )
 
 [node name="InfoIcon" type="Sprite" parent="Panel/Button"]
 position = Vector2( 38, 35 )
 scale = Vector2( 0.625, 0.625 )
 texture = ExtResource( 11 )
+
+[node name="Button2" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -203.0
+margin_top = 8.0
+margin_right = -127.0
+margin_bottom = 78.0
+rect_pivot_offset = Vector2( -393, 14 )
+theme = SubResource( 12 )
+
+[node name="PresentIcon" type="Sprite" parent="Panel/Button2"]
+position = Vector2( 38, 35 )
+scale = Vector2( 0.625, 0.625 )
+texture = ExtResource( 19 )
 
 [node name="Popup" type="Panel" parent="."]
 anchor_right = 1.0
@@ -702,5 +670,190 @@ text = "В загаданном слове могут встретиться
 в слове \"Театр\". Буквы \"Ё\" в игре нет, вместо
 нее используйте \"Е\" - как в кроссворде."
 
+[node name="CompletePopup" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1024.0
+margin_bottom = 1024.0
+theme = ExtResource( 12 )
+script = ExtResource( 20 )
+
+[node name="Button" type="Button" parent="CompletePopup"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_top = 32.0
+margin_right = -48.0
+margin_bottom = 72.0
+theme = SubResource( 20 )
+
+[node name="CloseButtonIcon" type="Sprite" parent="CompletePopup/Button"]
+position = Vector2( 20, 20 )
+scale = Vector2( 0.625, 0.625 )
+texture = ExtResource( 14 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CompletePopup"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -285.0
+margin_top = 72.0
+margin_right = 285.0
+margin_bottom = 824.0
+script = ExtResource( 18 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CompletePopup/ScrollContainer"]
+margin_right = 570.0
+margin_bottom = 624.0
+size_flags_horizontal = 3
+custom_constants/separation = 20
+
+[node name="Panel" type="Panel" parent="CompletePopup/ScrollContainer/VBoxContainer"]
+margin_right = 570.0
+theme = ExtResource( 12 )
+script = ExtResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CompletePopup/ScrollContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 570.0
+margin_bottom = 184.0
+
+[node name="Panel" type="Panel" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 570.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+script = ExtResource( 23 )
+
+[node name="Win" type="Label" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Panel"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -32.0
+margin_bottom = 32.0
+theme = SubResource( 6 )
+text = "Вы отгадали слово!"
+align = 1
+valign = 1
+
+[node name="Lose" type="Label" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -32.0
+margin_bottom = 32.0
+theme = SubResource( 6 )
+text = "Вы не отгадали слово!"
+align = 1
+valign = 1
+
+[node name="Map" type="Panel" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 570.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 0, 100 )
+script = ExtResource( 9 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Map"]
+margin_left = 80.0
+margin_top = 16.0
+margin_right = 520.0
+margin_bottom = 88.0
+custom_constants/separation = 5
+
+[node name="Control" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Map/HBoxContainer" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 70.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 70, 0 )
+
+[node name="Control1" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Map/HBoxContainer" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 75.0
+margin_top = 0.0
+margin_right = 145.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 70, 0 )
+
+[node name="Control2" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Map/HBoxContainer" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_top = 0.0
+margin_right = 220.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 70, 0 )
+
+[node name="Control3" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Map/HBoxContainer" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 225.0
+margin_top = 0.0
+margin_right = 295.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 70, 0 )
+
+[node name="Control4" parent="CompletePopup/ScrollContainer/VBoxContainer/VBoxContainer/Map/HBoxContainer" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = 0.0
+margin_right = 370.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 70, 0 )
+
+[node name="Panel2" type="Panel" parent="CompletePopup/ScrollContainer/VBoxContainer"]
+margin_top = 204.0
+margin_right = 570.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 270, 200 )
+theme = SubResource( 5 )
+
+[node name="InfoIcon" type="Sprite" parent="CompletePopup/ScrollContainer/VBoxContainer/Panel2"]
+position = Vector2( 485, 121 )
+scale = Vector2( 0.296875, 0.296875 )
+texture = ExtResource( 21 )
+
+[node name="Label2" type="Label" parent="CompletePopup/ScrollContainer/VBoxContainer/Panel2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -224.0
+margin_top = 12.0
+margin_right = 224.0
+margin_bottom = 58.0
+theme = SubResource( 8 )
+text = "Следующий приз"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="CompletePopup/ScrollContainer/VBoxContainer/Panel2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -130.0
+margin_bottom = -88.0
+theme = SubResource( 8 )
+custom_colors/font_color = Color( 0.482353, 0.482353, 0.482353, 1 )
+text = "Отгадайте еще 3 слова"
+valign = 1
+
+[node name="Counter" parent="CompletePopup/ScrollContainer/VBoxContainer" instance=ExtResource( 22 )]
+
 [connection signal="pressed" from="Panel/Button" to="Popup" method="_on_info_button_pressed"]
+[connection signal="pressed" from="Panel/Button2" to="CompletePopup" method="_on_info_button_pressed"]
 [connection signal="pressed" from="Popup/Button" to="Popup" method="_on_close_button_pressed"]
+[connection signal="pressed" from="CompletePopup/Button" to="CompletePopup" method="_on_close_button_pressed"]

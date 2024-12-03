@@ -11,8 +11,8 @@ func _ready():
 	self.add_child(popup_tween)
 	self.add_child(close_tween)
 	
-	Global.connect("popup", self, "popup")
-	Global.connect("popup_close", self, "close")
+	#Global.connect("popup", self, "popup")
+	#Global.connect("popup_close", self, "close")
 	
 	self.rect_position.y = height
 
@@ -38,9 +38,11 @@ func close():
 	close_tween.start()
 
 func _on_info_button_pressed():
+	popup()
 	Global.make_popup()
 	
 func _on_close_button_pressed():
+	close()
 	Global.make_popup_close()
 	
 

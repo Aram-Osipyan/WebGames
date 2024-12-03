@@ -10,6 +10,8 @@ signal updated_keyboard_theme
 signal game_over(result)
 signal popup
 signal popup_close
+signal refresh_stats(stats)
+
 
 var Token:String
 var Host:String = "http://51.250.36.233:8000"
@@ -48,3 +50,15 @@ func make_popup():
 	
 func make_popup_close():
 	emit_signal("popup_close")
+	
+func refresh_stats(stats):
+	emit_signal("refresh_stats", stats)
+	
+	
+	
+	
+	
+	
+	
+	
+	

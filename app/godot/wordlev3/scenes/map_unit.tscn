@@ -83,7 +83,7 @@ margin_right = 36.0
 margin_bottom = 32.0
 
 [node name="bg_circle" type="Sprite" parent="Control"]
-modulate = Color( 0.988235, 0.682353, 0.117647, 1 )
+modulate = Color( 0.898039, 0.364706, 0.0352941, 1 )
 material = SubResource( 13 )
 position = Vector2( 36, 32 )
 texture = ExtResource( 1 )

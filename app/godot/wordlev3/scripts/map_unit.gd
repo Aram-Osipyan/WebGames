@@ -4,7 +4,7 @@ var bg_color = ['#fcae1e', '#']
 
 onready var modes = {
 	'win': {
-		'color': '#fcae1e',
+		'color': '#e55d09',
 		'icon': $Done,
 		'alter_label': $empty
 	},

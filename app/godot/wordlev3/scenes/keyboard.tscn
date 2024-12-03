@@ -215,6 +215,5 @@ text = "ю"
 
 [node name="Backspace" parent="VBoxContainer/HBoxContainer3" instance=ExtResource( 1 )]
 margin_left = 528.0
-margin_top = 4.0
 margin_right = 583.0
-margin_bottom = 59.0
+margin_bottom = 63.0
