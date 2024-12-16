@@ -72,7 +72,7 @@ module Avo
         "0"
       end
 
-      @pagy, @models = pagy(@query, items: @index_params[:per_page], link_extra: "data-turbo-frame=\"#{params[:turbo_frame]}\"", size: [1, 2, 2, 1], params: extra_pagy_params)
+      @pagy, @models = pagy(@query, items: @index_params[:per_page], link_extra: "data-turbo-frame=\"#{params[:turbo_frame]}\"", size: 25, params: extra_pagy_params)
 
       # Create resources for each model
       @resources = @models.map do |model|
