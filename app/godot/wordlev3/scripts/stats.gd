@@ -7,9 +7,11 @@ func _ready():
 
 	
 func refresh_stats(response):
-	print(response)
 	for index in range(elems.size()):
 		var response_elem = response['result'][index]
+		response_elem['index'] = index + 1
+		
 		elems[index].set_unit(response['result'][index].result, response_elem.word, response_elem)
 	
-	elems[elems.size() - 1].set_last()
+	if response['result'][elems.size() - 1].result == 'empty':
+		elems[elems.size() - 1].set_last()

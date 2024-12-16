@@ -13,10 +13,15 @@ onready var modes = {
 		'icon': $IconLabel,
 		'alter_label': $empty
 	},
-	'default': {
+	'empty': {
 		'color': '#414143',
 		'icon': $IconLabel,
 		'alter_label': $dots
+	},
+	'pending': {
+		'color': '#414143',
+		'icon': $Control2/bg_ring,
+		'alter_label': $empty
 	}
 }
 
@@ -24,7 +29,7 @@ func _ready():
 	$Done.visible = false
 
 func set_unit(result, word, response_elem = null):
-	var mode = modes['default']
+	var mode = modes['empty']
 
 	if result != null:
 		mode = modes[result]

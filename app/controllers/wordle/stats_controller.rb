@@ -3,34 +3,51 @@
 module Wordle
   class StatsController < BaseController
     def show
-      days = %w[MON TUE WED THU FRI SAT SUN]
-      sql = "VALUES #{days.each_with_index.map { |value, index| "(#{index + 1}, '#{value}')" }.join(', ')}"
-
-      games_sql =
-        ::WordleGame
-        .select('To_Char("wordle_games"."created_at", \'DY\') as week_day, game_state, day_words.word as day_word')
-        .joins(:day_word)
-        .where(user_id: current_user.id)
-        .where('wordle_games.created_at >= ?', Time.current.beginning_of_week)
-        .to_sql
-
-      result = ActiveRecord::Base.connection.execute("
-        select
-          t.i index,
-          t.day,
-          (games.game_state ->> 'result')::TEXT result,
-          case when (games.game_state ->> 'result')::TEXT = 'win' then games.day_word end as word
-        from (#{sql}) as t (i, day)
-        left join (#{games_sql}) as games on t.day = games.week_day").to_a
-
-      wday_index = Time.current.wday
-      result.each do |res|
-        res['result'] ||= 'lose' if res['index'] < wday_index 
-      end
-
       current_game = ::WordleGame.where(user_id: current_user.id).where('active_until > ?', Time.current).first
 
-      render json: { result:, day_before_win: [(Time.current.end_of_week.day - Time.current.day) - 2, 0].max, current_result: current_game.game_state['result'] }
+
+      wordle_games = ::WordleGame
+        .where('wordle_games.created_at > :ago_days', ago_days: 5.days.ago.beginning_of_day)
+        .joins(:day_word)
+        .where(user_id: current_user.id)
+        .order('wordle_games.active_until')
+        .map do |game|
+          word = nil
+          word = game.day_word.word if game.game_state&.fetch('result') == 'win'
+
+          result = game.game_state&.fetch('result') || 'lose'
+          result = 'lose' if result == 'pending' && Time.current > game.active_until
+          {
+            word:,
+            result: 
+          }
+        end
+      pp wordle_games
+      
+      stats = []
+      wordle_games.each do |game|
+        case game[:result]
+        when 'win', 'pending'
+          stats.push(game)
+        else
+          stats.clear
+        end
+      end
+
+      stats.clear if stats.count > 5
+
+      day_before_win = 5 - stats.count
+
+      day_before_win.times do 
+        stats.push({
+          word: nil,
+          result: 'empty'
+        })
+      end
+
+      can_get_price = stats.last[:result] == 'win'
+
+      render json: { result: stats, day_before_win:, current_result: current_game&.game_state&.fetch('result') || 'pending', can_get_price:}
     end
   end
 end
