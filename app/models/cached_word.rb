@@ -1,0 +1,2 @@
+class CachedWord < ApplicationRecord
+end

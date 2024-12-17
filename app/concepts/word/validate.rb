@@ -1,9 +1,8 @@
 module Word
   class Validate
     def self.valid?(word)
-      success = true
-
-      return false unless success &&= word.size == 5
+      return false if word.size != 5
+      return true if CachedWord.find_by(word:)
 
       connection = Faraday.new(url: 'https://api.gramdict.ru') do |conn|
         conn.response :json
@@ -12,9 +11,13 @@ module Word
       path = "/v1/search/#{ERB::Util.url_encode(word)}?pagesize=210&pagenum=0&symbol=#{ERB::Util.url_encode('м,мо,ж,жо,с,со')}"
 
       response = connection.get(path)
-      response.body['entries'].any? do |entry|
+      result = response.body['entries'].any? do |entry|
         next entry['lemma'].gsub(769.chr, '') == word
       end
+
+      ::CachedWord.create!(word:) if result
+
+      return result
     end
 
     def self.state(current_word, day_word)
