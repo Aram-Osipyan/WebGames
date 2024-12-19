@@ -12,7 +12,7 @@ module Word
 
       response = connection.get(path)
       result = response.body['entries'].any? do |entry|
-        next entry['lemma'].gsub(769.chr, '') == word
+        next entry['lemma'].gsub(769.chr, '').gsub('ё', 'е') == word
       end
 
       ::CachedWord.create!(word:) if result
