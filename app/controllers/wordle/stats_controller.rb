@@ -5,7 +5,6 @@ module Wordle
     def show
       current_game = ::WordleGame.where(user_id: current_user.id).where('active_until > ?', Time.current).first
 
-
       wordle_games = ::WordleGame
         .where('wordle_games.created_at > :ago_days', ago_days: 5.days.ago.beginning_of_day)
         .joins(:day_word)
@@ -19,16 +18,21 @@ module Wordle
           result = 'lose' if result == 'pending' && Time.current > game.active_until
           {
             word:,
-            result: 
+            result:,
+            active_until: game.active_until
           }
         end
-      pp wordle_games
-      
+
       stats = []
+      last_day = wordle_games.first[:active_until].day
       wordle_games.each do |game|
+        current_day = game[:active_until].day
+
         case game[:result]
         when 'win', 'pending'
           stats.push(game)
+        when current_day - last_day > 1 
+          stats.clear
         else
           stats.clear
         end
@@ -38,7 +42,7 @@ module Wordle
 
       day_before_win = 5 - stats.count
 
-      day_before_win.times do 
+      day_before_win.times do
         stats.push({
           word: nil,
           result: 'empty'
