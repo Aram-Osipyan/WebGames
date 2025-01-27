@@ -15,13 +15,11 @@ func _ready():
 func refresh_stats(stats):
 	var can_get_price = bool(stats['can_get_price'])
 	
-	if can_get_price:
-		$Button.visible = true
-		return
+	$Button.visible = can_get_price
 	
-	$InfoIcon.visible=true
-	$Label2.visible=true
-	$Label3.visible=true
+	$InfoIcon.visible = !can_get_price
+	$Label2.visible = !can_get_price
+	$Label3.visible = !can_get_price
 	
 	var remain_day = int(stats['day_before_win'])
 

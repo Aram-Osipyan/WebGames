@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :wordle do
     resource :state, only: [:show, :create]
     resource :stats, only: [:show]
+    resource :price, only: [:show]
   end
 
   namespace :racer do

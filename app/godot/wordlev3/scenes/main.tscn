@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scenes/line.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/keyboard.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/Panel.gd" type="Script" id=7]
 [ext_resource path="res://assets/bg_green.tres" type="Theme" id=8]
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/get_price_button.gd" type="Script" id=10]
 [ext_resource path="res://assets/info_icon.png" type="Texture" id=11]
 [ext_resource path="res://popup_theme.tres" type="Theme" id=12]
 [ext_resource path="res://scripts/popup.gd" type="Script" id=13]
@@ -739,6 +740,7 @@ custom_styles/hover = SubResource( 25 )
 custom_styles/pressed = SubResource( 26 )
 custom_styles/focus = SubResource( 25 )
 custom_styles/normal = SubResource( 25 )
+script = ExtResource( 10 )
 
 [node name="Label4" type="Label" parent="CompletePopup/ScrollContainer/VBoxContainer/RemainWords/Button"]
 anchor_left = 0.5
