@@ -8,8 +8,10 @@ module Wordle
         current_game = ::WordleGame.where(user_id: current_user.id).where('active_until > ?', Time.current).first
 
         wordle_games = ::WordleGame
-          .where('wordle_games.created_at > :ago_days', ago_days: 5.days.ago.beginning_of_day)
           .joins(:day_word)
+          .joins(:user)
+          .where('wordle_games.created_at > users.last_rewarded_at')
+          .where('wordle_games.created_at > :ago_days', ago_days: 5.days.ago.beginning_of_day)
           .where(user_id: current_user.id)
           .order('wordle_games.active_until')
           .map do |game|
