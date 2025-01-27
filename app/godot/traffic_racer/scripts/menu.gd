@@ -51,6 +51,8 @@ func play():
 	get_tree().change_scene('res://scenes/main.tscn')
 	
 func leaderboard_popup():
+	Global.make_leaderboard_popup()
+	
 	leaderboard_popup.remove_all()
 	leaderboard_popup.interpolate_method($Panel/Leaderboard, \
 		"set_position", \

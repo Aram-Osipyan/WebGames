@@ -128,10 +128,10 @@ func _on_popup_animation_end():
 func set_modulation(val):
 	$Modulation.modulate = Color(1, 1, 1, val)
 
-func _on_game_over():
+func _on_game_over(game_state):
 	if Global.is_game_over():
 		return
-	$GameOver/ResultLabel.text = str(stepify(Global.distance / 1000.0, 0.01)) + ' km'
+	$GameOver/ResultLabel.text = str(stepify(game_state['score'] / 1000.0, 0.01)) + ' km'
 	$Modulation.visible = true
 	$GameOver.visible = true
 	$GameOver.rect_scale = Vector2(0.2, 0.2)

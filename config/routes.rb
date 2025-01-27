@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     resource :state, only: [:show, :create]
     resource :stats, only: [:show]
   end
+
+  namespace :racer do
+    resource :game_complete, only: [:show, :create]
+    get :leaderboard, only: [:index], to: 'leaderboard#index'
+  end
+
   get '/up/', to: 'up#index', as: :up
   get '/up/databases', to: 'up#databases', as: :up_databases
   get 'pages/test', to: 'pages#test', as: :test
