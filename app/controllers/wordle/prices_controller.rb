@@ -6,7 +6,7 @@ module Wordle
       result = ::Wordle::Stats::Show.perform(current_user)
 
       if result[:can_get_price]
-        connection = Faraday.new(url: ' http://62.182.8.15:8800') do |conn|
+        connection = Faraday.new(url: 'http://62.182.8.15:8800') do |conn|
           conn.response :json
         end
   
