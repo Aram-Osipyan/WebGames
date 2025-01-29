@@ -10,7 +10,6 @@ module Wordle
         wordle_games = ::WordleGame
           .joins(:day_word)
           .joins(:user)
-          .where('users.last_rewarded_at IS NULL OR wordle_games.created_at > users.last_rewarded_at')
           .where('wordle_games.created_at > :ago_days', ago_days: 5.days.ago.beginning_of_day)
           .where(user_id: current_user.id)
           .order('wordle_games.active_until')
