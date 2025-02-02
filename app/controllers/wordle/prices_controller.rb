@@ -9,8 +9,10 @@ module Wordle
         connection = Faraday.new(url: 'http://62.182.8.15:8800') do |conn|
           conn.response :json
         end
+
+        formatted_id = current_user.external_id.sub(/^8/, '7')
   
-        path = "/award_prize?msisdn=#{current_user.external_id}&prize=1"
+        path = "/award_prize?msisdn=#{formatted_id}&prize=1"
   
         response = connection.get(path)
 
