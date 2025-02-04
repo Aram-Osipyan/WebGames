@@ -10,7 +10,7 @@ module Wordle
           conn.response :json
         end
 
-        formatted_id = current_user.external_id.sub(/^8/, '7')
+        formatted_id = current_user.external_id[-7..-1]
   
         path = "/award_prize?msisdn=#{formatted_id}&prize=1"
   
