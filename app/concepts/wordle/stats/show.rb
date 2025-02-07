@@ -5,6 +5,7 @@ module Wordle
     # doc
     class Show
       def self.perform(current_user)
+        current_user.last_rewarded_at ||= Time.at(0)
         current_game = ::WordleGame.where(user_id: current_user.id).where('active_until > ?', Time.current).first
 
         wordle_games = ::WordleGame
@@ -27,18 +28,21 @@ module Wordle
           end
 
         stats = []
-        last_day = wordle_games.first[:active_until].day
+        last_day = wordle_games.first[:active_until]
         wordle_games.each do |game|
-          current_day = game[:active_until].day
+          current_day = game[:active_until]
 
-          case game[:result]
-          when 'win', 'pending'
-            stats.push(game)
-          when current_day - last_day > 1 
+          if (current_day - last_day) / 24.0 / 60.0 / 60.0 > 1
             stats.clear
+          elsif current_day < current_user.last_rewarded_at
+            stats.clear
+          elsif ['win', 'pending'].include? game[:result]
+            stats.push(game)
           else
             stats.clear
           end
+
+          last_day = current_day
         end
 
         stats.clear if stats.count > 5
