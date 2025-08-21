@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/answer_button.gd" type="Script" id=1]
+[ext_resource path="res://resources/PTSans-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Answer1" type="Button"]
+margin_right = 589.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 2 )
+text = "Михаил Булгаков"
+script = ExtResource( 1 )

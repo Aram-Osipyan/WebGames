@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     resource :price, only: [:show]
   end
 
+  namespace :quiz do
+    resource :state, only: [:show, :create]
+    resource :stats, only: [:show]
+  end
+
   namespace :racer do
     resource :game_complete, only: [:show, :create]
     get :leaderboard, only: [:index], to: 'leaderboard#index'
@@ -58,6 +63,19 @@ Rails.application.routes.draw do
         'Cross-Origin-Opener-Policy' => 'same-origin'
       }
     ), at: '/*token/racer'
+
+    mount ActionDispatch::Static.new(
+      Rails.application,
+      Rails.root.join('app/views/quiz').to_s,
+      headers: {
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Allow-Methods' => 'POST, PUT, DELETE, GET, OPTIONS',
+        'Cross-Origin-Embedder-Policy' => 'require-corp',
+        'Access-Control-Request-Method' => '*',
+        'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+        'Cross-Origin-Opener-Policy' => 'same-origin'
+      }
+    ), at: '/*token/quiz'
   end
 
   devise_for :admins, controllers: {

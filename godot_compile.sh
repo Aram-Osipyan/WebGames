@@ -1,4 +1,4 @@
-rm -R ./app/views/wordle
-mkdir ./app/views/wordle
-./bin/godotv3 --no-window --export "Web" --path ./app/godot/wordlev3/
+rm -R ./app/views/quiz
+mkdir ./app/views/quiz
+./bin/godotv3 --no-window --export "Web" --path ./app/godot/quiz/
 exit 0
