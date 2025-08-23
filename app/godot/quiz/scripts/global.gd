@@ -22,6 +22,7 @@ func _ready():
 
 	var token = web_hash.split('/')[4]
 	Global.Token = token
+	pass
 
 func url(path):
 	return Host + path

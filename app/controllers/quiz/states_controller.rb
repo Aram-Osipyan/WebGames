@@ -8,15 +8,19 @@ module Quiz
     end
 
     def create
-      return render json: { error: 'answer must be provided' }, status: :bad_request unless params.key?(:answer)
-      return render json: { error: 'question_id must be provided' }, status: :bad_request unless params.key?(:question_id)
+      contract = Quiz::CreateAnswerContract.new
+      result = contract.call(params.permit(:answer, :question_id, :time_taken, :hint_used))
 
-      answer = params[:answer].upcase
-      question_id = params[:question_id].to_i
-      time_taken = params[:time_taken]&.to_i || 0
-      hint_used = params[:hint_used] == 'true'
+      if result.failure?
+        errors = result.errors.to_h
+        return render json: { error: format_validation_errors(errors) }, status: :bad_request
+      end
 
-      return render json: { error: 'invalid answer' }, status: :bad_request unless %w[A B C D].include?(answer)
+      validated_params = result.to_h
+      answer = validated_params[:answer].upcase
+      question_id = validated_params[:question_id]
+      time_taken = validated_params[:time_taken] || 0
+      hint_used = validated_params[:hint_used] == 'true'
 
       current_game = QuizGame.current_game_for_user(current_user)
       current_game ||= QuizGame.create_daily_game(current_user)
@@ -53,6 +57,12 @@ module Quiz
       end
 
       render json: result
+    end
+
+    private
+
+    def format_validation_errors(errors)
+      errors.map { |key, messages| "#{key}: #{Array(messages).join(', ')}" }.join('; ')
     end
   end
 end

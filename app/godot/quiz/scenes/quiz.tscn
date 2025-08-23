@@ -230,24 +230,33 @@ autowrap = true
 [node name="AnswersContainer" type="VBoxContainer" parent="MainContainer/ContentContainer"]
 margin_top = 124.0
 margin_right = 589.0
-margin_bottom = 467.0
+margin_bottom = 507.0
 rect_min_size = Vector2( 0, 312 )
 custom_constants/separation = 21
 script = ExtResource( 4 )
 
 [node name="Answer1" parent="MainContainer/ContentContainer/AnswersContainer" instance=ExtResource( 5 )]
+rect_scale = Vector2( 1, 1 )
+focus_mode = 0
+answer = "A"
 
 [node name="Answer2" parent="MainContainer/ContentContainer/AnswersContainer" instance=ExtResource( 5 )]
-margin_top = 91.0
-margin_bottom = 161.0
+margin_top = 101.0
+margin_bottom = 181.0
+rect_scale = Vector2( 1, 1 )
+answer = "B"
 
 [node name="Answer3" parent="MainContainer/ContentContainer/AnswersContainer" instance=ExtResource( 5 )]
-margin_top = 182.0
-margin_bottom = 252.0
+margin_top = 202.0
+margin_bottom = 282.0
+rect_scale = Vector2( 1, 1 )
+answer = "C"
 
 [node name="Answer4" parent="MainContainer/ContentContainer/AnswersContainer" instance=ExtResource( 5 )]
-margin_top = 273.0
-margin_bottom = 343.0
+margin_top = 303.0
+margin_bottom = 383.0
+rect_scale = Vector2( 1, 1 )
+answer = "D"
 
 [node name="BottomContainer" type="VBoxContainer" parent="MainContainer"]
 margin_top = 908.0

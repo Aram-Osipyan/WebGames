@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://scripts/global.gd"
+ServerController="*res://scripts/server_controller.gd"
 
 [display]
 
