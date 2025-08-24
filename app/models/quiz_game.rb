@@ -14,7 +14,6 @@ class QuizGame < ApplicationRecord
   def self.current_game_for_user(user)
     where(user: user)
       .where('active_until > ?', Time.current)
-      .where(completed: false)
       .first
   end
 
@@ -81,7 +80,7 @@ class QuizGame < ApplicationRecord
 
     # next_question!
 
-    complete_game! if current_question_index >= total_questions
+    complete_game! if current_question_index + 1 >= total_questions
 
     save!
     is_correct
