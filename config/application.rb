@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 require_relative '../lib/middleware/game_authentication'
 
 # Require the gems listed in Gemfile, including any gems
@@ -14,18 +14,18 @@ module AquafonGames
 
     # Please, see:
     #   https://guides.rubyonrails.org/autoloading_and_reloading_constants.html#config-autoload-lib-ignore.
-    config.autoload_lib(ignore: %w(assets tasks avo))
+    config.autoload_lib(ignore: %w[assets tasks avo])
 
     # Log to STDOUT because Docker expects all processes to log here. You could
     # then collect logs using journald, syslog or forward them somewhere else.
     config.logger = ActiveSupport::Logger.new(STDOUT)
-      .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-      .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+                                         .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+                                         .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
     # Set Redis as the back-end for the cache.
     config.cache_store = :redis_cache_store, {
-      url: ENV.fetch("REDIS_URL") { "redis://redis:6379/1" },
-      namespace: "cache"
+      url: ENV.fetch('REDIS_URL') { 'redis://redis:6379/1' },
+      namespace: 'cache'
     }
     # config.autoload_paths -= [Rails.root.join('lib')]
 
@@ -34,15 +34,15 @@ module AquafonGames
 
     # Mount Action Cable outside the main process or domain.
     config.action_cable.mount_path = nil
-    config.action_cable.url = ENV.fetch("ACTION_CABLE_FRONTEND_URL") { "ws://localhost:28080" }
+    config.action_cable.url = ENV.fetch('ACTION_CABLE_FRONTEND_URL') { 'ws://localhost:28080' }
 
     # Only allow connections to Action Cable from these domains.
-    origins = ENV.fetch("ACTION_CABLE_ALLOWED_REQUEST_ORIGINS") { "http:\/\/localhost*" }.split(",")
+    origins = ENV.fetch('ACTION_CABLE_ALLOWED_REQUEST_ORIGINS') { "http:\/\/localhost*" }.split(',')
     origins.map! { |url| /#{url}/ }
     config.action_cable.allowed_request_origins = origins
 
-    config.hosts << "wordle.ru.tuna.am"
-    config.hosts << "93.183.73.49"
+    config.hosts << 'wordle.ru.tuna.am'
+    config.hosts << 'wiki.aquafon.com'
 
     config.hosts.push(*ENV.fetch('ALLOWED_HOSTS') { [] }.split(','))
 
