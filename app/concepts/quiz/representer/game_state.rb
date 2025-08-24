@@ -15,6 +15,7 @@ module Quiz
       attribute :hints_used, &:hints_used_count
       attributes :remaining_questions
       attributes :completed_at
+      attributes :stopwatch_timestamp
 
       one :current_question do
         attributes :id

@@ -33,7 +33,6 @@ func submit_answer(answer):
 	var data = {
 		"answer": answer,
 		"question_id": game_state.current_question.id,
-		"time_taken": 1,
 		"hint_used": false
 	}
 	

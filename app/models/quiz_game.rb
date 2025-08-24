@@ -52,7 +52,10 @@ class QuizGame < ApplicationRecord
   end
 
   def next_question!
-    self.game_state = game_state.merge('current_question' => current_question_index + 1)
+    self.game_state = game_state.merge(
+      'current_question' => current_question_index + 1,
+      'stopwatch_timestamp' => Time.current.to_i
+    )
     save!
   end
 
@@ -107,5 +110,16 @@ class QuizGame < ApplicationRecord
   def use_hint!
     self.game_state = game_state.merge('hints_used' => hints_used_count + 1)
     save!
+  end
+
+  def reset_stopwatch!
+    self.game_state = game_state.merge('stopwatch_timestamp' => Time.current.to_i)
+    save!
+  end
+
+  def stopwatch_timestamp
+    reset_stopwatch! unless game_state['stopwatch_timestamp']
+
+    game_state['stopwatch_timestamp']
   end
 end

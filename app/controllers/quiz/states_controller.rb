@@ -21,7 +21,7 @@ module Quiz
 
       validated_params = result.to_h
       answer = validated_params[:answer].upcase
-      time_taken = validated_params[:time_taken]
+      time_taken = Time.current.to_i - current_game.stopwatch_timestamp
       hint_used = validated_params[:hint_used]
 
       question = result.context[:question]

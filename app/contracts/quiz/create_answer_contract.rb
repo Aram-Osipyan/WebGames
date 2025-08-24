@@ -9,7 +9,6 @@ module Quiz
     params do
       required(:answer).filled(included_in?: %w[A B C D])
       required(:question_id).filled(:integer)
-      optional(:time_taken).maybe(:integer, gteq?: 0)
       optional(:hint_used).maybe(:bool)
     end
 

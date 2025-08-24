@@ -6,7 +6,7 @@
 [node name="Answer1" type="Button"]
 margin_right = 589.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 0, 80 )
+rect_min_size = Vector2( 0, 90 )
 rect_scale = Vector2( 1, 1.00318 )
 focus_mode = 1
 theme = ExtResource( 2 )
