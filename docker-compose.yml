@@ -89,6 +89,9 @@ services:
     profiles: ["web"]
     volumes:
       - ".:/app"
+      - "/app/tmp"
+      - "/app/log"
+      - "/app/db"
 
   worker:
     <<: *default-app

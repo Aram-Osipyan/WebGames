@@ -4,7 +4,9 @@ set -e
 
 # Always keep this here as it ensures your latest built assets make their way
 # into your volume persisted public directory.
-cp -r /public /app
+if [ -d "/public" ]; then
+  cp -r /public /app
+fi
 
 # Sprockets will use the first sprockets file it finds not the latest one. We
 # need to delete all of the old sprockets files except for the one that was
@@ -19,6 +21,16 @@ if compgen -G "${manifest_files}" > /dev/null 2>&1; then
     ${manifest_files} \
     -type f ! -name "$(basename /public/assets/.sprockets-manifest-*.json)" \
     -delete
+fi
+
+# Fix permissions for directories that need to be writable
+mkdir -p /app/tmp /app/log /app/db
+chmod 755 /app/tmp /app/log /app/db
+
+# Set up database if running the main Rails server
+if [[ "$1" == "rails" && "$2" == "s" ]]; then
+  echo "Setting up database..."
+  /app/bin/setup-database
 fi
 
 exec "$@"
