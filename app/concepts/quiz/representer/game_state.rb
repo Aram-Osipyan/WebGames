@@ -14,7 +14,12 @@ module Quiz
       attribute :completed, &:completed?
       attribute :hints_used, &:hints_used_count
       attributes :remaining_questions
-      attributes :completed_at
+      attribute :completed_at do |resource|
+        resource.completed_at.to_i
+      end
+      attribute :created_at do |resource|
+        resource.created_at.to_i
+      end
       attributes :stopwatch_timestamp
 
       one :current_question do

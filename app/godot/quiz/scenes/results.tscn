@@ -1,0 +1,263 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/results_controller.gd" type="Script" id=1]
+[ext_resource path="res://resources/PTSans-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/PTSans-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 23
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.9, 0.95, 0.9, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color( 0, 0, 0, 0.0431373 )
+shadow_size = 5
+shadow_offset = Vector2( -0.042, 6 )
+anti_aliasing_size = 0.171
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="ResultsScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.95, 0.95, 0.95, 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = -30.0
+rect_rotation = -0.0445901
+
+[node name="MainContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 540.0
+margin_bottom = 686.0
+size_flags_horizontal = 3
+custom_constants/separation = 30
+
+[node name="ResultsSection" type="VBoxContainer" parent="ScrollContainer/MainContainer"]
+margin_right = 540.0
+margin_bottom = 102.0
+custom_constants/separation = 15
+
+[node name="ResultsTitle" type="Label" parent="ScrollContainer/MainContainer/ResultsSection"]
+margin_right = 540.0
+margin_bottom = 47.0
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Результаты"
+
+[node name="ScoreContainer" type="HBoxContainer" parent="ScrollContainer/MainContainer/ResultsSection"]
+margin_top = 62.0
+margin_right = 540.0
+margin_bottom = 102.0
+
+[node name="ScoreLabel" type="Label" parent="ScrollContainer/MainContainer/ResultsSection/ScoreContainer"]
+margin_top = 3.0
+margin_right = 72.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Место:"
+
+[node name="ScoreValue" type="Label" parent="ScrollContainer/MainContainer/ResultsSection/ScoreContainer"]
+margin_left = 76.0
+margin_right = 110.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "41"
+
+[node name="QuestionsSection" type="VBoxContainer" parent="ScrollContainer/MainContainer"]
+margin_top = 132.0
+margin_right = 540.0
+margin_bottom = 295.0
+custom_constants/separation = 20
+
+[node name="QuestionsTitle" type="Label" parent="ScrollContainer/MainContainer/QuestionsSection"]
+margin_right = 540.0
+margin_bottom = 47.0
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Вопросы"
+
+[node name="QuestionsGrid" type="HBoxContainer" parent="ScrollContainer/MainContainer/QuestionsSection"]
+margin_top = 67.0
+margin_right = 540.0
+margin_bottom = 67.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="AnswersStats" type="VBoxContainer" parent="ScrollContainer/MainContainer/QuestionsSection"]
+margin_top = 87.0
+margin_right = 540.0
+margin_bottom = 163.0
+custom_constants/separation = 10
+
+[node name="CorrectAnswers" type="HBoxContainer" parent="ScrollContainer/MainContainer/QuestionsSection/AnswersStats"]
+margin_right = 540.0
+margin_bottom = 33.0
+
+[node name="CorrectLabel" type="Label" parent="ScrollContainer/MainContainer/QuestionsSection/AnswersStats/CorrectAnswers"]
+margin_right = 181.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Верных ответов:"
+
+[node name="CorrectValue" type="Label" parent="ScrollContainer/MainContainer/QuestionsSection/AnswersStats/CorrectAnswers"]
+margin_left = 185.0
+margin_right = 199.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "5"
+
+[node name="IncorrectAnswers" type="HBoxContainer" parent="ScrollContainer/MainContainer/QuestionsSection/AnswersStats"]
+margin_top = 43.0
+margin_right = 540.0
+margin_bottom = 76.0
+
+[node name="IncorrectLabel" type="Label" parent="ScrollContainer/MainContainer/QuestionsSection/AnswersStats/IncorrectAnswers"]
+margin_right = 208.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Неверных ответов:"
+
+[node name="IncorrectValue" type="Label" parent="ScrollContainer/MainContainer/QuestionsSection/AnswersStats/IncorrectAnswers"]
+margin_left = 212.0
+margin_right = 226.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0.8, 0.4, 0.2, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "5"
+
+[node name="TimeSection" type="VBoxContainer" parent="ScrollContainer/MainContainer"]
+margin_top = 325.0
+margin_right = 540.0
+margin_bottom = 356.0
+custom_constants/separation = 10
+
+[node name="TimeContainer" type="HBoxContainer" parent="ScrollContainer/MainContainer/TimeSection"]
+margin_right = 540.0
+margin_bottom = 31.0
+
+[node name="TimeLabel" type="Label" parent="ScrollContainer/MainContainer/TimeSection/TimeContainer"]
+margin_right = 144.0
+margin_bottom = 31.0
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Общее время:"
+
+[node name="TimeValue" type="Label" parent="ScrollContainer/MainContainer/TimeSection/TimeContainer"]
+margin_left = 148.0
+margin_right = 258.0
+margin_bottom = 31.0
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "112.46672"
+
+[node name="PlayAgainSection" type="CenterContainer" parent="ScrollContainer/MainContainer"]
+margin_top = 386.0
+margin_right = 540.0
+margin_bottom = 686.0
+
+[node name="PlayAgainContainer" type="Panel" parent="ScrollContainer/MainContainer/PlayAgainSection"]
+margin_left = 20.0
+margin_right = 520.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 500, 300 )
+custom_styles/panel = SubResource( 5 )
+
+[node name="PlayAgainContent" type="VBoxContainer" parent="ScrollContainer/MainContainer/PlayAgainSection/PlayAgainContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = -40.0
+margin_bottom = -40.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="PlayAgainTitle" type="Label" parent="ScrollContainer/MainContainer/PlayAgainSection/PlayAgainContainer/PlayAgainContent"]
+margin_top = 61.0
+margin_right = 420.0
+margin_bottom = 108.0
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Сыграем заново?"
+align = 1
+
+[node name="GameEndedLabel" type="Label" parent="ScrollContainer/MainContainer/PlayAgainSection/PlayAgainContainer/PlayAgainContent"]
+margin_top = 128.0
+margin_right = 420.0
+margin_bottom = 159.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "На сегодня игра окончена."
+align = 1
+
+[node name="ImprovementLabel" type="Label" parent="ScrollContainer/MainContainer/PlayAgainSection/PlayAgainContainer/PlayAgainContent"]
+visible = false
+margin_top = 114.0
+margin_right = 420.0
+margin_bottom = 171.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Хочешь улучшить свои результаты? Используй переигровку!"
+align = 1
+autowrap = true
+
+[node name="PlayAgainButton" type="Button" parent="ScrollContainer/MainContainer/PlayAgainSection/PlayAgainContainer/PlayAgainContent"]
+visible = false
+margin_left = 110.0
+margin_top = 137.0
+margin_right = 310.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 4 )
+text = "Переиграть"

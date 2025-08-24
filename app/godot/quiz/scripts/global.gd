@@ -9,6 +9,7 @@ signal score_updated(score)
 signal progress_updated(progress)
 signal state_refreshed(stats)
 signal next_selected
+signal game_restart_requested
 
 var Token: String
 var Host: String = "http://localhost:8000"

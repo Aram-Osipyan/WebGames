@@ -12,6 +12,8 @@ extends Control
 #onready var clock_hint = $VBoxContainer/HintsContainer/ClockHint
 #onready var fifty_fifty_hint = $VBoxContainer/HintsContainer/FiftyFiftyHint
 onready var http_request = $HTTPRequest
+onready var quiz_scene = $QuizScene
+onready var results_scene = $ResultsScene
 
 # Progress segments
 #onready var segments = [
@@ -37,6 +39,8 @@ func _ready():
 	Global.connect("question_loaded", self, "_on_question_loaded")
 #	Global.connect("answer_selected", self, "_on_answer_selected")
 	Global.connect("hint_requested", self, "_on_hint_requested")
+	Global.connect("state_refreshed", self, "_on_state_refreshed")
+	Global.connect("game_restart_requested", self, "_on_game_restart_requested")
 	
 	# Connect hint buttons
 #	shield_hint.connect("pressed", self, "_on_hint_pressed", ["shield"])
@@ -175,10 +179,18 @@ func set_buttons_enabled(enabled):
 #	islam_button.disabled = not enabled
 
 func show_completion_screen():
-	# Show final results
-#	question_title.text = "Игра завершена!"
-#	question_text.text = "Поздравляем! Вы завершили викторину."
-#	if game_state:
-#		score_label.text = str(game_state.final_score) + " баллов"
-#	next_button.text = "Играть завтра"
+	# Hide quiz scene and show results
+	quiz_scene.visible = false
+	results_scene.visible = true
 	set_buttons_enabled(false)
+
+func _on_state_refreshed(state):
+	if state.has("completed") and state.completed:
+		show_completion_screen()
+
+func _on_game_restart_requested():
+	# Hide results and show quiz scene again
+	results_scene.visible = false
+	quiz_scene.visible = true
+	# Reset game state or reload
+	load_game_state()
