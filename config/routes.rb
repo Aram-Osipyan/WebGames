@@ -8,18 +8,22 @@ Rails.application.routes.draw do
   end
 
   namespace :wordle do
-    resource :state, only: [:show, :create]
+    resource :state, only: %i[show create]
     resource :stats, only: [:show]
     resource :price, only: [:show]
   end
 
   namespace :quiz do
-    resource :state, only: [:show, :create]
+    resource :state, only: %i[show create] do
+      collection do
+        post :next
+      end
+    end
     resource :stats, only: [:show]
   end
 
   namespace :racer do
-    resource :game_complete, only: [:show, :create]
+    resource :game_complete, only: %i[show create]
     get :leaderboard, only: [:index], to: 'leaderboard#index'
   end
 
@@ -79,9 +83,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :admins, controllers: {
-        sessions: 'admins/sessions',
-        registrations: 'admins/registrations'
-      }
+    sessions: 'admins/sessions',
+    registrations: 'admins/registrations'
+  }
 
   authenticate :admin do
     mount Avo::Engine, at: '/admin_panel/'

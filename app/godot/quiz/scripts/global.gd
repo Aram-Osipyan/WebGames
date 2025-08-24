@@ -8,6 +8,7 @@ signal timer_updated(time_left)
 signal score_updated(score)
 signal progress_updated(progress)
 signal state_refreshed(stats)
+signal next_selected
 
 var Token: String
 var Host: String = "http://localhost:8000"
@@ -22,7 +23,6 @@ func _ready():
 
 	var token = web_hash.split('/')[4]
 	Global.Token = token
-	pass
 
 func url(path):
 	return Host + path
@@ -56,3 +56,6 @@ func update_progress(progress):
 
 func get_time_taken():
 	return (OS.get_ticks_msec() - question_start_time) / 1000
+
+func select_next():
+	emit_signal("next_selected")

@@ -8,8 +8,11 @@ module Quiz
     end
 
     def create
-      contract = Quiz::CreateAnswerContract.new
-      result = contract.call(params.permit(:answer, :question_id, :time_taken, :hint_used))
+      current_game = QuizGame.current_game_for_user(current_user)
+      current_game ||= QuizGame.create_daily_game(current_user)
+
+      contract = Quiz::CreateAnswerContract.new(current_game:)
+      result = contract.call(params.to_unsafe_hash)
 
       if result.failure?
         errors = result.errors.to_h
@@ -18,45 +21,34 @@ module Quiz
 
       validated_params = result.to_h
       answer = validated_params[:answer].upcase
-      question_id = validated_params[:question_id]
-      time_taken = validated_params[:time_taken] || 0
-      hint_used = validated_params[:hint_used] == 'true'
+      time_taken = validated_params[:time_taken]
+      hint_used = validated_params[:hint_used]
 
+      question = result.context[:question]
+
+      current_game.use_hint! if hint_used
+
+      current_game.answer_question!(question, answer, time_taken, hint_used)
+
+      render json: Quiz::Representer::GameState.new(current_game)
+    end
+
+    def next
       current_game = QuizGame.current_game_for_user(current_user)
-      current_game ||= QuizGame.create_daily_game(current_user)
 
-      question = QuizQuestion.find_by(id: question_id)
-      return render json: { error: 'question not found' }, status: :not_found unless question
+      return render json: { error: 'game not found' }, status: :not_found unless current_game
 
-      # Check if question is already answered
-      existing_answer = current_game.quiz_user_answers.find_by(quiz_question: question)
-      return render json: { error: 'question already answered' }, status: :bad_request if existing_answer
+      contract = Quiz::NextQuestionContract.new(current_game:)
+      result = contract.call(params.to_unsafe_hash)
 
-      # Check if this is the current question
-      return render json: { error: 'not current question' }, status: :bad_request unless current_game.current_question&.id == question_id
-
-      if hint_used
-        current_game.use_hint!
+      if result.failure?
+        errors = result.errors.to_h
+        return render json: { error: format_validation_errors(errors) }, status: :bad_request
       end
 
-      is_correct = current_game.answer_question!(question, answer, time_taken, hint_used)
+      current_game.next_question!
 
-      result = {
-        is_correct: is_correct,
-        correct_answer: question.correct_answer,
-        correct_option: question.correct_option_text,
-        score: current_game.score,
-        progress: current_game.progress_percentage,
-        completed: current_game.completed?
-      }
-
-      if current_game.completed?
-        result[:final_score] = current_game.score
-        result[:correct_answers] = current_game.correct_answers
-        result[:total_questions] = current_game.total_questions
-      end
-
-      render json: result
+      render json: Quiz::Representer::GameState.new(current_game)
     end
 
     private

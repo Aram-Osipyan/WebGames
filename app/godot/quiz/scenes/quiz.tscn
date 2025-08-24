@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/progress_bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/question_container.gd" type="Script" id=2]
@@ -6,13 +6,23 @@
 [ext_resource path="res://scripts/answers_container.gd" type="Script" id=4]
 [ext_resource path="res://scenes/answer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/PTSans-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scripts/next_button.gd" type="Script" id=7]
+[ext_resource path="res://resources/timer_watch_icon.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.298039, 0.686275, 0.313726, 1 )
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
@@ -98,39 +108,42 @@ margin_bottom = 104.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="QuestionsTitle" type="Label" parent="MainContainer/Header/TitleRow"]
-margin_top = 13.0
+margin_top = 1.0
 margin_right = 120.0
-margin_bottom = 27.0
+margin_bottom = 38.0
 rect_min_size = Vector2( 120, 0 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Вопросы"
 
 [node name="Spacer2" type="Control" parent="MainContainer/Header/TitleRow"]
 margin_left = 124.0
-margin_right = 469.0
+margin_right = 459.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="TimerContainer" type="HBoxContainer" parent="MainContainer/Header/TitleRow"]
-margin_left = 473.0
+margin_left = 463.0
 margin_right = 589.0
 margin_bottom = 40.0
 
-[node name="TimerIcon" type="Label" parent="MainContainer/Header/TitleRow/TimerContainer"]
-margin_top = 13.0
-margin_right = 30.0
-margin_bottom = 27.0
-rect_min_size = Vector2( 30, 0 )
-text = "⏱"
-align = 1
-valign = 1
+[node name="TimerIcon" type="TextureRect" parent="MainContainer/Header/TitleRow/TimerContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 0 )
+rect_pivot_offset = Vector2( -1105, 411 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
 
 [node name="TimerLabel" type="Label" parent="MainContainer/Header/TitleRow/TimerContainer"]
-margin_left = 34.0
-margin_top = 13.0
-margin_right = 116.0
-margin_bottom = 27.0
+margin_left = 44.0
+margin_top = 4.0
+margin_right = 126.0
+margin_bottom = 36.0
 rect_min_size = Vector2( 82, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
 text = "00:01"
 valign = 1
 
@@ -139,9 +152,12 @@ margin_top = 108.0
 margin_right = 589.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 0, 32 )
+alignment = 1
 
 [node name="ProgressBar" parent="MainContainer/Header/ProgressContainer" instance=ExtResource( 1 )]
+margin_top = 10.0
 margin_right = 589.0
+margin_bottom = 22.0
 
 [node name="HintsContainer" type="HBoxContainer" parent="MainContainer/Header/ProgressContainer"]
 visible = false
@@ -258,18 +274,22 @@ margin_bottom = 383.0
 rect_scale = Vector2( 1, 1 )
 answer = "D"
 
-[node name="BottomContainer" type="VBoxContainer" parent="MainContainer"]
+[node name="BottomContainer" type="CenterContainer" parent="MainContainer"]
 margin_top = 908.0
 margin_right = 589.0
 margin_bottom = 984.0
 rect_min_size = Vector2( 0, 76 )
 
 [node name="NextButton" type="Button" parent="MainContainer/BottomContainer"]
-margin_right = 589.0
+margin_left = 119.0
+margin_right = 469.0
 margin_bottom = 76.0
-rect_min_size = Vector2( 0, 76 )
+rect_min_size = Vector2( 350, 76 )
+rect_pivot_offset = Vector2( 175, 38 )
+focus_mode = 0
 custom_colors/font_color_disabled = Color( 1, 1, 1, 0.5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
-custom_styles/normal = SubResource( 1 )
+enabled_focus_mode = 0
 text = "Далее"
+script = ExtResource( 7 )

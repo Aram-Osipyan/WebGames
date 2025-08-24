@@ -1,3 +1,17 @@
 {
-    "godotTools.editorPath.godot4": "/usr/local/bin/godotv4"
+    "godotTools.editorPath.godot4": "/usr/local/bin/godotv4",
+    "files.watcherExclude": {
+        "**/node_modules": true,
+        "**/tmp": true,
+        "**/log": true,
+        "**/coverage": true,
+        "**/.git": true
+    },
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/tmp": true,
+        "**/log": true,
+        "**/coverage": true
+    }
 }
+

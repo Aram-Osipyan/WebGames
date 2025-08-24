@@ -22,8 +22,8 @@ class QuizGame < ApplicationRecord
     return current_game_for_user(user) if current_game_for_user(user)
 
     questions = QuizQuestion.daily_questions(10)
-    
-    game = create!(
+
+    create!(
       user: user,
       active_until: Time.current.end_of_day,
       total_questions: 10,
@@ -34,8 +34,6 @@ class QuizGame < ApplicationRecord
         start_time: Time.current.to_i
       }
     )
-
-    game
   end
 
   def current_question
@@ -43,6 +41,10 @@ class QuizGame < ApplicationRecord
 
     question_ids = game_state['questions'] || []
     QuizQuestion.find(question_ids[current_question_index]) if question_ids[current_question_index]
+  end
+
+  def current_answer
+    QuizGame.current_game_for_user(user).quiz_user_answers.where(quiz_question: current_question).last
   end
 
   def current_question_index
@@ -54,9 +56,13 @@ class QuizGame < ApplicationRecord
     save!
   end
 
+  def correct?
+    quiz_user_answers.find_by(quiz_question: current_question).is_correct
+  end
+
   def answer_question!(question, selected_answer, time_taken = 0, hint_used = false)
     is_correct = question.correct_answer == selected_answer.upcase
-    
+
     quiz_user_answers.create!(
       quiz_question: question,
       selected_answer: selected_answer.upcase,
@@ -70,11 +76,9 @@ class QuizGame < ApplicationRecord
       self.score += hint_used ? 50 : 100 # Less points if hint was used
     end
 
-    next_question!
+    # next_question!
 
-    if current_question_index >= total_questions
-      complete_game!
-    end
+    complete_game! if current_question_index >= total_questions
 
     save!
     is_correct
@@ -88,6 +92,7 @@ class QuizGame < ApplicationRecord
 
   def progress_percentage
     return 100 if completed?
+
     (current_question_index.to_f / total_questions * 100).round
   end
 
