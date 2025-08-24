@@ -12,7 +12,7 @@ signal next_selected
 signal game_restart_requested
 
 var Token: String
-var Host: String = "http://localhost:8000"
+var Host: String = "https://wiki.aquafon.com"
 var current_question = null
 var current_game_data = null
 var timer_running = false
