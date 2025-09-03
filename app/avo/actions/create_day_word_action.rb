@@ -6,7 +6,7 @@ class CreateDayWordAction < Avo::BaseAction
   }
 
   field :word, as: :text, required: true
-  field :active_until, as: :date_time, required: true
+  field :active_from, as: :date_time, required: true
 
   def handle(fields:, current_user:, resource:, **_args)
     return error('Слово должно состоять из 5 букв') if fields[:word].length != 5
@@ -14,7 +14,7 @@ class CreateDayWordAction < Avo::BaseAction
 
     DayWord.order(:active_until).last
 
-    DayWord.create!(word: fields[:word], active_until: fields[:active_until])
+    DayWord.create!(word: fields[:word], active_from: fields[:active_from])
 
     succeed 'Word created successfully'
   end
