@@ -87,9 +87,9 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
-  authenticate :admin do
-    mount Avo::Engine, at: '/admin_panel/'
-  end
+ # authenticate :admin do
+ #   mount Avo::Engine, at: '/admin_panel/'
+ # end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
   # default because you very likely wouldn't want this to be available to
