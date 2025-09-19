@@ -85,4 +85,10 @@ Rails.application.configure do
 
   # do not force SSL on admin panel port
   config.force_ssl = false
+
+  Rails.application.routes.default_url_options = {
+    host: 'wiki.aquafon.com',
+    port: 5050,
+    protocol: 'http'
+  }
 end

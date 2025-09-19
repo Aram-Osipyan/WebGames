@@ -86,4 +86,9 @@ Rails.application.configure do
 
   config.hosts << 'wiki.aquafon.com'
   config.force_ssl = false
+  Rails.application.routes.default_url_options = {
+    host: 'wiki.aquafon.com',
+    port: 5050,
+    protocol: 'http'
+  }
 end
