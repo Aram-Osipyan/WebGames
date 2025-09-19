@@ -89,6 +89,12 @@ Rails.application.configure do
   Rails.application.routes.default_url_options = {
     host: 'wiki.aquafon.com',
     port: 5050,
-    protocol: 'http'
+    protocol: 'https'
+  }
+
+  config.action_mailer.default_url_options = {
+    host: 'wiki.aquafon.com',
+    port: 5050,
+    protocol: 'https'
   }
 end
