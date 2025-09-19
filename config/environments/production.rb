@@ -81,14 +81,14 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  config.hosts << 'wiki.aquafon.com'
+  # config.hosts << 'wiki.aquafon.com'
 
-  # do not force SSL on admin panel port
-  config.force_ssl = false
+  # # do not force SSL on admin panel port
+  # config.force_ssl = false
 
-  Rails.application.routes.default_url_options = {
-    host: 'wiki.aquafon.com',
-    port: 5050,
-    protocol: 'http'
-  }
+  # Rails.application.routes.default_url_options = {
+  #   host: 'wiki.aquafon.com',
+  #   port: 5050,
+  #   protocol: 'http'
+  # }
 end

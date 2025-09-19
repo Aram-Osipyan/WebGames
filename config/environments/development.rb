@@ -84,17 +84,17 @@ Rails.application.configure do
   # isn't insecure due to only running in development.
   config.web_console.allowed_ips = ['0.0.0.0/0']
 
-  config.hosts << 'wiki.aquafon.com'
-  config.force_ssl = false
-  Rails.application.routes.default_url_options = {
-    host: 'wiki.aquafon.com',
-    port: 5050,
-    protocol: 'https'
-  }
+  # config.hosts << 'wiki.aquafon.com'
+  # config.force_ssl = false
+  # Rails.application.routes.default_url_options = {
+  #   host: 'wiki.aquafon.com',
+  #   port: 5050,
+  #   protocol: 'https'
+  # }
 
-  config.action_mailer.default_url_options = {
-    host: 'wiki.aquafon.com',
-    port: 5050,
-    protocol: 'https'
-  }
+  # config.action_mailer.default_url_options = {
+  #   host: 'wiki.aquafon.com',
+  #   port: 5050,
+  #   protocol: 'https'
+  # }
 end
