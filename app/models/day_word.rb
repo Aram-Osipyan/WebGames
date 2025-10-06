@@ -23,4 +23,12 @@ class DayWord < ApplicationRecord
 
     active_until - 1.day
   end
+
+  def []=(attr_name, value)
+    if attr_name.to_s == 'active_from'
+      self.active_from = value
+    else
+      super # use ActiveRecord’s default write_attribute
+    end
+  end
 end
