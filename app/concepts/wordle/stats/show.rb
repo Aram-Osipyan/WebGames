@@ -35,8 +35,8 @@ module Wordle
           if (current_day - last_day) / 24.0 / 60.0 / 60.0 > 1
             stats.clear
             stats.push(game)
-          elsif current_day < current_user.last_rewarded_at
-            stats.clear
+          elsif current_day.beginning_of_day < current_user.last_rewarded_at
+            stats.clear unless current_day.today?
           elsif %w[win pending].include? game[:result]
             stats.push(game)
           else
