@@ -21,8 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="quiz"
-run/main_scene="res://scenes/main.tscn"
-boot_splash/bg_color=Color( 0.298039, 0.686275, 0.313726, 1 )
+run/main_scene="res://scenes/start.tscn"
+boot_splash/bg_color=Color( 0, 0.72549, 0.337255, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -46,6 +46,8 @@ Etc=false
 "Import Etc"=false
 color=false
 borderless=true
+"цвет"=false
+back=false
 
 [gui]
 

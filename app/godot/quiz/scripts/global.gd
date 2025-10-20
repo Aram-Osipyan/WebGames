@@ -10,6 +10,8 @@ signal progress_updated(progress)
 signal state_refreshed(stats)
 signal next_selected
 signal game_restart_requested
+signal autoscroll_started
+signal autoscroll_stopped
 
 var Token: String
 var Host: String = "https://wiki.aquafon.com"
@@ -19,7 +21,9 @@ var timer_running = false
 var question_start_time = 0
 
 func _ready():
+#	var web_hash = '/games/5f178b1bd3d57648979eded38c0b104f/quiz/'#JavaScript.eval("window.location.href")
 	var web_hash = JavaScript.eval("window.location.href")
+#	Global.Host = 'http://localhost:8000'
 	Global.Host = JavaScript.eval("window.location.origin")
 
 	var token = web_hash.split('/')[4]
@@ -60,3 +64,9 @@ func get_time_taken():
 
 func select_next():
 	emit_signal("next_selected")
+	
+func start_autoscroll():
+	emit_signal("autoscroll_started")
+	
+func stop_autoscroll():
+	emit_signal("autoscroll_stopped")

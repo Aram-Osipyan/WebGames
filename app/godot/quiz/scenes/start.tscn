@@ -1,0 +1,400 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scripts/start.gd" type="Script" id=1]
+[ext_resource path="res://resources/PTSans-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/hourglass.svg" type="Texture" id=3]
+[ext_resource path="res://resources/question-mark.svg" type="Texture" id=4]
+[ext_resource path="res://resources/lamp.svg" type="Texture" id=5]
+[ext_resource path="res://resources/PTSans-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://resources/cup.svg" type="Texture" id=7]
+[ext_resource path="res://scenes/scroll_container.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://resources/PTSans-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = SubResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.45098, 0.0980392, 0.509804, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.25098, 0.0509804, 0.282353, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.45098, 0.0980392, 0.509804, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.25098, 0.0509804, 0.282353, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[node name="StartScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 12.0
+scroll_horizontal_enabled = false
+script = ExtResource( 8 )
+
+[node name="MainContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 600.0
+margin_bottom = 1800.0
+rect_min_size = Vector2( 600, 1800 )
+
+[node name="FirstSection" type="Control" parent="ScrollContainer/MainContainer"]
+margin_right = 600.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 600, 900 )
+
+[node name="Background1" type="ColorRect" parent="ScrollContainer/MainContainer/FirstSection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.72549, 0.337255, 1 )
+
+[node name="ContentContainer1" type="VBoxContainer" parent="ScrollContainer/MainContainer/FirstSection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 100.0
+margin_right = -40.0
+margin_bottom = -100.0
+alignment = 1
+
+[node name="TitleContainer" type="VBoxContainer" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1"]
+margin_top = 75.0
+margin_right = 520.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 0, 200 )
+alignment = 1
+
+[node name="MainTitle" type="Label" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1/TitleContainer"]
+margin_top = 22.0
+margin_right = 520.0
+margin_bottom = 117.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Играйте в квиз - 
+забирайте приз"
+align = 1
+valign = 1
+
+[node name="Spacer1" type="Control" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1/TitleContainer"]
+margin_top = 121.0
+margin_right = 520.0
+margin_bottom = 141.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="Description" type="Label" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1/TitleContainer"]
+margin_top = 145.0
+margin_right = 520.0
+margin_bottom = 177.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Собирайте «три в ряд» в новой игре "
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Spacer2" type="Control" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1"]
+margin_top = 279.0
+margin_right = 520.0
+margin_bottom = 329.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="ButtonContainer1" type="CenterContainer" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1"]
+margin_top = 333.0
+margin_right = 520.0
+margin_bottom = 409.0
+rect_min_size = Vector2( 0, 76 )
+
+[node name="PlayButton1" type="Button" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1/ButtonContainer1"]
+margin_left = 85.0
+margin_right = 435.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 350, 76 )
+focus_mode = 0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 3 )
+text = "Играть"
+
+[node name="Spacer3" type="Control" parent="ScrollContainer/MainContainer/FirstSection/ContentContainer1"]
+margin_top = 413.0
+margin_right = 520.0
+margin_bottom = 625.0
+rect_min_size = Vector2( 0, 212 )
+
+[node name="SecondSection" type="Control" parent="ScrollContainer/MainContainer"]
+margin_top = 904.0
+margin_right = 600.0
+margin_bottom = 1800.0
+rect_min_size = Vector2( 600, 896 )
+
+[node name="Background2" type="ColorRect" parent="ScrollContainer/MainContainer/SecondSection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ContentContainer2" type="VBoxContainer" parent="ScrollContainer/MainContainer/SecondSection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 20.0
+
+[node name="InfoTitle" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_right = 560.0
+margin_bottom = 46.0
+custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Как проходит игра?"
+
+[node name="Spacer4" type="Control" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 50.0
+margin_right = 560.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="InfoText1" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 74.0
+margin_right = 560.0
+margin_bottom = 141.0
+custom_colors/font_color = Color( 0.0980392, 0.0509804, 0.0509804, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Ваша задача - ответить на 10 вопросов быстрее остальных игроков."
+autowrap = true
+
+[node name="Spacer5" type="Control" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 145.0
+margin_right = 560.0
+margin_bottom = 165.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="InfoText2" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 169.0
+margin_right = 560.0
+margin_bottom = 376.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Кроме своей эрудиции вы можете использовать наши подсказки: право на ошибку, замедление времени, помощь зала и 50/50.
+
+Между вопросами таймер останавливается - можно будет перевести дух"
+autowrap = true
+
+[node name="Spacer6" type="Control" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 380.0
+margin_right = 560.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="ColorRect" type="Panel" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 404.0
+margin_right = 560.0
+margin_bottom = 504.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 6 )
+custom_styles/panel = SubResource( 7 )
+
+[node name="InfoText3" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/ColorRect"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -51.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0.392157, 0.384314, 0.384314, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Если вы захотите улучшить результат, то активируйте опцию \"Переигровка\": она позволяет ответить на 10 вопросов ещё раз."
+align = 1
+autowrap = true
+
+[node name="Spacer7" type="Control" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 508.0
+margin_right = 560.0
+margin_bottom = 528.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="FeaturesContainer" type="VBoxContainer" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 532.0
+margin_right = 560.0
+margin_bottom = 772.0
+rect_min_size = Vector2( 0, 240 )
+custom_constants/separation = -5
+
+[node name="FeatureRow1" type="HBoxContainer" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer"]
+margin_right = 560.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 23
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow1"]
+margin_right = 40.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="Feature1" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow1"]
+margin_left = 63.0
+margin_top = 9.0
+margin_right = 560.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "10 вопросов"
+valign = 1
+
+[node name="FeatureRow4" type="HBoxContainer" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer"]
+margin_top = 45.0
+margin_right = 560.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 23
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow4"]
+margin_right = 40.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="Feature2" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow4"]
+margin_left = 63.0
+margin_top = 9.0
+margin_right = 560.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Игра длится меньше минуты"
+valign = 1
+
+[node name="FeatureRow2" type="HBoxContainer" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer"]
+margin_top = 90.0
+margin_right = 560.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 23
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow2"]
+margin_right = 40.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 5 )
+stretch_mode = 1
+
+[node name="Feature3" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow2"]
+margin_left = 63.0
+margin_top = 9.0
+margin_right = 560.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Можно использовать подсказки"
+valign = 1
+
+[node name="FeatureRow3" type="HBoxContainer" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer"]
+margin_top = 135.0
+margin_right = 560.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 23
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow3"]
+margin_right = 40.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 40, 40 )
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[node name="Feature4" type="Label" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/FeaturesContainer/FeatureRow3"]
+margin_left = 63.0
+margin_top = 9.0
+margin_right = 560.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Ежедневный розыгрыш 30 000 ₽"
+valign = 1
+
+[node name="Spacer8" type="Control" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+visible = false
+margin_top = 776.0
+margin_right = 560.0
+margin_bottom = 816.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="ButtonContainer2" type="CenterContainer" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 776.0
+margin_right = 560.0
+margin_bottom = 852.0
+rect_min_size = Vector2( 0, 76 )
+
+[node name="PlayButton2" type="Button" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2/ButtonContainer2"]
+margin_left = 105.0
+margin_right = 455.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 350, 76 )
+focus_mode = 0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 3 )
+text = "Играть"
+
+[node name="Spacer9" type="Control" parent="ScrollContainer/MainContainer/SecondSection/ContentContainer2"]
+margin_top = 856.0
+margin_right = 560.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 0, 44 )

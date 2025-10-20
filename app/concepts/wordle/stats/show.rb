@@ -3,8 +3,10 @@
 module Wordle
   module Stats
     # doc
-    class Show
-      def self.perform(current_user)
+    class Show < ApplicationService
+      option :current_user
+
+      def perform
         current_user.last_rewarded_at ||= Time.at(0)
         current_game = ::WordleGame.where(user_id: current_user.id).where('active_until > ?', Time.current).first
 

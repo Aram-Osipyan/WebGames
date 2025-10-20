@@ -54,9 +54,10 @@ func _ready():
 #	next_button.connect("pressed", self, "_on_next_pressed")
 	
 	# Connect HTTP request
-#	http_request.connect("request_completed", self, "_on_HTTPRequest_request_completed")
+	http_request.connect("request_completed", self, "_on_HTTPRequest_request_completed")
 	
-#	load_game_state()
+	# Load game state when entering from start page
+	load_game_state()
 
 func _process(delta):
 	if timer_active and question_timer > 0:
@@ -75,21 +76,21 @@ func load_game_state():
 	var headers = ["Authorization: {token}".format({"token": Global.Token})]
 	http_request.request(url, headers, false, HTTPClient.METHOD_GET)
 
-#func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
-#	print('response')
-#
-#	print(response_code)
-#	if response_code == 200:
-#		var json_response = JSON.parse(body.get_string_from_utf8())
-#		print(json_response)
-#		if json_response.error == OK:
-#			game_state = json_response.result
-#			Global.refresh_state(game_state)
-#			update_ui()
-#			if game_state.has("current_question") and not game_state.completed:
-#				load_current_question()
-#			elif game_state.completed:
-#				show_completion_screen()
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
+	print('response')
+
+	print(response_code)
+	if response_code == 200:
+		var json_response = JSON.parse(body.get_string_from_utf8())
+		print(json_response)
+		if json_response.error == OK:
+			game_state = json_response.result
+			Global.refresh_state(game_state)
+			update_ui()
+			if game_state.has("current_question") and not game_state.completed:
+				load_current_question()
+			elif game_state.completed:
+				show_completion_screen()
 
 func update_ui():
 	if game_state:
