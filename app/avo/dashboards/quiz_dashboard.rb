@@ -7,7 +7,6 @@ require_relative 'cards/average_score_metric'
 
 class QuizDashboard < Avo::Dashboards::BaseDashboard
   self.id = 'quiz_dashboard'
-  self.name = 'Аналитика Викторины'
   self.description = 'Статистика и аналитика игр викторины'
   self.grid_cols = 3
 
