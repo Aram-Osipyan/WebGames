@@ -11,15 +11,15 @@ class QuizDashboard < Avo::Dashboards::BaseDashboard
   self.grid_cols = 3
 
   # Общая статистика
-  card TotalQuestionsMetric
-  card TotalGamesMetric
-  card ActivePlayersMetric
+  card Cards::TotalQuestionsMetric
+  card Cards::TotalGamesMetric
+  card Cards::ActivePlayersMetric
 
   divider label: 'Статистика за последние 7 дней'
 
-  card NewGamesMetric
-  card CompletedGamesMetric
-  card AverageScoreMetric
+  card Cards::NewGamesMetric
+  card Cards::CompletedGamesMetric
+  card Cards::AverageScoreMetric
 
   divider label: 'Популярные категории'
 
