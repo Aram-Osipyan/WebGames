@@ -27,4 +27,9 @@ yarn-debug.log*
 # Ignore secrets and other files.
 .env*
 !.env.example
+!.env.kamal
 docker-compose.override.yml
+
+# Ignore Kamal deployment files
+.kamal/
+config/deploy.yml.lock

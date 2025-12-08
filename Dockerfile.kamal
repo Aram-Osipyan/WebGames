@@ -1,0 +1,85 @@
+# syntax=docker/dockerfile:1.5
+
+############################################
+# Stage 1 — Build the app and precompile assets
+############################################
+FROM ruby:3.3.4 as builder
+
+# Define common environment variables
+ENV RAILS_ENV=production \
+    BUNDLE_DEPLOYMENT=1 \
+    BUNDLE_PATH=/bundle
+
+# Install dependencies
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+    build-essential \
+    libyaml-dev \
+    libffi-dev \
+    libpq-dev \
+    nodejs \
+    yarn \
+    git \
+    curl && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Install bundler first
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Copy package.json and install node dependencies
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+# Add app code and assets
+COPY . .
+
+# Precompile assets and bootsnap
+RUN bundle exec bootsnap precompile --gemfile && \
+    SECRET_KEY_BASE_DUMMY=1 RAILS_ENV=production bundle exec rake assets:precompile
+
+############################################
+# Stage 2 — Minimal final image
+############################################
+FROM ruby:3.3.4-slim
+
+ENV RAILS_ENV=production \
+    BUNDLE_DEPLOYMENT=1 \
+    BUNDLE_PATH=/bundle \
+    LANG=en_US.UTF-8 \
+    BUNDLER_VERSION=2.5.6
+
+# Install runtime dependencies
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+      libpq5 \
+      curl \
+      tini && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy built app and gems from builder
+COPY --from=builder /bundle /bundle
+COPY --from=builder /app /app
+
+# Create non-root user
+RUN groupadd -r rails && useradd -r -g rails rails && \
+    chown -R rails:rails /app
+
+USER rails
+
+# Use tini for proper PID 1 handling and existing entrypoint
+ENTRYPOINT ["/usr/bin/tini", "--", "/app/bin/docker-entrypoint-web"]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:3000/up || exit 1
+
+# Expose port
+EXPOSE 3000
+
+# Start the Rails server
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
