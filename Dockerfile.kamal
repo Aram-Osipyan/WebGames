@@ -27,6 +27,7 @@ WORKDIR /app
 
 # Install bundler first
 COPY Gemfile Gemfile.lock ./
+COPY lib/avo ./lib/avo
 RUN bundle install
 
 # Copy package.json and install node dependencies
