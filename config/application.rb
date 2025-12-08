@@ -45,6 +45,11 @@ module AquafonGames
     config.hosts << 'wiki.aquafon.com'
 
     config.hosts.push(*ENV.fetch('ALLOWED_HOSTS') { [] }.split(','))
+    config.hosts.clear
+
+    config.hosts << /webgames.*\z/
+    config.hosts << /kamal-proxy.*\z/
+    config.hosts << /[0-9a-f]{12}\z/ # контейнерные имена типа 229106ee4725
 
     config.middleware.insert_before ActionDispatch::Static, ::Middleware::GameAuthentication
   end
