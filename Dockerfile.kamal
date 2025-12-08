@@ -32,7 +32,7 @@ RUN bundle install
 
 # Copy package.json and install node dependencies
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+# RUN yarn install --frozen-lockfile
 
 # Add app code and assets
 COPY . .
