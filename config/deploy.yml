@@ -1,0 +1,103 @@
+<% require "dotenv"; Dotenv.load(".env") %>
+
+# Name of your application. Used to uniquely configure containers.
+service: webgames
+
+# Name of the container image.
+image: ghcr.io/aram-osipyan/webgames
+
+
+
+# Deploy to these servers.
+servers:
+  web:
+    hosts:
+      - <%= ENV['KAMAL_SERVER_HOST'] %>
+    cmd: bundle exec puma -C config/puma.rb
+  job:
+    hosts:
+      - <%= ENV['KAMAL_SERVER_HOST'] %>
+    cmd: bundle exec sidekiq -C config/sidekiq.yml
+
+deploy_timeout: 300
+
+# Reverse proxy with SSL
+proxy:
+  # host: <%= ENV['KAMAL_PROXY_HOST'] %>
+  ssl: false
+  app_port: 8000
+  response_timeout: 60
+
+# Image registry settings
+registry:
+  server: ghcr.io/aram-osipyan/webgames
+  username: KAMAL_REGISTRY_USER
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  secret:
+    - KAMAL_REGISTRY_PASSWORD
+    - RAILS_MASTER_KEY
+    - SECRET_KEY_BASE
+    - POSTGRES_USER
+    - POSTGRES_PASSWORD
+    - POSTGRES_HOST_AUTH_METHOD
+    - RAILS_ENV
+    - DATABASE_URL
+    - REDIS_URL
+    - RAILS_LOG_TO_STDOUT
+    - RAILS_SERVE_STATIC_FILES
+
+# Remote builder setup
+builder:
+  arch: amd64
+  local: false
+  remote: ssh://root@<%= ENV['KAMAL_SERVER_HOST'] %>
+  # Use the Kamal-specific Dockerfile
+  # dockerfile: Dockerfile.kamal
+
+# SSH user
+ssh:
+  user: root
+
+# Accessories (DB, Redis)
+accessories:
+  postgres:
+    image: postgres:16.3
+    roles:
+      - web
+      - job
+    directories:
+      - data:/var/lib/postgresql/data
+    env:
+      secret:
+        - POSTGRES_USER
+        - POSTGRES_PASSWORD
+      clear:
+        POSTGRES_DB: webgames_production
+
+  redis:
+    image: redis:7.2
+    roles:
+      - web
+      - job
+    directories:
+      - data:/data
+
+# Helpful aliases
+aliases:
+  console: app exec -i --reuse "bin/rails c -- --nomultiline"
+  bash: app exec -i --reuse "bash"
+  logs: app logs --follow
+  restart: app restart
+
+# Asset bridging during deploy
+asset_path: /app/public/assets
+
+# # Health check
+# healthcheck:
+#   path: /up
+#   port: 3000
+#   max_attempts: 7
+#   interval: 20s
