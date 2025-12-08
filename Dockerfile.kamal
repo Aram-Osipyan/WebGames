@@ -25,6 +25,14 @@ RUN apt-get update -qq && \
 
 WORKDIR /app
 
+ARG NODE_VERSION=22.4.0
+ARG YARN_VERSION=1.22.22
+ENV PATH=/usr/local/node/bin:$PATH
+RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
+    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
+    npm install -g yarn@$YARN_VERSION && \
+    rm -rf /tmp/node-build-master
+
 # Install bundler first
 COPY Gemfile Gemfile.lock ./
 COPY lib/avo ./lib/avo
@@ -33,7 +41,7 @@ RUN bundle install
 # Copy package.json and install node dependencies
 COPY package.json yarn.lock ./
 # RUN yarn install --frozen-lockfile
-RUN yarn install
+# RUN yarn install
 
 # Add app code and assets
 COPY . .
