@@ -33,13 +33,13 @@ RUN bundle install
 # Copy package.json and install node dependencies
 COPY package.json yarn.lock ./
 # RUN yarn install --frozen-lockfile
+RUN yarn install
 
 # Add app code and assets
 COPY . .
 
 # Precompile assets and bootsnap
-RUN bundle exec bootsnap precompile --gemfile && \
-    SECRET_KEY_BASE_DUMMY=1 RAILS_ENV=production bundle exec rake assets:precompile
+RUN SECRET_KEY_BASE=1 TELEGRAM_MAIN_BOT_TOKEN=1 TELEGRAM_MAIN_BOT_SECRET=1 ./bin/rails assets:precompile
 
 ############################################
 # Stage 2 — Minimal final image
