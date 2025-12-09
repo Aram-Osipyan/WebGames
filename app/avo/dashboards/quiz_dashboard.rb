@@ -10,6 +10,9 @@ class QuizDashboard < Avo::Dashboards::BaseDashboard
   self.name = 'Аналитика Викторины'
   self.description = 'Статистика и аналитика игр викторины'
   self.grid_cols = 3
+  self.visible = lambda {
+    current_user.game == 'quiz'
+  }
 
   # Общая статистика
   card Cards::TotalQuestionsMetric

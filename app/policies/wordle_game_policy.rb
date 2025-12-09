@@ -1,4 +1,4 @@
-class DayWordPolicy < ApplicationPolicy
+class WordleGamePolicy < ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -8,9 +8,9 @@ class DayWordPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      # Only show day words if admin is managing wordle game
+      # Only show wordle games for users with the same game as the current admin
       if user&.game == 'wordle'
-        scope.all
+        scope.joins(:user).where(users: { game: 'wordle' })
       else
         scope.none
       end
@@ -38,6 +38,8 @@ class DayWordPolicy < ApplicationPolicy
   end
 
   def show?
-    user&.game == 'wordle'
+    return false unless user&.game == 'wordle'
+
+    record.user&.game == 'wordle'
   end
 end

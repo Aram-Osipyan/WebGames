@@ -6,6 +6,10 @@ class QuizGameResource < Avo::BaseResource
     QuizGame.joins(:user).where('users.external_id ILIKE ?', "%#{params[:q]}%")
   }
 
+  self.visible_on_sidebar = lambda {
+    current_user.game == 'quiz'
+  }
+
   field :id, as: :id
   field :user, as: :belongs_to, name: 'Пользователь'
   field :score, as: :number, name: 'Очки'

@@ -5,14 +5,16 @@ class Admins::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    super
+    super do |admin|
+      Current.admin = admin
+    end
   end
 
   # POST /resource/sign_in
   def create
     self.resource = warden.authenticate!(auth_options)
     super do |admin|
-
+      Current.admin = admin
     end
   end
 

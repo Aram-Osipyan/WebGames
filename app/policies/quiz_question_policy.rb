@@ -1,4 +1,4 @@
-class DayWordPolicy < ApplicationPolicy
+class QuizQuestionPolicy < ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -8,8 +8,8 @@ class DayWordPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      # Only show day words if admin is managing wordle game
-      if user&.game == 'wordle'
+      # Only show quiz questions if admin is managing quiz game
+      if user&.game == 'quiz'
         scope.all
       else
         scope.none
@@ -18,26 +18,26 @@ class DayWordPolicy < ApplicationPolicy
   end
 
   def create?
-    user&.game == 'wordle'
+    user&.game == 'quiz'
   end
 
   def index?
-    user&.game == 'wordle'
+    user&.game == 'quiz'
   end
 
   def act_on?
-    user&.game == 'wordle'
+    user&.game == 'quiz'
   end
 
   def destroy?
-    user&.game == 'wordle'
+    user&.game == 'quiz'
   end
 
   def update?
-    user&.game == 'wordle'
+    user&.game == 'quiz'
   end
 
   def show?
-    user&.game == 'wordle'
+    user&.game == 'quiz'
   end
 end

@@ -3,8 +3,8 @@ class User
     module Contract
       class Create < Dry::Validation::Contract
         params do
-          required(:game).filled(:string)
-          optional(:external_id).maybe(:string)
+          required(:external_id).filled(:string)
+          optional(:game).maybe(:string)
         end
 
         rule do
