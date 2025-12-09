@@ -51,5 +51,6 @@ module AquafonGames
     config.hosts << /\Awebgames.*(:\d+)?\z/
     config.hosts << /\Akamal-proxy.*(:\d+)?\z/
     config.hosts << /\A[0-9a-f]{12}(:\d+)?\z/
+    config.hosts << '83.217.223.23'
   end
 end
