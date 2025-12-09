@@ -77,7 +77,7 @@ COPY --chown=ruby:ruby --from=assets /app/public ./public
 COPY --chown=ruby:ruby . .
 
 
-ENTRYPOINT ["/app/bin/docker-entrypoint-web"]
+ENTRYPOINT ["bin/docker-entrypoint"]
 
 EXPOSE 8000
 
