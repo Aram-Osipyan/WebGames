@@ -53,5 +53,6 @@ module AquafonGames
     config.hosts << /\A[0-9a-f]{12}(:\d+)?\z/
     config.hosts << '83.217.223.233'
     config.hosts << '192.168.160.5'
+    config.hosts << 'localhost:8000'
   end
 end
