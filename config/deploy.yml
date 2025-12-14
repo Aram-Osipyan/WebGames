@@ -14,6 +14,7 @@ servers:
     hosts:
       - <%= ENV['KAMAL_SERVER_HOST'] %>
     cmd: bundle exec puma -C config/puma.rb
+    proxy: false
   job:
     hosts:
       - <%= ENV['KAMAL_SERVER_HOST'] %>
@@ -23,6 +24,7 @@ deploy_timeout: 300
 
 # Reverse proxy with SSL
 proxy:
+  # disabled: true
   # host: <%= ENV['KAMAL_PROXY_HOST'] %>
   ssl: false
   app_port: 8000
@@ -53,13 +55,13 @@ env:
 builder:
   arch: amd64
   local: false
-  remote: ssh://root@<%= ENV['KAMAL_SERVER_HOST'] %>
+  remote: ssh://gamedev@<%= ENV['KAMAL_SERVER_HOST'] %>
   # Use the Kamal-specific Dockerfile
   # dockerfile: Dockerfile.kamal
 
 # SSH user
 ssh:
-  user: root
+  user: gamedev
 
 # Accessories (DB, Redis)
 accessories:
