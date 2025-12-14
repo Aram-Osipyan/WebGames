@@ -13,8 +13,7 @@ module TokenAuth
     active_line =
       AuthenticationLine
       .where(code: authorization_header, active: true)
-      .where('active_until > ?', Time.current)
-      .first
+      .find_by('active_until > ?', Time.current)
 
     return unless active_line
 
