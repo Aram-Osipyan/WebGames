@@ -25,7 +25,7 @@ COPY --chown=ruby:ruby . .
 RUN bundle install
 
 COPY --chown=ruby:ruby package.json *yarn* ./
-RUN yarn cache clean && yarn install
+RUN yarn install
 
 ARG RAILS_ENV="production"
 ARG NODE_ENV="production"
