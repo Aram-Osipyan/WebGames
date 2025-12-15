@@ -15,10 +15,14 @@ servers:
       - <%= ENV['KAMAL_SERVER_HOST'] %>
     cmd: bundle exec puma -C config/puma.rb
     proxy: false
-  job:
-    hosts:
-      - <%= ENV['KAMAL_SERVER_HOST'] %>
-    cmd: bundle exec sidekiq -C config/sidekiq.yml
+    options:
+      publish:
+        - "127.0.0.1:8000:8000"
+
+  # job:
+  #   hosts:
+  #     - <%= ENV['KAMAL_SERVER_HOST'] %>
+  #   cmd: bundle exec sidekiq -C config/sidekiq.yml
 
 deploy_timeout: 300
 
@@ -69,7 +73,7 @@ accessories:
     image: postgres:16.3
     roles:
       - web
-      - job
+      # - job
     directories:
       - data:/var/lib/postgresql/data
     env:
@@ -83,7 +87,7 @@ accessories:
     image: redis:7.2
     roles:
       - web
-      - job
+      # - job
     directories:
       - data:/data
 
