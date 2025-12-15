@@ -11,7 +11,7 @@
 [ext_resource path="res://scripts/timer_controller.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+bg_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 corner_radius_top_left = 35
 corner_radius_top_right = 35
 corner_radius_bottom_right = 35
@@ -31,7 +31,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+border_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
@@ -79,14 +79,14 @@ rect_min_size = Vector2( 200, 0 )
 margin_right = 40.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 40, 40 )
-color = Color( 0.298039, 0.686275, 0.313726, 1 )
+color = Color( 0.803922, 0.403922, 0.196078, 1 )
 
 [node name="LogoText" type="Label" parent="MainContainer/Header/TopBar/LogoContainer"]
 margin_left = 44.0
 margin_top = 23.0
 margin_right = 44.0
 margin_bottom = 37.0
-custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_colors/font_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 text = "МЕГАФОН"
 
 [node name="Spacer" type="Control" parent="MainContainer/Header/TopBar"]
@@ -182,7 +182,7 @@ margin_left = 152.0
 margin_right = 202.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
-custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_colors/font_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 custom_styles/normal = SubResource( 2 )
 text = "🛡"
 
@@ -197,7 +197,7 @@ margin_left = 230.0
 margin_right = 280.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
-custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_colors/font_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 custom_styles/normal = SubResource( 2 )
 text = "🔄"
 
@@ -212,7 +212,7 @@ margin_left = 308.0
 margin_right = 358.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
-custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_colors/font_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 custom_styles/normal = SubResource( 2 )
 text = "⏰"
 
@@ -227,7 +227,7 @@ margin_left = 386.0
 margin_right = 436.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
-custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_colors/font_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 custom_styles/normal = SubResource( 2 )
 text = "50/50"
 

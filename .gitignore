@@ -32,3 +32,4 @@ docker-compose.override.yml
 
 # Ignore Kamal deployment files
 config/deploy.yml.lock
+.vscode/settings.json

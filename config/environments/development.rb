@@ -84,6 +84,8 @@ Rails.application.configure do
   # isn't insecure due to only running in development.
   config.web_console.allowed_ips = ['0.0.0.0/0']
 
+  config.hosts << 'localhost:8000'
+
   # config.hosts << 'wiki.aquafon.com'
   # config.force_ssl = false
   # Rails.application.routes.default_url_options = {

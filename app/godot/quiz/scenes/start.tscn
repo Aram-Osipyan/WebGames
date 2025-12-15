@@ -22,7 +22,7 @@ size = 24
 font_data = SubResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0.45098, 0.0980392, 0.509804, 1 )
+bg_color = Color( 0.0627451, 0.6, 1, 1 )
 corner_radius_top_left = 35
 corner_radius_top_right = 35
 corner_radius_bottom_right = 35
@@ -36,7 +36,7 @@ corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.45098, 0.0980392, 0.509804, 1 )
+bg_color = Color( 0.0627451, 0.6, 1, 1 )
 corner_radius_top_left = 35
 corner_radius_top_right = 35
 corner_radius_bottom_right = 35
@@ -91,7 +91,7 @@ rect_min_size = Vector2( 600, 900 )
 [node name="Background1" type="ColorRect" parent="ScrollContainer/MainContainer/FirstSection"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0.72549, 0.337255, 1 )
+color = Color( 0.988235, 0.298039, 0.00784314, 1 )
 
 [node name="ContentContainer1" type="VBoxContainer" parent="ScrollContainer/MainContainer/FirstSection"]
 anchor_right = 1.0

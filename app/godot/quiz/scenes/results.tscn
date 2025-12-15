@@ -33,7 +33,7 @@ size = 23
 font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.9, 0.95, 0.9, 1 )
+bg_color = Color( 0.96, 0.9, 0.86, 1 )
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -44,7 +44,7 @@ shadow_offset = Vector2( -0.042, 6 )
 anti_aliasing_size = 0.171
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+bg_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
@@ -104,7 +104,7 @@ text = "Место:"
 margin_left = 76.0
 margin_right = 110.0
 margin_bottom = 40.0
-custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_colors/font_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "41"
 
@@ -149,7 +149,7 @@ text = "Верных ответов:"
 margin_left = 185.0
 margin_right = 199.0
 margin_bottom = 33.0
-custom_colors/font_color = Color( 0.298039, 0.686275, 0.313726, 1 )
+custom_colors/font_color = Color( 0.803922, 0.403922, 0.196078, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "5"
 
